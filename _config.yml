@@ -105,3 +105,10 @@ deploy:
   type: git
   repo: git@github.com:BugBubbles/BugBubbles.github.io.git
   branch: main
+
+markdown:
+  plugins:
+    - plugin:
+      name: '@neilsustc/markdown-it-katex'
+      options:
+        strict: false
