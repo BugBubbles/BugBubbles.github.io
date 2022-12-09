@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: Hallo Welt!
+subtitle: 'Ohne'
+description: 'Das ist mein erste Blog mit Hexo.'
 keywords:
-author: John Doe
+author: Chen Böffee
 language: en
 timezone: ''
 
