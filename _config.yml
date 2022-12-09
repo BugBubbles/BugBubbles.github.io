@@ -104,4 +104,4 @@ theme: landscape
 deploy:
   type: git
   repo: git@github.com:BugBubbles/BugBubbles.github.io.git
-  branch: gh-pages
+  branch: main
