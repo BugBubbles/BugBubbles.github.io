@@ -38,3 +38,4 @@ $ hexo deploy
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 
 $$\displaystyle\frac{1}{2}=0.5=\int_0^1x {\rm d}x$$
+$a=b+c$
