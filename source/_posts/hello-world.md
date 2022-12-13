@@ -1,17 +1,7 @@
 ---
 title: Hallo Welt! #引入标题
 katex: true #引入katex公式
-date:
-updated:
-type:
-comments:
-description:
-keywords:
-top_img:
-mathjax:
-aside:
-aplayer:
-highlight_shrink:
+updated: 2022/12/13
 ---
 这是某位小白的第一篇`githubio`的博客，不得不说确实是被这个博客美观的造型吸引过来了。
 ## 初步计划的博客内容安排
