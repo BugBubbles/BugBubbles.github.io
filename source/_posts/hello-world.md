@@ -14,3 +14,9 @@ updated: 2022/12/13
 ==flag一般立起来就是准备倒的，希望都能做到🙏==
 
 当然当务之急还是先学习学习如何搭建一个美观的博客，毕竟作为强迫症晚期患者，一个不漂亮的界面实在是令人发指。
+
+`a=bcsdkfjdslfjksdlfjdslfjdslfjdsklfjdskjf`
+```
+dsfdsfdsfdsfdsf
+```
+

@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hallo Welt!
-subtitle: 'Ohne'
+title: Das Blog von BugBubbles
+subtitle: '新手上路'
 description: 'Das ist mein erste Blog mit Hexo.'
 keywords:
 author: Chen Böffee
-language: en
+language: zh-CN
 timezone: ''
 
 # URL

@@ -1,27 +1,11 @@
 - class_name: 友链
-  class_desc: 可以膜拜
+  class_desc: 可以膜拜的各位大佬们
   link_list:
     - name: Feng兄的博客
       link: https://feng1909.github.io
-      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
-      descr: 过于炫酷
+      avatar: /img/feng1909.jpg
+      descr: 来自BIT的优秀大佬
     - name: Dark丁的博客
       link: https://tinsir888.github.io
-      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
-      descr: 过于炫酷
-
-- class_name: 網站
-  class_desc: 值得推薦的網站
-  link_list:
-    - name: Youtube
-      link: https://www.youtube.com/
-      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
-      descr: 視頻網站
-    - name: Weibo
-      link: https://www.weibo.com/
-      avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
-      descr: 中國最大社交分享平台
-    - name: Twitter
-      link: https://twitter.com/
-      avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
-      descr: 社交分享平台
+      avatar: /img/tinsir888.jpg
+      descr: 来自NKU的优秀大佬
