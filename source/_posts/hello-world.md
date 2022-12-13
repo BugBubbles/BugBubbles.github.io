@@ -2,41 +2,14 @@
 title: Hallo Welt! #引入标题
 katex: true #引入katex公式
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+这是某位小白的第一篇`githubio`的博客，不得不说确实是被这个博客美观的造型吸引过来了。
+## 初步计划的博客内容安排
+|项目|内容|时间规划|更新频率|备注|
+|:---:|:---:|:---:|:---:|:---:|
+|日记部分|想写啥写啥|近期|随机||
+|德语学习|学习的语法知识|12月20号以后|每周一更||
+|事件相机|主要是事件相机图像检测算法|期末考试以后|争取每周一更||
 
-## Quick Start
+==flag一般立起来就是准备倒的，希望都能做到🙏==
 
-### Create a new post
-
-``` bash
-$ hexo new "My New Post"
-```
-
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
-
-$$\displaystyle\frac{1}{2}=0.5=\int_0^1x {\rm d}x$$
-$a=b+c$
+当然当务之急还是先学习学习如何搭建一个美观的博客，毕竟作为强迫症晚期患者，一个不漂亮的界面实在是令人发指。
