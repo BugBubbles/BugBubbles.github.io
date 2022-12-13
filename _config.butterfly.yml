@@ -251,7 +251,7 @@ addThis:
 # Share.js
 # https://github.com/overtrue/share.js
 sharejs:
-  enable: true
+  enable: false
   sites: facebook,twitter,wechat,weibo,qq
 
 # AddToAny
@@ -339,7 +339,7 @@ facebook_comments:
   user_id: # optional
   pageSize: 10 # The number of comments to show
   order_by: social # social/time/reverse_time
-  lang: zh_TW # Language en_US/zh_CN/zh_TW and so on
+  lang: zh_CN # Language en_US/zh_CN/zh_TW and so on
 
 # Twikoo
 # https://github.com/imaegoo/twikoo
@@ -580,7 +580,7 @@ click_heart:
 
 # Mouse click effects: words (鼠標點擊效果: 文字)
 ClickShowText:
-  enable: true
+  enable: false
   text:
      - Hallo
      - Welt!
@@ -730,7 +730,7 @@ newest_comments:
 translate:
   enable: false
   # The text of a button
-  default: 繁
+  default: 简
   # the language of website (1 - Traditional Chinese/ 2 - Simplified Chinese）
   defaultEncoding: 2
   # Time delay
@@ -829,7 +829,7 @@ snackbar:
 
 # https://instant.page/
 # prefetch (預加載)
-instantpage: false
+instantpage: true
 
 # https://github.com/vinta/pangu.js
 # Insert a space between Chinese character and English character (中英文之間添加空格)
