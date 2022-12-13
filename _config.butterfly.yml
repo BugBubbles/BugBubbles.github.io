@@ -3,15 +3,10 @@
 # --------------------------------------
 
 menu:
-  # Home: / || fas fa-home
-  # Archives: /archives/ || fas fa-archive
-  # Tags: /tags/ || fas fa-tags
-  # Categories: /categories/ || fas fa-folder-open
-  # List||fas fa-list:
-  #   Music: /music/ || fas fa-music
-  #   Movie: /movies/ || fas fa-video
-  # Link: /link/ || fas fa-link
-  # About: /about/ || fas fa-heart
+  Tags: /tags/ || fas fa-tags
+  Categories: /categories/ || fas fa-folder-open
+  Link: /link/ || fas fa-link
+
 
 # Code Blocks (代碼相關)
 # --------------------------------------
@@ -71,7 +66,7 @@ katex:
   enable: true
   # true 表示每一頁都加載katex.js
   # false 需要時加載，須在使用的Markdown Front-matter 加上 katex: true
-  per_page: true
+  per_page: false
   hide_scrollbar: true
 
 # Image (圖片設置)
@@ -89,7 +84,7 @@ avatar:
 disable_top_img: false
 
 # The banner image of home page
-index_img:
+index_img: /img/卑职这就去办.jpg
 
 # If the banner of page not setting, it will show the top_img
 default_top_img:
