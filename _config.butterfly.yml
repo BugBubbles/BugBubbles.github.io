@@ -4,9 +4,9 @@
 
 menu:
   首页: / || fas fa-home
-  标签: /标签/ || fas fa-tags
-  分类文章: /分类文章/ || fas fa-folder-open
-  友链: /友情链接/ || fas fa-link
+  标签: /tags/ || fas fa-tags
+  分类文章: /categories/ || fas fa-folder-open
+  友链: /link/ || fas fa-link
 
 
 # Code Blocks (代碼相關)
@@ -184,7 +184,7 @@ toc:
   style_simple: false # for post
 
 post_copyright:
-  enable: true
+  enable: false
   decode: false
   author_href:
   license: CC BY-NC-SA 4.0
