@@ -3,6 +3,7 @@ title: Hallo Welt! #引入标题
 katex: true #引入katex公式
 updated: 2022/12/13
 cover: /img/总书记.jpg
+tag: 日记
 ---
 这是某位小白的第一篇`githubio`的博客，不得不说确实是被这个博客美观的造型吸引过来了。
 ## 初步计划的博客内容安排
@@ -15,9 +16,4 @@ cover: /img/总书记.jpg
 ==flag一般立起来就是准备倒的，希望都能做到🙏==
 
 当然当务之急还是先学习学习如何搭建一个美观的博客，毕竟作为强迫症晚期患者，一个不漂亮的界面实在是令人发指。
-
-`a=bcsdkfjdslfjksdlfjdslfjdslfjdsklfjdskjf`
-```
-dsfdsfdsfdsfdsfffdsfdsffsfd
-```
 
