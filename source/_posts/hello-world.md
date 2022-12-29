@@ -1,6 +1,6 @@
 ---
 title: Hallo Welt! #引入标题
-mathjax: true #引入katex公式
+katex: true #引入katex公式
 updated: 2022/12/13
 tag: 日记
 ---
@@ -17,5 +17,5 @@ tag: 日记
 当然当务之急还是先学习学习如何搭建一个美观的博客，毕竟作为强迫症晚期患者，一个不漂亮的界面实在是令人发指。
 $\int_a^bxdx$
 $$
-\int_a^bxdx
+\int_a^bx{\rm d}x\vec{d}\ddot{d}\Gamma\Beta
 $$
