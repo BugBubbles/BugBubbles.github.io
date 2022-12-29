@@ -1,6 +1,6 @@
 ---
 title: Hallo Welt! #引入标题
-katex: true #引入katex公式
+mathjax: true #引入katex公式
 updated: 2022/12/13
 tag: 日记
 ---
