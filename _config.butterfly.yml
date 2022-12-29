@@ -22,7 +22,7 @@ code_word_wrap: false
 # copy settings
 # copyright: Add the copyright information after copied content (複製的內容後面加上版權信息)
 copy:
-  enable: false
+  enable: true
   copyright:
     enable: false
     limit_count: 50
@@ -74,7 +74,7 @@ katex:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/纸飞机.jpg
+favicon: /img/astronaut.png
 
 # Avatar (頭像)
 avatar:
@@ -422,7 +422,7 @@ messenger:
 footer:
   owner:
     enable: true
-    since: 2020
+    since: 2022
   custom_text:
   copyright: true # Copyright of theme and framework
 
