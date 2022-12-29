@@ -2,7 +2,8 @@
 title: word公式常用快捷键
 date: 2022-12-29 22:11:31
 katex: true #引入katex公式
-tags: latex系列
+# tags: latex系列
+categories: latex系列
 ---
 # 写在前面
 不定期更新一波...
