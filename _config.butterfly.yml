@@ -699,9 +699,6 @@ aside:
     post_count: true
     last_push_date: true
     sort_order: # Don't modify the setting unless you know how it works
-  card_weather:
-    enable: true
-    key: 59db4231b4be4d7ab553148b9ac8ed66
 # busuanzi count for PV / UV in site
 # 訪問人數
 busuanzi:
