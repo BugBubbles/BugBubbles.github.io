@@ -17,9 +17,12 @@ categories: latex系列
 {% endgallery %}
 本人极其不能忍受这里面的$\beta,\quad\pi,\quad\psi$（甚至这个markdown自带的Katex公式都比它们好看），除了一少数的难看的字母以外，大多数符号和字母都是漂亮美观的，我并不想通过直接换一个字体库的方式解决这个问题，我试图通过`\symbol`函数将这几个不好看的字母替换了。如下：
 
-```
- \newcommand{\sIgma}{{\text{\usefont{U}{nxlmi}{m}{it}\symbol{27}}\mspace{1mu}}}
+```latex
+\newcommand{\sIgma}{{\text{\usefont{U}{nxlmi}{m}{it}\symbol{27}}\mspace{1mu}}}
 \newcommand{\tAu}{{\text{\usefont{U}{nxlmi}{m}{it}\symbol{28}}\mspace{1mu}}}
 \newcommand{\pSi}{{\textit{\symbol{"3C8}}\mspace{1mu}}}
 \newcommand{\dElta}{{\textit{\symbol{"3B4}}\mspace{1mu}}}
 ```
+这是曾经某次尝试的结果，其中`\symbol`函数调用的是对应字符的unicode码，也可以是十进制或者八进制码，能替换，但是使用很局限，不能进行加粗和斜体等常规操作。
+![psi'](psi'.png)
+最终查阅大量文献和论坛，找到了一个“一劳永逸”的方法，即使用宏包`\usepackage{unicode-math}`（我实在是太菜了，才发现这么好的东西，这里附上[unicode-math宏包的网站](https://ctan.org/pkg/unicode-math)，也可以直接在命令行中输入`texdoc unicode-math`进行查看）![过于菜](狗头，委屈.png)
