@@ -69,6 +69,10 @@ katex:
   # false 需要時加載，須在使用的Markdown Front-matter 加上 katex: true
   per_page: true
   hide_scrollbar: true
+  copy_tex: false
+  # fonts: true
+  # css: https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/
+  # font_css: https://cdn.jsdelivr.net/gh/jerryc127/hexo-theme-butterfly/source/css/fonts/katex/
 
 # Image (圖片設置)
 # --------------------------------------
@@ -892,7 +896,7 @@ CDN:
   # The CDN provider of third party scripts (第三方 js 的 cdn 配置)
   # option: local/jsdelivr/unpkg/cdnjs/custom
   # when set it to local, you need to install hexo-butterfly-extjs
-  third_party_provider: local
+  third_party_provider: jsdelivr
 
   # Add version number to CDN, true or false  
   version: false
@@ -923,8 +927,8 @@ CDN:
     # sharejs:
     # sharejs_css:
     # mathjax:
-    katex: "E:/Code/hexo/BugBubbles.github.io/node_modules/katex/dist/katex.min.css"
-    katex_copytex: "E:/Code/hexo/BugBubbles.github.io/node_modules/katex/dist/katex.min.css"
+    # katex: E:/Code/hexo/BugBubbles.github.io/node_modules/katex/dist/katex.min.css
+    # katex_copytex: E::/Code/hexo/BugBubbles.github.io/node_modules/katex/dist/katex.min.css
     # mermaid:
     # canvas_ribbon:
     # canvas_fluttering_ribbon:
