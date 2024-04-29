@@ -119,7 +119,7 @@
   font-style: normal;
 }
 .katex {
-  font: normal 1.2em KaTeX_Main, Times New Roman, serif;
+  font: normal 1.2em KaTeX_Main, KaTeX_Math, KaTeX_AMS;
   line-height: 1.2;
   text-indent: 0;
   text-rendering: auto;
