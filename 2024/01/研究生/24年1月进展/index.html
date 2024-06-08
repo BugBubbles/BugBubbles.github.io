@@ -1,0 +1,372 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>24年1月进展 | Das Blog von BugBubbles</title><meta name="author" content="Tschen Böffee"><meta name="copyright" content="Tschen Böffee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="第一篇文献 SpikingJelly: An open-source machine learning infrastructurepla tform for spike-based intelligence 解决的问题 该文献为了解决在SNN领域较为混乱的网络框架、难以彼此通用复现的SNN结构以及与软硬件不兼容等问题，提出的一个基于cupy的深度学习框架，该框架建立于torch的接口上，内层使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="24年1月进展">
+<meta property="og:url" content="http://bugbubbles.github.io/2024/01/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B41%E6%9C%88%E8%BF%9B%E5%B1%95/index.html">
+<meta property="og:site_name" content="Das Blog von BugBubbles">
+<meta property="og:description" content="第一篇文献 SpikingJelly: An open-source machine learning infrastructurepla tform for spike-based intelligence 解决的问题 该文献为了解决在SNN领域较为混乱的网络框架、难以彼此通用复现的SNN结构以及与软硬件不兼容等问题，提出的一个基于cupy的深度学习框架，该框架建立于torch的接口上，内层使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B89.jpg">
+<meta property="article:published_time" content="2024-01-18T14:43:00.000Z">
+<meta property="article:modified_time" content="2024-06-08T07:45:10.900Z">
+<meta property="article:author" content="Tschen Böffee">
+<meta property="article:tag" content="读文献进展">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B89.jpg"><link rel="shortcut icon" href="/img/%E7%BB%BF%E5%8F%B6.png"><link rel="canonical" href="http://bugbubbles.github.io/2024/01/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B41%E6%9C%88%E8%BF%9B%E5%B1%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":160,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '24年1月进展',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-08 15:45:10'
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', () => { preloader.initLoading() }, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', () => { preloader.endLoading() }, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="onerror=null;src='/img/猫猫虫，问号.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B89.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Das Blog von BugBubbles"><span class="site-name">Das Blog von BugBubbles</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">24年1月进展</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-18T14:43:00.000Z" title="发表于 2024-01-18 22:43:00">2024-01-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-08T07:45:10.900Z" title="更新于 2024-06-08 15:45:10">2024-06-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="24年1月进展"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>第一篇文献</h1>
+<p>SpikingJelly: An open-source machine learning infrastructurepla tform for spike-based intelligence</p>
+<h2 id="解决的问题">解决的问题</h2>
+<p>该文献为了解决在SNN领域较为混乱的网络框架、难以彼此通用复现的SNN结构以及与软硬件不兼容等问题，提出的一个基于cupy的深度学习框架，该框架建立于torch的接口上，内层使用Cupy完成对Cuda的调用，底层仍然使用C++语言实现高性能运算。该框架的中文名称为“惊蛰”，名字还取得不错。</p>
+<h2 id="主要内容">主要内容</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="%E6%A1%86%E6%9E%B6%E7%9A%84%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84%E5%9B%BE.png" alt="框架的整体架构图"><br>
+整个框架的架构如上图，该框架的用户文档可参见：<a target="_blank" rel="noopener" href="https://spikingjelly.readthedocs.io/zh-cn/latest/index.html">用户文档</a>。在使用感受上，该框架具有以下特点：</p>
+<ol>
+<li>接口与torch的nn接口高度类似，能够方便torch用户的使用；</li>
+<li>在生理学和计算神经学上涉足不深，更多地抽象脉冲的物理和数学模型，并将其与深度学习相结合。</li>
+<li>传播过程将整个脉冲序列分为多个单独的时间点，因此可以按单步传播（在同一个时间戳上传播整个网络，然后进入下一时间戳）和多步传播（在同一个脉冲序列上传播整层网络，然后再进行下一层），两种方式计算结果相同。<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="%E5%8D%95%E6%AD%A5%E4%BC%A0%E6%92%AD%E5%92%8C%E5%A4%9A%E6%AD%A5%E4%BC%A0%E6%92%AD.png" alt="单步传播和多步传播"></li>
+<li>拥有多个内置的数据集，可直接下载，但是使用实验室网络有点卡，需要代理。</li>
+<li>支持自定义神经元模型（即可以不用LIF模型），但是自定义过程有点繁琐且需要CUDA编程的知识，不太理解。</li>
+</ol>
+<h2 id="框架评价">框架评价</h2>
+<p>这确实我所寻找的多个SNN框架之中最有希望的一个（虽然他们自己也是这么说的），确实它的接口是最友好的，并且使用体验上也是最方便的。接下来就是需要从所有使用它的文献中进行学习和复现，牢牢记住我的目标：将事件流和图像流结合起来，完成图像测量的任务，戴琼海院士团队提出的两篇文献都可以进行参考。</p>
+<h1>第二篇文献</h1>
+<p>Image De-occlusion via Event-enhanced Multi-modal Fusion Hybrid Network</p>
+<h2 id="解决的问题-2">解决的问题</h2>
+<p>其实就是高分辨率重构，在有大量遮挡物的情况下对场景前面的细节重构。整个解决问题的框架仍然是使用相机相对于场景平移采集视频和事件流，然后处理该事件流与视频得到重构图像（需要用到多视图重构的内容）。</p>
+<h2 id="主要内容-2">主要内容</h2>
+<p>框架与前一篇看过的<a href="2023/11/23%E5%B9%B411%E6%9C%88%E8%BF%9B%E5%B1%95/">插帧文章</a>是高度同源的，设计的融合Unet是一模一样的架构，在具体的实现细节上有所不同，可以看出两篇文章有着明显的递进关系。<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="%E9%87%8D%E6%9E%84%E7%BD%91%E7%BB%9C%E5%A4%84%E7%90%86%E6%A1%86%E6%9E%B6.png" alt="重构网络处理框架"></p>
+<ol>
+<li>事件流处理：与<a href="/2023/11/23%E5%B9%B411%E6%9C%88%E8%BF%9B%E5%B1%95/">插帧文章</a>文章是一样的，都是为了充分利用事件流里面的时间戳信息，努力将事件流的价值发挥至最大，因此都将事件流分两路处理：一路按手工选择的事件描述生成类似图像的<strong>事件曲面</strong>以保留理多轮廓，另一路则通过SNN描述提取器以保留更多的时间特征，（还有可以改进的空间）。</li>
+<li>事件流经SNN描述提取器后得到的是体素栅格，可以直接使用常规的卷积神经网络处理（已经可以视为是通常意义上的多通道图像了）与图像流经两个下采样编码器后按<br>
+拼接后融合，并经过解码器输出生成的重构图像，注意，这里的重构信息已经由网络给出，不需要手工计算重构矩阵之类的。</li>
+<li>误差函数的设计：误差函数仍然分为不同的物理意义，即：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="script">L</mi><mo>=</mo><mi>α</mi><msub><mi mathvariant="script">L</mi><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">x</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">l</mi></mrow></msub><mo>+</mo><mi>β</mi><msub><mi mathvariant="script">L</mi><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">p</mi><mi mathvariant="normal">s</mi></mrow></msub><mo>+</mo><mi>γ</mi><msub><mi mathvariant="script">L</mi><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">p</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\mathcal{L}=\alpha\mathcal{L}_\mathrm{pixel}+\beta\mathcal{L}_\mathrm{ipips}+\gamma\mathcal{L}_\mathrm{cmp}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathcal">L</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mord"><span class="mord mathcal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">pixel</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9805em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.05278em;">β</span><span class="mord"><span class="mord mathcal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">ipips</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord mathnormal" style="margin-right:0.05556em;">γ</span><span class="mord"><span class="mord mathcal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">cmp</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span></span>，分别指代生成图像的逐像素误差、特征图误差和批次误差（即多张图像中正负样本与参考样本的特征图之差的商）。</li>
+</ol>
+<h2 id="方法评价">方法评价</h2>
+<p>本文的方法仍然反映了戴琼海院士团队在事件流与图像流特征融合方面的深厚造诣，其设计的网络架构具有一定的普适性，能够完成不同类型的任务。关于本文所提出的框架可以改进的地方，除了套用现成的框架模型以外，还没有想到一个好的点子，不过，本文的模型确实也可以用于事件流的仿真生成上。</p>
+<h1>第三篇文献</h1>
+<p>这其实应该是两篇文献，来自同一个课题组：<br>
+Time Lens++: Event-based Frame Interpolation with Parametric Nonlinear Flow and Multi-scale Fusion</p>
+<p>Time Lens: Event-based Video Frame Interpolation</p>
+<h2 id="解决的问题-3">解决的问题</h2>
+<p>这两篇文献都是针对快速插帧的方法，探讨的是如何将事件相机采集取得的事件点与图像关键帧融合，得到对图像关键帧之间任意时间精度下的帧补充。两篇文献使用的方法具有承接关系，因此在这里一起讨论。</p>
+<h2 id="主要内容-3">主要内容</h2>
+<p>两篇文献都使用的是基于生成式网络来完成插帧，尚未使用到数据驱动的事件描述，均使用体素栅格作为直接输入进入变分自编码器完成编码，未涉及到脉冲神经网络的使用。<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="Time_Lens%E7%9A%84%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6%E5%9B%BE.png" alt="Time Lens的整体框架图"><br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="Time_Lens++%E7%9A%84%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6%E5%9B%BE.png" alt="Time Lens++的整体框架图"><br>
+在图像的合成中，有以下两个特色：</p>
+<ol>
+<li>使用到了多种插帧方法的整合，两篇文献中均同时使用到了事件流的综合插帧（类似于运动信息插帧）、卷曲插帧（类似于光流估计插帧），然后将两种插帧方法使用卷曲精炼<em>Warping refinement</em>完成图像统一，然后将所有插帧结果使用<strong>注意力机制</strong>进行平均。</li>
+<li>在<em>Time Lens++<em>中，该文献另外增加了新设计的运动插值估计器</em>Motion spline estimator</em>，即专门使用多帧关键帧图像和事件流的对应特征点，将特征点作为样条曲线的固定点，形成一条样条曲线，用样条曲线估计在高速运动位置处的特征点漂移。<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="%E8%BF%90%E5%8A%A8%E6%8F%92%E5%80%BC%E4%BC%B0%E8%AE%A1%E5%99%A8.png" alt="运动插值估计器"></li>
+<li>融合模块，在<em>Time Lens++<em>中，将来自</em>Time Len</em>残差连接模块进行改进，在上采样环节中增加了<strong>门压缩</strong>模块，即将残差连接加入至上采样模块内部，实现对生成图像信息的增强。</li>
+</ol>
+<h2 id="方法评价-2">方法评价</h2>
+<p>这两篇文献，均是使用了纯手工设计的事件描述（体素栅格）就可以取得较好的插帧效果，不输于<a href="/BashStyle/bin/2023/11/23%E5%B9%B411%E6%9C%88%E8%BF%9B%E5%B1%95/">文献</a>，设计的网络均是生成式全卷积网络，在事件流与图像流的融合模块中，使用直接的Warp连接即可完成图像的生成与精炼，这个具体的实现可以去复现一下。</p>
+<p>两篇文献都还只是使用了手工设计的事件描述，说不定，加入SNN的事件描述后，能够取得更好的效果呢？没有人试过。</p>
+<h1>第四篇文献</h1>
+<p>How to Calibrate Your Event Camera</p>
+<h2 id="解决的问题-4">解决的问题</h2>
+<p>这篇文献是解决事件相机的标定问题的， 即如何在不引入复杂的标定板（像闪烁的LED灯、一直在变化的标定板）的情况下，将事件相机的内参数矩阵和外参数矩阵标定出来。本文的一个核心是使用事件流的图像重构，得到重构的标定板，以重构的标定板完成对事件相机的标定。</p>
+<h2 id="主要内容-4">主要内容</h2>
+<p>标定的核心思路是：选取一定的时间间隔作为重构图像的采样间隔，在该间隔内使用<em>E2VID</em>提出的重构算法将事件流重构为图像流，以此获取在该时间间隔内的标定板图像，然后根据重构的标定板图像，完成对标定板角点的提取以及标定等工作，标定的结果将直接受到重构模型的影响。此时如果保证事件相机不发生运动，则可以从图像流中获取较多的标定板图像，提高标定的精度。</p>
+<p>将该方法的标定结果与使用LED闪烁板的标定结果相比较（以后者的标定结果为参考真值），使用重投影误差（标定效果的必要但不充分条件）可知该方法的标定误差较小。</p>
+<h2 id="方法评价-3">方法评价</h2>
+<p>本文的方法提供了一个轻量的标定思路，在不需要复杂的闪烁标定板的前提下，仍然可以仅用一个事件相机就完成标定工作，思路是将从事件流中重构标定图像，所以重构的模型将会直接影响到标定的结果，文献没有研究重构模型向后的误差传递，这部分可以作为进一步内容研究。</p>
+<h1>第五篇文献</h1>
+<p>Attention Spiking Neural Networks</p>
+<h2 id="解决的问题-5">解决的问题</h2>
+<p>这篇文献是为了解决在SNN网络中运算效率与准确率难以兼顾的问题，SNN更加接近于人脑的神经元构造，因此在SNN中加入注意力机制应该会取得比CNN更好的效果。本文提出的三类注意力机制可以减少SNN网络的脉冲次数，并增加其准确率。</p>
+<h2 id="主要内容-5">主要内容</h2>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="%E9%80%92%E5%BD%92%E7%BB%93%E6%9E%84%E8%A7%A3%E9%87%8ALIF%E7%A5%9E%E7%BB%8F%E5%85%83SNN%E7%BD%91%E7%BB%9C.png" alt="递归结构解释LIF神经元SNN网络"><br>
+本文的第一个亮点是使用递归神经网络结构解释LIF的SNN网络，将膜电位看作是一种类似于状态变量的存在，后面复杂的激活则对应RNN的输出模块，这种解释比较有新意，而且符合神经元存在状态和特点。<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="%E7%BD%91%E7%BB%9C%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84.png" alt="网络整体架构"><br>
+根据前述的RNN结构，在网络整体上将呈现出递归结构，而所谓的注意力机制便是施加于特征提取器（卷积层）后面的加权模块。该模块分为以下三种注意力构成：<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="%E4%B8%89%E7%A7%8D%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6.png" alt="三种注意力机制"><br>
+从左到右，该图中的三种机制分别是：</p>
+<ol>
+<li>时间注意力机制：在整个脉冲周期内，不同时间抽样处施加不同的权重。</li>
+<li>通道注意力机制：在特征图中对不同的通道施加权重，类似于一般的注意力机制。</li>
+<li>空间注意力机制：对特征图中不同分布位置处按块施加权重，类似于Transformer的注意力机制。<br>
+三种注意力机制的设计位置也有讲究，例如，空间和通道注意力机制在本文中被设计在RNN单元内，而时间注意力机制被设计在特征提取器外，<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="%E4%B8%89%E7%A7%8D%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6%E5%AE%89%E6%94%BE%E4%BD%8D%E7%BD%AE.png" alt="三种注意力机制安放位置"><br>
+消融实验证实，三种注意力机制确实能够提升准确率和计算效能。</li>
+</ol>
+<h2 id="方法评价-4">方法评价</h2>
+<p>本文的方法在于将CNN领域的注意力机制直接搬到了SNN中，确实也增强了深度SNN的准确率和计算效能。该方法是建立在将事件流直接通过脉冲卷积输入至注意力中。头晕眼花，不想写了。</p>
+<h1>第六篇文献</h1>
+<p>Event-Based Angular Velocity Regression with Spiking Networks</p>
+<h2 id="解决的问题-6">解决的问题</h2>
+<p>本文其实相当于一个机器视觉的应用，即如何单纯地使用事件点来完成对角速度的测量，算是一个尝试。</p>
+<h2 id="主要内容-6">主要内容</h2>
+<p>使用的网络框架很简单，即SCNN，共<strong>五层</strong>SCNN外加最后一层压平并全连接，甚至都没有使用到池化层。Loss函数是简单的RMSE，选用的脉冲框架是<em>Slayer</em>，得到的结果如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">SNN-6</th>
+<th style="text-align:center">ANN-6</th>
+<th style="text-align:center">ResNet-50</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">相对误差</td>
+<td style="text-align:center">66.3%</td>
+<td style="text-align:center">59.0%</td>
+<td style="text-align:center">66.8%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="方法评价-5">方法评价</h2>
+<p>一眼就可以看出，本文提出的方法结果误差反正就是极其大，根本没有办法使用。其实问题我认为出在Loss函数的设计上，测量某一个角速度相当于在一个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>L</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">L_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>空间中完成一次搜索，因此直接将该Loss函数选为RMSE是极其不合适的，根据论文<em>The Unreasonable Effectiveness of Deep Features as a Perceptual Metric</em>可知，直接使用类似F范数的Loss将导致生成图像的模糊，这里也将导致预测的角速度值在整个脉冲时间内模糊，同时将三个轴的角速度各自模糊到另外的轴上造成进一步误差，完全不能得到相应的效果。</p>
+<p>关于本文的Loss函数，我认为可能的改进思路有以下两点：</p>
+<ol>
+<li>借鉴论文<em>The Unreasonable Effectiveness of Deep Features as a Perceptual Metric</em>的思路，找到某一个更深层次的特征，例如该论文中选用的是各层CNN提取的特征图，对特征图求解F范数，可以在更高的维度上避免 模糊。只不过，这里的角速度不能直接对应回姿态的深层次特征，如何设计还有点困难。</li>
+<li>目前正在尝试的方法，加入关于导数的正则项，导数本质上也相当于一个深层次的特征（只不过是手工设计的罢了），导数特征仍然存在问题，即导数项中也可以存在模糊，除非求解二阶、三阶以至于N阶导数，否则都得不到去除模糊的正确结果。</li>
+<li>SpikingJelly里面提供的模板方法这里是不能用的，模板是一个分类的方法，只需要从一系列脉冲中输出一个值就够了，而这里是需要从一系列脉冲中输出一系列的值，每个时间都需要有输出，因此不能只用一个CNN，而应当使用RNN（或GRU这种记忆的环节），这部分的实验正在进行了，实际上，单独一个SNN就可以完成这个记忆环节，只不过，SpikingJelly的模型好像不是特别好用。</li>
+</ol>
+<p>另外的，本文的网络结构简单是本文的优势，如果真的要把这个结果部署，大的模型，尤其是生成式模型是不可能实现实时性的。</p>
+<h1>第七篇文献</h1>
+<p>Combining Events and Frames using Recurrent Asynchronous Multimodal Networks for Monocular Depth Prediction</p>
+<h2 id="解决的问题-7">解决的问题</h2>
+<p>如何完成在快速移动的场景中对重构深度的估计，如何兼顾估计的效率和精度。本文研究了使用事件流与图像流相结合的网络架构设计对行进中的汽车正前方深度信息的估计，提出的网络名称为“异步循环多模态网络”（RAM-Net）。</p>
+<h2 id="主要内容-7">主要内容</h2>
+<p>本文的网络架构设计图如下所示：<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="%E4%BD%BF%E7%94%A8GRU%E7%9A%84%E6%B7%B1%E5%BA%A6%E4%BC%B0%E8%AE%A1%E7%BD%91%E7%BB%9C.png" alt="使用GRU的深度估计网络"><br>
+该网络使用RNN的变体GRU（即门控循环单元）作为网络的核心设计部分，引入自编码器将图像编码为矢量加入至门控单元的输入端，完成对信息的记忆和提取，根据生成式网络的一般特点，使用解码器完成对编码矢量的连续解码，直接得到深度图像。该文献的方法具有以下的应用特点：</p>
+<ol>
+<li>使用激光雷达直接获取参考真值，使用该参考真值可以直接生成标准的深度图像以完成对网络的训练。</li>
+<li>引入GRU并进行调整使其可以用于图像编码矢量，该模块的主要作用是加强对前一时刻记忆力信息，使之前后的深度估计结果具有较好的相关性。</li>
+<li>Loss函数的设计由两部分组成，包括图像、事件的特征误差以及被称为是“尺度不变误差”的误差，该误差公式出自于<a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/Depth-Map-Prediction-from-a-Single-Image-using-a-Eigen-Puhrsch/06feba1ffd596b41884cea6e8ef0da89b6dd2233">另一篇文献</a>，据查为<strong>对数距离</strong>的误差，所谓对数距离，就是将两个图像对应像素点处估计得到的深度的对数之差（消除尺度因素）的差（类似于重投影误差，保证结果是无偏的），可用下式表示为：</li>
+</ol>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><msub><mi>d</mi><mi>i</mi></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>log</mi><mo>⁡</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><mi>log</mi><mo>⁡</mo><msub><mover accent="true"><mi>y</mi><mo>^</mo></mover><mi>i</mi></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>D</mi><mo stretchy="false">(</mo><mi>y</mi><mo separator="true">,</mo><mover accent="true"><mi>y</mi><mo>^</mo></mover><mo stretchy="false">)</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mn>1</mn><msup><mi>n</mi><mn>2</mn></msup></mfrac><munder><mo>∑</mo><mi>i</mi></munder><munder><mo>∑</mo><mi>j</mi></munder><mo stretchy="false">[</mo><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mfrac><msub><mi>y</mi><mi>i</mi></msub><msub><mi>y</mi><mi>j</mi></msub></mfrac><mo stretchy="false">)</mo><mo>−</mo><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mfrac><msub><mover accent="true"><mi>y</mi><mo>^</mo></mover><mi>i</mi></msub><msub><mover accent="true"><mi>y</mi><mo>^</mo></mover><mi>j</mi></msub></mfrac><mo stretchy="false">)</mo><msup><mo stretchy="false">]</mo><mn>2</mn></msup></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+d_i&amp;=\log y_i-\log\hat{y}_i\\
+D(y,\hat{y})&amp;=\frac{1}{n^2}\sum_i\sum_j[(\log\frac{y_i}{y_j})-(\log\frac{\hat{y}_i}{\hat{y}_j})]^2
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.5852em;vertical-align:-2.0426em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5426em;"><span style="top:-5.074em;"><span class="pstrut" style="height:3.3714em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.0426em;"><span class="pstrut" style="height:3.3714em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.0426em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5426em;"><span style="top:-5.074em;"><span class="pstrut" style="height:3.3714em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.0426em;"><span class="pstrut" style="height:3.3714em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7401em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.4138em;"><span></span></span></span></span></span><span class="mopen">[(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9721em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1944em;"><span class="mord">^</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9721em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span><span class="mclose"><span class="mclose">]</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.0426em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>；另一部分的误差也来自于<a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/MegaDepth%3A-Learning-Single-View-Depth-Prediction-Li-Snavely/3395de3126d9b6b9d75f0d85d8c4ebab8ff84686">文献</a>，被称为<em>多模态下尺度不变的梯度匹配误差</em>，具体算法是将上一结果中的对数距离按横纵两个方向求偏导数，然后求1范数，即可得到该误差，如下式：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi mathvariant="script">L</mi><mrow><mi mathvariant="normal">g</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">d</mi></mrow></msub><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><munder><mo>∑</mo><mi>k</mi></munder><munder><mo>∑</mo><mi>i</mi></munder><mo stretchy="false">(</mo><mi mathvariant="normal">∣</mi><msub><mi mathvariant="normal">Δ</mi><mi>x</mi></msub><msubsup><mi>R</mi><mi>i</mi><mi>k</mi></msubsup><mi mathvariant="normal">∣</mi><mo>+</mo><mi mathvariant="normal">∣</mi><msub><mi mathvariant="normal">Δ</mi><mi>y</mi></msub><msubsup><mi>R</mi><mi>i</mi><mi>k</mi></msubsup><mi mathvariant="normal">∣</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\mathcal{L}_\mathrm{grad}=\frac{1}{n}\sum_k\sum_i(|\Delta_xR_i^k|+|\Delta_yR_i^k|)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathcal">L</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">grad</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.6236em;vertical-align:-1.3021em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8479em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3021em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mopen">(</span><span class="mord">∣</span><span class="mord"><span class="mord">Δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8991em;"><span style="top:-2.453em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1852em;vertical-align:-0.2861em;"></span><span class="mord">∣</span><span class="mord"><span class="mord">Δ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03588em;">y</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8991em;"><span style="top:-2.453em;margin-left:-0.0077em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mclose">)</span></span></span></span></span></p>
+<p>该文献整体上来看，是将两项前面的工作结合了一下，改进了<a target="_blank" rel="noopener" href="https://www.semanticscholar.org/paper/MegaDepth%3A-Learning-Single-View-Depth-Prediction-Li-Snavely/3395de3126d9b6b9d75f0d85d8c4ebab8ff84686">文献</a>所使用的数据模态形式（加入了事件流数据）因此取得了一定的改进效果，创新地设计了卷积编码的GRU网络，将事件流按体素栅格的手工描述方式处理得到深度图像。</p>
+<h2 id="方法评价-6">方法评价</h2>
+<p>方法提供的事件流结合思路仍然是将事件当作体素栅格使用，这种方法可以兼容常用的三维卷积神经网络，但是有一个问题：体素栅格往往代表事件流是稀疏的，使用三维卷积神经网络还是比较亏的，大部分的计算都是零，因此如能使用SNN完成一次编码，应该能够压缩事件流的描述量同时减少信息丢失，能得到更好的效果。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0linux%E7%9A%84%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/" title="记linux的交换内存"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B810.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">记linux的交换内存</div></div></a></div><div class="next-post pull-right"><a href="/2024/01/%E6%97%A5%E8%AE%B0/%E5%B0%8F%E5%88%9B%E6%84%8F%E6%B4%BB%E5%8A%A8%E6%B1%87%E6%80%BB/" title="小创意活动汇总"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">小创意活动汇总</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/11/SNN%E7%9B%B8%E5%85%B3/%E7%8E%B0%E6%9C%89%E8%84%89%E5%86%B2%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6/" title="现有脉冲网络框架"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-21</div><div class="title">现有脉冲网络框架</div></div></a></div><div><a href="/2023/11/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B411%E6%9C%88%E8%BF%9B%E5%B1%95/" title="23年11月进展"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B81.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-06</div><div class="title">23年11月进展</div></div></a></div><div><a href="/2023/12/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B412%E6%9C%88%E8%BF%9B%E5%B1%95/" title="23年12月进展"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B81.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-26</div><div class="title">23年12月进展</div></div></a></div><div><a href="/2024/02/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B42%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年2月进展"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B87.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-22</div><div class="title">24年2月进展</div></div></a></div><div><a href="/2024/03/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B43%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年3月进展"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-05</div><div class="title">24年3月进展</div></div></a></div><div><a href="/2024/04/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B44%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年4月进展"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B84.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-12</div><div class="title">24年4月进展</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="this.onerror=null;this.src='/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E9%97%AE%E5%8F%B7.gif'" alt="avatar"/></div><div class="author-info__name">Tschen Böffee</div><div class="author-info__description">Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BugBubbles"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">白天研究生，晚上研究死</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">第一篇文献</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9"><span class="toc-number">1.2.</span> <span class="toc-text">主要内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E8%AF%84%E4%BB%B7"><span class="toc-number">1.3.</span> <span class="toc-text">框架评价</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">第二篇文献</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98-2"><span class="toc-number">2.1.</span> <span class="toc-text">解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9-2"><span class="toc-number">2.2.</span> <span class="toc-text">主要内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%AF%84%E4%BB%B7"><span class="toc-number">2.3.</span> <span class="toc-text">方法评价</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">第三篇文献</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98-3"><span class="toc-number">3.1.</span> <span class="toc-text">解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9-3"><span class="toc-number">3.2.</span> <span class="toc-text">主要内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%AF%84%E4%BB%B7-2"><span class="toc-number">3.3.</span> <span class="toc-text">方法评价</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">第四篇文献</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98-4"><span class="toc-number">4.1.</span> <span class="toc-text">解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9-4"><span class="toc-number">4.2.</span> <span class="toc-text">主要内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%AF%84%E4%BB%B7-3"><span class="toc-number">4.3.</span> <span class="toc-text">方法评价</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">第五篇文献</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98-5"><span class="toc-number">5.1.</span> <span class="toc-text">解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9-5"><span class="toc-number">5.2.</span> <span class="toc-text">主要内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%AF%84%E4%BB%B7-4"><span class="toc-number">5.3.</span> <span class="toc-text">方法评价</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">第六篇文献</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98-6"><span class="toc-number">6.1.</span> <span class="toc-text">解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9-6"><span class="toc-number">6.2.</span> <span class="toc-text">主要内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%AF%84%E4%BB%B7-5"><span class="toc-number">6.3.</span> <span class="toc-text">方法评价</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">第七篇文献</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98-7"><span class="toc-number">7.1.</span> <span class="toc-text">解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9-7"><span class="toc-number">7.2.</span> <span class="toc-text">主要内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%AF%84%E4%BB%B7-6"><span class="toc-number">7.3.</span> <span class="toc-text">方法评价</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hallo Welt!"/></a><div class="content"><a class="title" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!">Hallo Welt!</a><time datetime="2024-06-08T07:45:10.890Z" title="发表于 2024-06-08 15:45:10">2024-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像去雨系列方法汇总"/></a><div class="content"><a class="title" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总">图像去雨系列方法汇总</a><time datetime="2024-05-12T16:00:00.000Z" title="发表于 2024-05-13 00:00:00">2024-05-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="24年5月进展"/></a><div class="content"><a class="title" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展">24年5月进展</a><time datetime="2024-05-11T16:00:00.000Z" title="发表于 2024-05-12 00:00:00">2024-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B811.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="扩散模型详解——DDIM"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM">扩散模型详解——DDIM</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B84.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="条件扩散模型"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型">条件扩散模型</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Tschen Böffee</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="/dist/katex.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.js"></script><script>(() => {
+  const loadUtterances = () => {
+    let ele = document.createElement('script')
+    ele.id = 'utterances_comment'
+    ele.src = 'https://utteranc.es/client.js'
+    ele.setAttribute('repo', 'BugBubbles/BlogTalk')
+    ele.setAttribute('issue-term', 'title')
+    const nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    ele.setAttribute('theme', nowTheme)
+    ele.crossOrigin = 'anonymous'
+    ele.async = true
+    document.getElementById('utterances-wrap').appendChild(ele)
+  }
+
+  const utterancesTheme = theme => {
+    const iframe = document.querySelector('.utterances-frame')
+    if (iframe) {
+      const theme = theme === 'dark' ? 'photon-dark' : 'github-light'
+      const message = {
+        type: 'set-theme',
+        theme: theme
+      };
+      iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+  }
+
+  btf.addGlobalFn('themeChange', utterancesTheme, 'utterances')
+
+  if ('Utterances' === 'Utterances' || !true) {
+    if (true) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+    else loadUtterances()
+  } else {
+    window.loadOtherComment = loadUtterances
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,564 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>5.6T杂项文件 | Das Blog von BugBubbles</title><meta name="author" content="Tschen Böffee"><meta name="copyright" content="Tschen Böffee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="公众号推文 5.6T原始数据目录为&#x2F;mnt&#x2F;cos&#x2F;cos_shanghai_2&#x2F;raw_datasets&#x2F;mt&#x2F; 和&#x2F;mnt&#x2F;cos&#x2F;cos_shanghai_2&#x2F;raw_datasets&#x2F;mt&#x2F;p3&#x2F;p1 ，均为月份标号，覆盖了从2021年11月起至2023年1月止的大量公众号、视频号推送文章，对该数据集的解压和清洗结果在以下链接中。 5.6T数据解压 taobao 目录路径 &#x2F;mnt&#x2F;cos">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5.6T杂项文件">
+<meta property="og:url" content="http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/5-6T%E6%9D%82%E9%A1%B9%E6%96%87%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Das Blog von BugBubbles">
+<meta property="og:description" content="公众号推文 5.6T原始数据目录为&#x2F;mnt&#x2F;cos&#x2F;cos_shanghai_2&#x2F;raw_datasets&#x2F;mt&#x2F; 和&#x2F;mnt&#x2F;cos&#x2F;cos_shanghai_2&#x2F;raw_datasets&#x2F;mt&#x2F;p3&#x2F;p1 ，均为月份标号，覆盖了从2021年11月起至2023年1月止的大量公众号、视频号推送文章，对该数据集的解压和清洗结果在以下链接中。 5.6T数据解压 taobao 目录路径 &#x2F;mnt&#x2F;cos">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B86.jpg">
+<meta property="article:published_time" content="2023-07-30T13:23:08.000Z">
+<meta property="article:modified_time" content="2024-06-08T07:45:10.730Z">
+<meta property="article:author" content="Tschen Böffee">
+<meta property="article:tag" content="数据工作">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B86.jpg"><link rel="shortcut icon" href="/img/%E7%BB%BF%E5%8F%B6.png"><link rel="canonical" href="http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/5-6T%E6%9D%82%E9%A1%B9%E6%96%87%E4%BB%B6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":160,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '5.6T杂项文件',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-08 15:45:10'
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', () => { preloader.initLoading() }, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', () => { preloader.endLoading() }, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="onerror=null;src='/img/猫猫虫，问号.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B86.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Das Blog von BugBubbles"><span class="site-name">Das Blog von BugBubbles</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">5.6T杂项文件</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-30T13:23:08.000Z" title="发表于 2023-07-30 21:23:08">2023-07-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-08T07:45:10.730Z" title="更新于 2024-06-08 15:45:10">2024-06-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="5.6T杂项文件"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="公众号推文">公众号推文</h2>
+<p>5.6T原始数据目录为<code>/mnt/cos/cos_shanghai_2/raw_datasets/mt/</code> 和<code>/mnt/cos/cos_shanghai_2/raw_datasets/mt/p3/p1</code> ，均为月份标号，覆盖了从2021年11月起至2023年1月止的大量公众号、视频号推送文章，对该数据集的解压和清洗结果在以下链接中。</p>
+<p><a target="_blank" rel="noopener" href="https://www.notion.so/5-6T-67a981028c94403eb762518d49a2db40?pvs=21">5.6T数据解压</a></p>
+<h2 id="taobao">taobao</h2>
+<p>目录路径 <code>/mnt/cos/cos_shanghai_2/raw_datasets/mt/taobao</code></p>
+<h3 id="目录文件类型">目录文件类型</h3>
+<p>含有极多子文件夹，且不同的子文件夹内装有的文件类型也不同，下表是全部子文件夹中，装有的全部类型的文件数量和文件大小，<strong>没标明的文件大小在5M以下</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>后缀名</th>
+<th>数量</th>
+<th>备注</th>
+<th>文件总大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pdf</td>
+<td>38139+60</td>
+<td>PDF（60个）</td>
+<td>117.2G+188M</td>
+</tr>
+<tr>
+<td>rar</td>
+<td>250</td>
+<td>大部分是PPT和PPT模板文件，一定数量是pdf</td>
+<td>69G</td>
+</tr>
+<tr>
+<td>zip</td>
+<td>117</td>
+<td>大部分是pdf，夹杂有少量其他类型的文件，主要是券商的报告和医学、社会科学论文报告等</td>
+<td>497G</td>
+</tr>
+<tr>
+<td>ppt</td>
+<td>90</td>
+<td></td>
+<td>104M</td>
+</tr>
+<tr>
+<td>pptx</td>
+<td>36</td>
+<td></td>
+<td>205M</td>
+</tr>
+<tr>
+<td>jpg</td>
+<td>56</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>28</td>
+<td></td>
+<td>74M</td>
+</tr>
+<tr>
+<td>doc</td>
+<td>13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>xls</td>
+<td>14</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>docx</td>
+<td>6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>xlsx</td>
+<td>9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>epub</td>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>DS_Store</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>xls</td>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_永不消逝的电磁波合集</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_成长箴言</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>exe</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_欧洲下册</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>PPT</td>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_故事小说</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>htm</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_地缘</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_效果预览图</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_epub</td>
+<td>1</td>
+<td>mobi</td>
+<td>71M</td>
+</tr>
+<tr>
+<td>_西域下册</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>downloading</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>tmp6</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_毛泽东</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>txt</td>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_教员文集</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_中东</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>azw3</td>
+<td>1</td>
+<td></td>
+<td>34M</td>
+</tr>
+<tr>
+<td>_历史人文</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>html</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_玄之又玄</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_金融房产</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_地图册印刷</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>_效果图</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>其中后缀名为中文的文件打开后为乱码，尚不了解其编码格式。</p>
+<h3 id="主体文件">主体文件</h3>
+<p>主要能使用的文件为pdf、zip和rar文件：</p>
+<ul>
+<li>
+<p>对于全体pdf、PDF文件，其路径已经整理放到如下路径的txt文件中：<code>/data_turbo/home/chenbofei/code/taobao_info/taobao.pdf.txt</code></p>
+</li>
+<li>
+<p>对于全体zip文件，路径位于：<code>/data_turbo/home/chenbofei/code/taobao_info/taobao.zip.txt</code></p>
+<p>这部分zip文件内压缩的全部文件经目录查看，大部分是pdf文件，其余是txt文件和其他的jpg、rar等文件。结构极其复杂，每一个zip文件都不一样。</p>
+<p>解压后的全体目录中在路径：</p>
+<p><code>/data_turbo/home/chenbofei/code/taobao_info/taobao.zip.unzip.txt</code></p>
+</li>
+<li>
+<p>对于全体rar文件，路径位于：<code>/data_turbo/home/chenbofei/code/taobao_info/taobao.rar.txt</code></p>
+<p>解压后的全体目录中在路径：</p>
+<p><code>/data_turbo/home/chenbofei/code/taobao_info/taobao.rar.unzip.txt</code></p>
+</li>
+</ul>
+<h2 id="baidubaike-douban-zhihu">baidubaike / douban / zhihu</h2>
+<p>目录：/mnt/cos/cos_shanghai_2/raw_datasets/mt/p3/p1</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>baidubaike</th>
+<th>douban</th>
+<th>zhihu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大小</td>
+<td>265G</td>
+<td>20G</td>
+<td>243G</td>
+</tr>
+<tr>
+<td>子目录个数</td>
+<td>277</td>
+<td>25</td>
+<td>262</td>
+</tr>
+<tr>
+<td>text文件个数</td>
+<td>4865</td>
+<td>424</td>
+<td>4848</td>
+</tr>
+<tr>
+<td>行数</td>
+<td>27,601,398</td>
+<td>4,069,204</td>
+<td>56,105,431</td>
+</tr>
+</tbody>
+</table>
+<p>每一行包括如下字段：</p>
+<ul>
+<li>‘originData’ - 压缩后的二进制</li>
+<li>‘jobType’: 0</li>
+<li>‘compressType’: 1</li>
+<li>‘functionName’: ‘PlatformCollectDataV1’</li>
+<li>‘traceId’: ‘569892e8eb6e1462cdd406baa43’</li>
+<li>‘extendParams’ - dict_keys([‘__sequenceId’, ‘collectTime’, ‘code’, ‘__businessId’, ‘__groupId’, ‘dataFrom’, ‘__env’, ‘__source’, ‘message’, ‘__jobId’, ‘__seedType’, ‘__taskKey’, ‘__functionName’, ‘__companyId’, ‘__traceId’, ‘__crawlerType’, ‘__compressTag’, ‘dataSource’, ‘__taskId’, ‘__functionId’])</li>
+</ul>
+<p>样本数据：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;originData&quot;</span>: <span class="string">&quot;H4sIAJlDVWQC/+...mFwAAA==&quot;</span>, <span class="comment"># 压缩后的二进制数据</span></span><br><span class="line">    <span class="string">&quot;jobType&quot;</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="string">&quot;compressType&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&quot;functionName&quot;</span>: <span class="string">&quot;PlatformCollectDataV1&quot;</span>,</span><br><span class="line">    <span class="string">&quot;traceId&quot;</span>: <span class="string">&quot;569892e8eb6e1462cdd406baa43&quot;</span>,</span><br><span class="line">    <span class="string">&quot;extendParams&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;__sequenceId&quot;</span>: <span class="string">&quot;6&quot;</span>,</span><br><span class="line">        <span class="string">&quot;collectTime&quot;</span>: <span class="string">&quot;1683133256&quot;</span>,</span><br><span class="line">        <span class="string">&quot;code&quot;</span>: <span class="string">&quot;20&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__businessId&quot;</span>: <span class="string">&quot;10009&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__groupId&quot;</span>: <span class="string">&quot;7023&quot;</span>,</span><br><span class="line">        <span class="string">&quot;dataFrom&quot;</span>: <span class="string">&quot;baidubaike_20230504_03&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__env&quot;</span>: <span class="string">&quot;prod&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__source&quot;</span>: <span class="string">&quot;4&quot;</span>,</span><br><span class="line">        <span class="string">&quot;message&quot;</span>: <span class="string">&quot;succ&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__jobId&quot;</span>: <span class="string">&quot;195&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__seedType&quot;</span>: <span class="string">&quot;1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__taskKey&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__functionName&quot;</span>: <span class="string">&quot;PlatformCollectDataV1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__companyId&quot;</span>: <span class="string">&quot;1034&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__traceId&quot;</span>: <span class="string">&quot;569892e8eb6e1462cdd406baa43&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__crawlerType&quot;</span>: <span class="string">&quot;2&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__compressTag&quot;</span>: <span class="string">&quot;1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;dataSource&quot;</span>: <span class="string">&quot;baidubaike&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__taskId&quot;</span>: <span class="string">&quot;209&quot;</span>,</span><br><span class="line">        <span class="string">&quot;__functionId&quot;</span>: <span class="string">&quot;167&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>经测试，二进制由gzip压缩，测试代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> gzip</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">filepath = <span class="string">&quot;/mnt/cos/cos_shanghai_2/raw_datasets/mt/p3/p1/baidubaike/2023041218/part-0-674.text&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(filepath, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">        json_obj = json.loads(line)</span><br><span class="line">        compressed = json_obj[<span class="string">&quot;originData&quot;</span>]</span><br><span class="line">        decoded_data = base64.b64decode(compressed)</span><br><span class="line">        uncompressed_data = gzip.decompress(decoded_data)</span><br><span class="line">        <span class="built_in">print</span>(uncompressed_data.decode())</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>经过解压后，baidubaike / douban / zhihu 三者的内容还是不太一样的，下面分别介绍一下</p>
+<h3 id="douban">douban</h3>
+<p>应该可以取 <code>content</code> 作为主要内容，不过里面有一些 html 标签，样本如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&#x27;content&#x27;</span>&gt;</span>不知，小伙伴们注意没有片头有一行字（每次翻译组都会敬业地译出来︽⊙_⊙︽）：本片是由xx（政府）支持的片子。作为医疗剧，这部剧的专业性可以打高分（编剧很用心）。<span class="tag">&lt;<span class="name">br</span>&gt;</span>作为爱情剧，又温暖人心，虽然我一度想弃剧（纯爱剧现在很难让人看下去，看看隔壁任意依恋），但看到现在才发现爱情只是其中重要但不唯一的一部分：慧静与奶奶，爸爸，医生们之间，朋友之间，医生与患者都有爱的描绘。可能编剧是想把爱情包含在爱中，爱情部分的描述才如此暖心。<span class="tag">&lt;<span class="name">br</span>&gt;</span>ps：有心的看客可以留意，片头带15的那张变成动图了，且每集不同，暗示重要情节噢！<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>另外还有一个 <code>abstract</code>，去除了里面的html标签，但是有些比较长的段落，内容也被摘要了，所以不采用。</p>
+<h3 id="baike">baike</h3>
+<p><code>content</code> 字段不太理想，都有 <code>相关视频查看全部</code> 的字样，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">相关视频查看全部末世影行天下内容简介吴明人如其名，原本打算就如名字那般默默无名的度过这平淡的一生，怎料异变突生，突然出现的系统，说来就来的末世，以及校花突如其来的告白，让吴明只想说……末世影行天下作品目录用一个字来形容精神多了</span><br></pre></td></tr></table></figure>
+<p><code>html</code> 字段存了网页源码，或可以参考我们之前的 baike 的处理方法？还是采用goose3？</p>
+<h3 id="zhihu">zhihu</h3>
+<p>应该可以取 <code>content</code> 作为主要内容，不过里面有大量的 html 标签，样本如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">data-pid</span>=<span class="string">&quot;ANT6BWV9&quot;</span>&gt;</span>你要是永远在想念他的怪圈里，你永远出不来。才一个多月，想念，想挽回很正常。可是男人是天生的猎人啊，他们喜欢自己追到的，他们享受捕猎的感觉，他们喜欢新鲜感，对贴上来的女人（已经拥有过的）只会觉得厌烦。你们刚分手，你这样骚扰他，除了加剧他的厌烦，降低你的身价以外，没有任何用处。<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">p</span> <span class="attr">data-pid</span>=<span class="string">&quot;7_lbjVvr&quot;</span>&gt;</span>一年前我跟你一模一样。但是我朋友一直陪着我，我难过的时候陪我喝酒，有事没事就拉我出去玩。过了最难过的那一段后，我在想，我不能这样堕落了，再这样我只会越来越被他看不起。我开始重新振作，我健身，我旅游，我看书，我考研。我开始越来越找到了生活的乐趣，我发现没他也可以，没他我过得更好。离我分手已经快一年了，我朋友都说我好像变了一个人，我更开朗了，身材也好了，也遇到了更好的人，他不会嫌我胖，不会对我恶言恶语，不会丢下我一个人。这时候如果他回头，我也不会再看一眼，别说追回他。<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">p</span> <span class="attr">data-pid</span>=<span class="string">&quot;UJWgYBa1&quot;</span>&gt;</span>走出房间，和朋友玩，做自己喜欢的事，没有的话，就培养爱好，多读书，多看看世界，多努力努力。最多半年，你不会再想起他。<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">p</span> <span class="attr">data-pid</span>=<span class="string">&quot;b1IAhjid&quot;</span>&gt;</span>既然他都这么决绝的丢下你往前走了，你能不能为自己争口气，用力往前走？他都不要你了！别在为不值得的人折磨自己了！清醒点！！<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>另外还有一个 <code>excerpt</code>，去除了里面的html标签，但是有些比较长的段落，内容也被摘要了，所以不采用。</p>
+<p>zhihu还需要取问题的title</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">question &#123;</span><br><span class="line">    &quot;created&quot;: 1596552034,</span><br><span class="line">    &quot;id&quot;: 412082849,</span><br><span class="line">    &quot;question_type&quot;: &quot;normal&quot;,</span><br><span class="line">    &quot;relationship&quot;: &#123;&#125;,</span><br><span class="line">    &quot;title&quot;: &quot;中考离重点班差一分，是选择靠关系进重点班还是普通班？&quot;,</span><br><span class="line">    &quot;type&quot;: &quot;question&quot;,</span><br><span class="line">    &quot;updated_time&quot;: 1596552034,</span><br><span class="line">    &quot;url&quot;: &quot;https://www.zhihu.com/api/v4/questions/412082849&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/">数据工作</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Google-Coding%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E9%9B%86/" title="Google Coding代码数据集"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B81.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Google Coding代码数据集</div></div></a></div><div class="next-post pull-right"><a href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E7%99%BE%E5%BA%A6%E4%BA%91OCR%E6%B5%8B%E8%AF%95/" title="百度云OCR测试"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">百度云OCR测试</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Docx%E4%B9%A0%E9%A2%98%E9%9B%86/" title="Docx习题集"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B89.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-30</div><div class="title">Docx习题集</div></div></a></div><div><a href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Google-Coding%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E9%9B%86/" title="Google Coding代码数据集"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B81.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-30</div><div class="title">Google Coding代码数据集</div></div></a></div><div><a href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/MNBVC%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9D%A5%E6%BA%90%E6%B1%87%E6%80%BB/" title="MNBVC数据集来源汇总"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B87.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-07-30</div><div class="title">MNBVC数据集来源汇总</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="this.onerror=null;this.src='/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E9%97%AE%E5%8F%B7.gif'" alt="avatar"/></div><div class="author-info__name">Tschen Böffee</div><div class="author-info__description">Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BugBubbles"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">白天研究生，晚上研究死</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E4%BC%97%E5%8F%B7%E6%8E%A8%E6%96%87"><span class="toc-number">1.</span> <span class="toc-text">公众号推文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#taobao"><span class="toc-number">2.</span> <span class="toc-text">taobao</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">目录文件类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E4%BD%93%E6%96%87%E4%BB%B6"><span class="toc-number">2.2.</span> <span class="toc-text">主体文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#baidubaike-douban-zhihu"><span class="toc-number">3.</span> <span class="toc-text">baidubaike &#x2F; douban &#x2F; zhihu</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#douban"><span class="toc-number">3.1.</span> <span class="toc-text">douban</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#baike"><span class="toc-number">3.2.</span> <span class="toc-text">baike</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zhihu"><span class="toc-number">3.3.</span> <span class="toc-text">zhihu</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hallo Welt!"/></a><div class="content"><a class="title" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!">Hallo Welt!</a><time datetime="2024-06-08T07:45:10.890Z" title="发表于 2024-06-08 15:45:10">2024-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像去雨系列方法汇总"/></a><div class="content"><a class="title" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总">图像去雨系列方法汇总</a><time datetime="2024-05-12T16:00:00.000Z" title="发表于 2024-05-13 00:00:00">2024-05-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="24年5月进展"/></a><div class="content"><a class="title" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展">24年5月进展</a><time datetime="2024-05-11T16:00:00.000Z" title="发表于 2024-05-12 00:00:00">2024-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B811.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="扩散模型详解——DDIM"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM">扩散模型详解——DDIM</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B84.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="条件扩散模型"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型">条件扩散模型</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Tschen Böffee</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const loadUtterances = () => {
+    let ele = document.createElement('script')
+    ele.id = 'utterances_comment'
+    ele.src = 'https://utteranc.es/client.js'
+    ele.setAttribute('repo', 'BugBubbles/BlogTalk')
+    ele.setAttribute('issue-term', 'title')
+    const nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    ele.setAttribute('theme', nowTheme)
+    ele.crossOrigin = 'anonymous'
+    ele.async = true
+    document.getElementById('utterances-wrap').appendChild(ele)
+  }
+
+  const utterancesTheme = theme => {
+    const iframe = document.querySelector('.utterances-frame')
+    if (iframe) {
+      const theme = theme === 'dark' ? 'photon-dark' : 'github-light'
+      const message = {
+        type: 'set-theme',
+        theme: theme
+      };
+      iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+  }
+
+  btf.addGlobalFn('themeChange', utterancesTheme, 'utterances')
+
+  if ('Utterances' === 'Utterances' || !true) {
+    if (true) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+    else loadUtterances()
+  } else {
+    window.loadOtherComment = loadUtterances
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Docker安装PX4+Gazebo安装与仿真心得 | Das Blog von BugBubbles</title><meta name="author" content="Tschen Böffee"><meta name="copyright" content="Tschen Böffee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="前言 Ubuntu22.04-&gt;Ubuntu20.04-&gt;Ubuntu22.04-&gt;Ubunut20.04  关于这个软件的配置和安装，看到以上的四个系统版本，首先会联想到什么 ？ 高情商：装机经验丰富 低情商：系统被反复玩坏  反正我就是这样，如此“简单”的一个软件，我在自己的台式机上来回装了四五遍（我辛辛苦苦配置的路径和软件就这么没了），从装在conda虚拟环境 里、装在用户">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker安装PX4+Gazebo安装与仿真心得">
+<meta property="og:url" content="http://bugbubbles.github.io/2024/04/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Docker%E5%AE%89%E8%A3%85PX4-Gazebo%E4%BB%BF%E7%9C%9F%E5%BF%83%E5%BE%97/index.html">
+<meta property="og:site_name" content="Das Blog von BugBubbles">
+<meta property="og:description" content="前言 Ubuntu22.04-&gt;Ubuntu20.04-&gt;Ubuntu22.04-&gt;Ubunut20.04  关于这个软件的配置和安装，看到以上的四个系统版本，首先会联想到什么 ？ 高情商：装机经验丰富 低情商：系统被反复玩坏  反正我就是这样，如此“简单”的一个软件，我在自己的台式机上来回装了四五遍（我辛辛苦苦配置的路径和软件就这么没了），从装在conda虚拟环境 里、装在用户">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg">
+<meta property="article:published_time" content="2024-04-02T03:51:40.000Z">
+<meta property="article:modified_time" content="2024-06-08T07:45:10.840Z">
+<meta property="article:author" content="Tschen Böffee">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="PX4">
+<meta property="article:tag" content="Gazebo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg"><link rel="shortcut icon" href="/img/%E7%BB%BF%E5%8F%B6.png"><link rel="canonical" href="http://bugbubbles.github.io/2024/04/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Docker%E5%AE%89%E8%A3%85PX4-Gazebo%E4%BB%BF%E7%9C%9F%E5%BF%83%E5%BE%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":160,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Docker安装PX4+Gazebo安装与仿真心得',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-08 15:45:10'
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', () => { preloader.initLoading() }, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', () => { preloader.endLoading() }, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="onerror=null;src='/img/猫猫虫，问号.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Das Blog von BugBubbles"><span class="site-name">Das Blog von BugBubbles</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Docker安装PX4+Gazebo安装与仿真心得</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-02T03:51:40.000Z" title="发表于 2024-04-02 11:51:40">2024-04-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-08T07:45:10.840Z" title="更新于 2024-06-08 15:45:10">2024-06-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%90%9E%E6%9C%BA/">搞机</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Docker安装PX4+Gazebo安装与仿真心得"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="前言">前言</h2>
+<p>Ubuntu22.04-&gt;Ubuntu20.04-&gt;Ubuntu22.04-&gt;Ubunut20.04</p>
+<hr>
+<p>关于这个软件的配置和安装，看到以上的四个系统版本，首先会联想到什么 ？</p>
+<div class="note , flat"><p>高情商：装机经验丰富<br>
+低情商：系统被反复玩坏</p>
+</div>
+<p>反正我就是这样，如此“简单”的一个软件，我在自己的台式机上来回装了四五遍（我辛辛苦苦配置的路径和软件就这么没了），从装在conda虚拟环境 里、装在用户 目录下、装在系统目录下（然后系统就寄了），最终回过头来，还是决定装在docker里面，这才是最终的解决方案。在此也推荐正在看到这篇博客 的你，除非对自己的包管理能力充分自信，否则还是装在docker里面吧（<strong>当然富哥另说</strong>）。</p>
+<p>目前也只是完成了一个安装，我仿真是一点不会，能记到多少，先把它写下来，后面不走回头路。</p>
+<h1>安装心得</h1>
+<p>首先在安装前，要充分地考察自己的需求，即，<strong>是否需要安装ROS系统</strong>。我在重装之前的初次安装中，一来就是毫无顾忌地装<code>ROS</code>，还是Bug极多的<code>ROS2</code>，犯了兵家大忌之一；二来是在安装完ROS2后，又迫不及待地去找了另一个博客去安装Gazebo，谁知这两个博客的内容是自相矛盾的，在编译的时候压根编译不过。</p>
+<div class="note , flat"><p>本来还想去B站上找一些教程跟着学把它给装好呢，结果B站上的参差不齐，就没见过有人使用<code>Ubuntu22.4</code>来装ROS的</p>
+</div>
+<p>最流行的还是使用<code>Ubuntu18.04</code>安装<code>ROS1</code>，在本文中，主要介绍使用<code>Ubuntn20.04</code>在不安装ROS的情况下，直接完成<code>PX4</code>和<code>Gazebo</code>的安装。</p>
+<h2 id="前置条件">前置条件</h2>
+<ol>
+<li>Docker可以正常使用<br>
+首先默认已经完成Docker的安装，并保证当前用户位于docker用户组中，即可以查看<code>docker</code>的镜像列表和容器列表，可使用以下命令：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker images <span class="built_in">ls</span></span><br><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+<p>将分别展示当前系统中缓存的全部镜像和容器。</p>
+<ol start="2">
+<li>Nvidia原装驱动完整<br>
+其次，需要保证当前系统已经完成Nvidia原装驱动的安装，在保证<code>nvidia-smi</code>有输出以外，还需要保证驱动由Nvidia官方提供，可通过“软件和更新”选项完成稳定的专有驱动安装，目前为止，本文所使用的联合仿真环境并不需要CUDA和CUDNN的支持，不过，随着仿真和算法的深入，它们是必不可少的，因此也推荐安装CUDA和CUDNN。</li>
+</ol>
+<div class="note , warning flat"><p>我在使用容器的过程中遇到**Error could not select device driver ““ with capabilities: [[gpu]]**错误</p>
+</div>
+<p>该错误是缺少来自Nvidia官方的容器驱动，可参考如下<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/373493938">博客</a>完成修复。</p>
+<ol start="3">
+<li>PX4仓库提前下载。<br>
+PX4是著名的无人机软硬件开源项目，其官方的<a target="_blank" rel="noopener" href="https://github.com/PX4/PX4-Autopilot">github链接</a>可由此访问。PX4的仓库代码量和子模块数量巨大，如果在容器中下载，将再次需要配置容器<code>apt</code>和<code>pip</code>等下载工具的镜像源，不方便操作，因此可以在<strong>宿主机</strong>上提前完成下载，可通过如下命令完成：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /workspace <span class="comment"># 你的工作目录</span></span><br><span class="line">git <span class="built_in">clone</span> git@github.com:PX4/PX4-Autopilot.git --recursive</span><br><span class="line"><span class="comment"># git clone https://github.com/PX4/PX4-Autopilot.git --recursive</span></span><br></pre></td></tr></table></figure>
+<p>并注意检查下载的子模块中是否有报错，如果有，极有可能子模块下载不完整，为了避免在编译过程中出现引用问题，请使用以下命令确保子模块完整：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> PX4-Autopilot</span><br><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure>
+<h2 id="安装步骤">安装步骤</h2>
+<ol>
+<li>首先需要拉取镜像，这里可以使用前人提供的带有完整的Nvidia开发环境的镜像（就是镜像稍大了点，不过Bug保证能少很多），可通过如下命令完成：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull rezenders/ignition:hackathon-nvidia</span><br></pre></td></tr></table></figure>
+<p>网络环境不好的，可以通过配置docker的镜像源加速下载，亦可将其下载至本地后导入。具体方法可见<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/pull/">官方文档</a>。</p>
+<ol start="2">
+<li>启动容器，以下载得到的镜像为基础，构建容器，使用如下命令：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --privileged \</span><br><span class="line">--gpus all \</span><br><span class="line">-e NVIDIA_DRIVER_CAPABILITIES=all \</span><br><span class="line">-v ~/src:/src:rw \</span><br><span class="line">-v /tmp/.X11-unix:/tmp/.X11-unix \</span><br><span class="line">-e DISPLAY  \</span><br><span class="line">-u docker \</span><br><span class="line">--network=host \</span><br><span class="line">--name=p4 \</span><br><span class="line">ros:noetic \</span><br><span class="line">/bin/bash</span><br></pre></td></tr></table></figure>
+<p>说明：这里最关键的一个参数是<code>-e NVIDIA_DRIVER_CAPABILITIES=all</code>，其确保容器能够使用宿主机的CUDA和驱动等工具，避免在容器中重新配置。此外，挂载的路径和文件夹可自行配置，需要与之前自己下载的PX4仓库路径一致。本条命令参考自<a target="_blank" rel="noopener" href="https://www.cnblogs.com/luckyweathyli/p/17386685.html#:~:text=https%3A%20%2F%2Fdocs.nvidia.com%2Fdatacenter%2Fcloud-native%2Fcontainer-toolkit%2Finstall-guide.html%23docker%202%E3%80%81%E6%8B%89%E5%8F%96px4%E9%95%9C%E5%83%8F%20sudo%20docker,pull%20px4io%2Fpx4-dev-ros-noetic%203%E3%80%81%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%BC%80%E5%90%AFx11%E6%9D%83%E9%99%90%20xhost%20%2B%204%E3%80%81%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8%E5%AE%9E%E4%BE%8B%EF%BC%88%E6%AD%A4%E6%AD%A5%E9%AA%A4%E9%9C%80%E5%AE%BF%E4%B8%BB%E6%9C%BA%E5%9C%A8home%E7%9B%AE%E5%BD%95%E6%96%B0%E5%BB%BAsrc%2FPX4-Autopilot%2C%E5%B9%B6%E4%B8%94%E6%8B%89%E5%8F%96px4%E6%BA%90%E7%A0%81%EF%BC%89">博客</a>。</p>
+<ol start="3">
+<li>安装Gazebo</li>
+</ol>
+<div class="note , danger flat"><p>请注意，本步骤将在<strong>容器内部</strong>进行！</p>
+</div>
+<p>根据PX4提供的<a target="_blank" rel="noopener" href="https://docs.px4.io/main/en/sim_gazebo_classic/">官方用户手册</a>，Ubuntu20.04对应的Gazebo是<code>classic</code>版本，可以使用如下的命令完成安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt remove gz-garden</span><br><span class="line">sudo apt install aptitude</span><br><span class="line">sudo aptitude install gazebo libgazebo11 libgazebo-dev</span><br></pre></td></tr></table></figure>
+<p>实际上20.04版本的也兼容更高级的仿真器。例如，如果要安装<code>garden</code>版本的Gazebo，可以使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable <span class="subst">$(lsb_release -cs)</span> main&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/gazebo-stable.list &gt; /dev/null</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install gz-garden</span><br></pre></td></tr></table></figure>
+<p>两者对应的版本的界面不同，只能存在一个（其实好像共存也没有问题）<br>
+4. 编译PX4<br>
+这一步同样在容器内部进行，首先需要进入至挂载点，这里以<code>/workspace/PX4-Autopilot</code>这例，在该目录下，执行一次：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash ./Tools/setup/ubuntu.sh</span><br></pre></td></tr></table></figure>
+<p>该脚本将自动完成必需包的安装与配置，此外，也可以有特别的输入参数可供选择，详情请参考<a target="_blank" rel="noopener" href="https://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu.html#simulation-and-nuttx-pixhawk-targets">官方文档</a>。<br>
+如果顺利，这一步的编译过程中将不报错，此时已经安装完毕，可进行下一步的验证。</p>
+<h2 id="验证安装">验证安装</h2>
+<p>首先第一步，千万别忘记，不然开不了图形界面。</p>
+<div class="note , warning flat"><p><strong>要在宿主机上开启图形权限</strong></p>
+</div>
+<p>可运行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xhost +</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="comment"># xhost +local</span></span><br></pre></td></tr></table></figure>
+<p>在上一步完成PX4文件的编译后，仍然在该目录下，可根据下表选取不同型号的无人机，测试仿真环境搭建正常：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">无人机型号</th>
+<th style="text-align:center">命令行</th>
+<th style="text-align:center">PX4_SYS_AUTOSTART</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Quadrotor(x500)</td>
+<td style="text-align:center"><code>make px4_sitl gz_x500</code></td>
+<td style="text-align:center">4001</td>
+</tr>
+<tr>
+<td style="text-align:center">Quadrotor(x500) with Depth Camera</td>
+<td style="text-align:center"><code>make px4_sitl gz_x500_depth</code></td>
+<td style="text-align:center">4002</td>
+</tr>
+<tr>
+<td style="text-align:center">Quadrotor(x500) with Vision Odometry</td>
+<td style="text-align:center"><code>make px4_sitl gz_x500_vision</code></td>
+<td style="text-align:center">4005</td>
+</tr>
+<tr>
+<td style="text-align:center">VTOL</td>
+<td style="text-align:center"><code>make px4_sitl gz_standard_vtol</code></td>
+<td style="text-align:center">4004</td>
+</tr>
+<tr>
+<td style="text-align:center">Plane</td>
+<td style="text-align:center"><code>make px4_sitl gz_rc_cessna</code></td>
+<td style="text-align:center">4003</td>
+</tr>
+<tr>
+<td style="text-align:center">Advanced Plane</td>
+<td style="text-align:center"><code>make px4_sitl gz_advanced_plane</code></td>
+<td style="text-align:center">4008</td>
+</tr>
+<tr>
+<td style="text-align:center">表格来自<a target="_blank" rel="noopener" href="https://docs.px4.io/main/en/sim_gazebo_gz/#installation-ubuntu-linux">官方文档</a>，表格对应的gazebo版本是<code>garden</code>，如果是<code>classic</code>版本，可参考以下<a target="_blank" rel="noopener" href="https://docs.px4.io/main/en/sim_gazebo_classic/">表格</a>。</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>任意输入一个，如<code>make px4_sitl gz_x500</code>，可得如下界面：<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="%E5%8D%95%E7%8B%AC%E6%97%A0%E4%BA%BA%E6%9C%BA%E7%9A%84%E7%95%8C%E9%9D%A2.png" alt="单独无人机的界面"></p>
+<h2 id="安装小结">安装小结</h2>
+<p>安装前一定要注意需求，是否需要安装ROS，尤其注意不能参考得太杂，极其容易产生依赖项问题。在完成安装后，运行docker前需要在宿主机上开始图形界面权限，否则容器运行的仿真程序不能输出至宿主机上。</p>
+<h1>使用心得</h1>
+<p>在实际的使用过程中，才意识到必须要使用ROS，由此上述的安装其实也并不完全。我准备再开一篇新的博客专门介绍如何安装ros和并学习使用它，这篇博客的地址在这里<a href="/2024/04/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/ros%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/"><strong>Docker安装ROS</strong></a>。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Docker/">Docker</a><a class="post-meta__tags" href="/tags/PX4/">PX4</a><a class="post-meta__tags" href="/tags/Gazebo/">Gazebo</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/ros%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" title="ros安装与使用心得"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">ros安装与使用心得</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%9B%9B%E5%85%83%E6%95%B0%E7%90%86%E8%AE%BA/" title="四元数理论"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B86.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">四元数理论</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/ros%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" title="ros安装与使用心得"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-02</div><div class="title">ros安装与使用心得</div></div></a></div><div><a href="/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E5%9F%BA%E4%BA%8Egazebo%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%8E%A2%E6%B5%8B/" title="基于gazebo的无人机事件相机探测"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B80.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-08</div><div class="title">基于gazebo的无人机事件相机探测</div></div></a></div><div><a href="/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%8F%92%E4%BB%B6/" title="自动化数据采集插件"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B811.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-18</div><div class="title">自动化数据采集插件</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="this.onerror=null;this.src='/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E9%97%AE%E5%8F%B7.gif'" alt="avatar"/></div><div class="author-info__name">Tschen Böffee</div><div class="author-info__description">Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BugBubbles"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">白天研究生，晚上研究死</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">安装心得</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">前置条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">验证安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%B0%8F%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">安装小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">使用心得</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hallo Welt!"/></a><div class="content"><a class="title" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!">Hallo Welt!</a><time datetime="2024-06-08T07:45:10.890Z" title="发表于 2024-06-08 15:45:10">2024-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像去雨系列方法汇总"/></a><div class="content"><a class="title" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总">图像去雨系列方法汇总</a><time datetime="2024-05-12T16:00:00.000Z" title="发表于 2024-05-13 00:00:00">2024-05-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="24年5月进展"/></a><div class="content"><a class="title" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展">24年5月进展</a><time datetime="2024-05-11T16:00:00.000Z" title="发表于 2024-05-12 00:00:00">2024-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B811.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="扩散模型详解——DDIM"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM">扩散模型详解——DDIM</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B84.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="条件扩散模型"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型">条件扩散模型</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Tschen Böffee</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const loadUtterances = () => {
+    let ele = document.createElement('script')
+    ele.id = 'utterances_comment'
+    ele.src = 'https://utteranc.es/client.js'
+    ele.setAttribute('repo', 'BugBubbles/BlogTalk')
+    ele.setAttribute('issue-term', 'title')
+    const nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    ele.setAttribute('theme', nowTheme)
+    ele.crossOrigin = 'anonymous'
+    ele.async = true
+    document.getElementById('utterances-wrap').appendChild(ele)
+  }
+
+  const utterancesTheme = theme => {
+    const iframe = document.querySelector('.utterances-frame')
+    if (iframe) {
+      const theme = theme === 'dark' ? 'photon-dark' : 'github-light'
+      const message = {
+        type: 'set-theme',
+        theme: theme
+      };
+      iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+  }
+
+  btf.addGlobalFn('themeChange', utterancesTheme, 'utterances')
+
+  if ('Utterances' === 'Utterances' || !true) {
+    if (true) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+    else loadUtterances()
+  } else {
+    window.loadOtherComment = loadUtterances
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

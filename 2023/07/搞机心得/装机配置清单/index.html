@@ -1,0 +1,481 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>装机配置清单 | Das Blog von BugBubbles</title><meta name="author" content="Tschen Böffee"><meta name="copyright" content="Tschen Böffee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="个人倾向 考虑用上全部工资和奖学金，预算为1.6w左右，考虑配置一个丐版4090。 价格清单 显示器2000元争取让江老师报销 键盘鼠标300元以内能解决，控制总价在1万元以内 机箱显卡总长限长 34cm 机箱CPU散热器限高 185mm 配置如下：    模块 厂商 价格（元） 功率（W）     CPU intel i5 13400 1300 65   GPU PNY RTX 4070Ti 2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="装机配置清单">
+<meta property="og:url" content="http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%A3%85%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95/index.html">
+<meta property="og:site_name" content="Das Blog von BugBubbles">
+<meta property="og:description" content="个人倾向 考虑用上全部工资和奖学金，预算为1.6w左右，考虑配置一个丐版4090。 价格清单 显示器2000元争取让江老师报销 键盘鼠标300元以内能解决，控制总价在1万元以内 机箱显卡总长限长 34cm 机箱CPU散热器限高 185mm 配置如下：    模块 厂商 价格（元） 功率（W）     CPU intel i5 13400 1300 65   GPU PNY RTX 4070Ti 2">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B810.jpg">
+<meta property="article:published_time" content="2023-07-30T15:17:28.000Z">
+<meta property="article:modified_time" content="2024-06-08T07:45:10.850Z">
+<meta property="article:author" content="Tschen Böffee">
+<meta property="article:tag" content="装机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B810.jpg"><link rel="shortcut icon" href="/img/%E7%BB%BF%E5%8F%B6.png"><link rel="canonical" href="http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%A3%85%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":160,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '装机配置清单',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-08 15:45:10'
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', () => { preloader.initLoading() }, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', () => { preloader.endLoading() }, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="onerror=null;src='/img/猫猫虫，问号.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B810.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Das Blog von BugBubbles"><span class="site-name">Das Blog von BugBubbles</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">装机配置清单</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-30T15:17:28.000Z" title="发表于 2023-07-30 23:17:28">2023-07-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-08T07:45:10.850Z" title="更新于 2024-06-08 15:45:10">2024-06-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%90%9E%E6%9C%BA/">搞机</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="装机配置清单"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="个人倾向">个人倾向</h2>
+<p>考虑用上全部工资和奖学金，预算为1.6w左右，考虑配置一个丐版4090。</p>
+<h3 id="价格清单">价格清单</h3>
+<p>显示器2000元争取让江老师报销<br>
+键盘鼠标300元以内能解决，控制总价在1万元以内<br>
+机箱显卡总长限长 34cm<br>
+机箱CPU散热器限高 185mm</p>
+<p>配置如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模块</th>
+<th style="text-align:center">厂商</th>
+<th style="text-align:center">价格（元）</th>
+<th style="text-align:center">功率（W）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CPU</td>
+<td style="text-align:center">intel i5 13400</td>
+<td style="text-align:center">1300</td>
+<td style="text-align:center">65</td>
+</tr>
+<tr>
+<td style="text-align:center">GPU</td>
+<td style="text-align:center">PNY RTX 4070Ti 24G</td>
+<td style="text-align:center">5522</td>
+<td style="text-align:center">289</td>
+</tr>
+<tr>
+<td style="text-align:center">SSD</td>
+<td style="text-align:center">Solidigium P44 Pro 1TB</td>
+<td style="text-align:center">501</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">SSD</td>
+<td style="text-align:center">光威弈Pro 4TB</td>
+<td style="text-align:center">1084</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">主板</td>
+<td style="text-align:center">华硕 B760M-K</td>
+<td style="text-align:center">675（板u套装共1975）</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">RAM</td>
+<td style="text-align:center">金百达银爵 32GB D4 3200MHz</td>
+<td style="text-align:center">389</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">散热</td>
+<td style="text-align:center">利民 PA120SE</td>
+<td style="text-align:center">143</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">电源</td>
+<td style="text-align:center">长城 G11金牌 1100W ATX3.0</td>
+<td style="text-align:center">749（含退货费）</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">机箱</td>
+<td style="text-align:center">先马 朱雀AIR</td>
+<td style="text-align:center">165</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">网卡</td>
+<td style="text-align:center">Comfast AX200 蓝牙5.2带屏蔽罩</td>
+<td style="text-align:center">107</td>
+<td style="text-align:center">–</td>
+</tr>
+<tr>
+<td style="text-align:center">总计</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">10675</td>
+<td style="text-align:center">400</td>
+</tr>
+</tbody>
+</table>
+<p>总功率为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>400</mn><mo>×</mo><mn>1.5</mn><mo>=</mo><mn>600</mn><mo>&lt;</mo><mo>&lt;</mo><mn>1100</mn><mi>W</mi></mrow><annotation encoding="application/x-tex">400\times 1.5=600&lt;&lt;1100W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">400</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1.5</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord">600</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">1100</span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span>，我还是权衡了好久的配置和需求，选择了4070Ti，这下好了，电源超频到冒烟也不会不够用。如果再外加一个200元的键盘，50元的鼠标以及350元的屏幕，总计有11275元，完成一个较为差劲的配置（主要是屏幕差劲哈哈）。</p>
+<h3 id="已经购买的配件">已经购买的配件</h3>
+<h4 id="电源">电源</h4>
+<p>支持国货，购买的是长城Hunter系列GX850 ATX3.0全模组，买到价格为627元，该款电源的另一型号<strong>单路12V</strong>电源设计上存在缺陷，电源功率实际上并不能达到850W额定值。考虑再三，决定还是更换为G11 1100W的电源，保证不出问题，电源不要丐，事实证明，果然是<strong>电源焦虑</strong>坑了自己，因为到最后也没有买4090，仅仅一个4070Ti用650W的电源就没有任何问题了。</p>
+<h4 id="散热器">散热器</h4>
+<p>散热器选用风冷散热器，利民PA120SE，在咸鱼上买的二手风扇，配件都齐全，价格为125元，比全新便宜20元左右。这个是被坑了，配件发过来的是有问题的，虽然便宜，但是多花的时间成本和重新买来配件（18元）自己安装，已经把这个成本给还回去了，再次说明<strong>出来混早晚要还的</strong>，便宜过头了没有好果子吃。</p>
+<h3 id="配件价格走势">配件价格走势</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">日期</th>
+<th style="text-align:center">机箱</th>
+<th style="text-align:center">电源</th>
+<th style="text-align:center">内存</th>
+<th style="text-align:center">主板</th>
+<th style="text-align:center">硬盘</th>
+<th style="text-align:center">CPU</th>
+<th style="text-align:center">风扇</th>
+<th style="text-align:center">显卡3080</th>
+<th style="text-align:center">显卡4070</th>
+<th style="text-align:center">显卡4060</th>
+<th style="text-align:center">总计</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0704</td>
+<td style="text-align:center">279</td>
+<td style="text-align:center">549</td>
+<td style="text-align:center">399</td>
+<td style="text-align:center">1199</td>
+<td style="text-align:center">959</td>
+<td style="text-align:center">1609</td>
+<td style="text-align:center">219</td>
+<td style="text-align:center">3200</td>
+<td style="text-align:center">5000</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">5213</td>
+</tr>
+<tr>
+<td style="text-align:center">0705</td>
+<td style="text-align:center">279</td>
+<td style="text-align:center">549</td>
+<td style="text-align:center">399</td>
+<td style="text-align:center">1199</td>
+<td style="text-align:center">959</td>
+<td style="text-align:center">1609</td>
+<td style="text-align:center">219</td>
+<td style="text-align:center">3200</td>
+<td style="text-align:center">5000</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">5213</td>
+</tr>
+<tr>
+<td style="text-align:center">0710</td>
+<td style="text-align:center">140</td>
+<td style="text-align:center">440</td>
+<td style="text-align:center">490</td>
+<td style="text-align:center">1200</td>
+<td style="text-align:center">650</td>
+<td style="text-align:center">1370</td>
+<td style="text-align:center">140</td>
+<td style="text-align:center">3200</td>
+<td style="text-align:center">5000</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">4430</td>
+</tr>
+<tr>
+<td style="text-align:center">0713</td>
+<td style="text-align:center">155</td>
+<td style="text-align:center">450</td>
+<td style="text-align:center">490</td>
+<td style="text-align:center">1200</td>
+<td style="text-align:center">650</td>
+<td style="text-align:center">1375</td>
+<td style="text-align:center">150</td>
+<td style="text-align:center">3000</td>
+<td style="text-align:center">4800</td>
+<td style="text-align:center">–</td>
+<td style="text-align:center">4455</td>
+</tr>
+<tr>
+<td style="text-align:center">0720</td>
+<td style="text-align:center">140</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">380</td>
+<td style="text-align:center">1200</td>
+<td style="text-align:center">650</td>
+<td style="text-align:center">1375</td>
+<td style="text-align:center">150</td>
+<td style="text-align:center">3000</td>
+<td style="text-align:center">5000</td>
+<td style="text-align:center">3700</td>
+<td style="text-align:center">4400</td>
+</tr>
+<tr>
+<td style="text-align:center">0820</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center">650</td>
+<td style="text-align:center">400</td>
+<td style="text-align:center">1400</td>
+<td style="text-align:center">650</td>
+<td style="text-align:center">1300</td>
+<td style="text-align:center">140</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">0907</td>
+<td style="text-align:center">165</td>
+<td style="text-align:center">743</td>
+<td style="text-align:center">410</td>
+<td style="text-align:center">917</td>
+<td style="text-align:center">500</td>
+<td style="text-align:center">1310</td>
+<td style="text-align:center">125</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">1024</td>
+<td style="text-align:center">165</td>
+<td style="text-align:center">743</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="测试结果">测试结果</h2>
+<h3 id="CPU测试结果">CPU测试结果</h3>
+<p>CPU是全新正式版，解算椭圆级数15分钟功率稳定在105W，温度在75度波动，体质较好。</p>
+<h3 id="显卡测试结果">显卡测试结果</h3>
+<p>官网查不到SN码，问自营客服查到SN码为22年12月生产（后来发现显卡上还有SN码，等下次安装前查一下）。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="1698111014361.png" alt="1698111014361"><br>
+3d mark 2k显示测试，通过率99.3%，最高温度72度，平均温度水平71度。<br>
+甜甜圈烤机15分钟，温度维持在71度，风扇基本没有声音（只有前两次开机的时候有突然啸叫，发现是无线网卡卡住了显卡风扇，将其向下移动后不再影响）这两次重启之后又没有这个啸叫声了，正常使用无异响。</p>
+<p>多次测量发现，显卡的体质真的不错，比CPU好。</p>
+<h2 id="装机日记">装机日记</h2>
+<h3 id="9-5电源焦虑">9.5电源焦虑</h3>
+<p>开学季电源打折，原价800左右的长城GX850便宜到了623，一下子就心动入手了。后来买到了之后，越看网上的评论越觉得不安心，在9月11日开学季活动的最后一天，换成了743的G11电源，外加换货费14元，真是冤大头。</p>
+<h3 id="10-18黑天鹅事件">10.18黑天鹅事件</h3>
+<p>10月18号上午美国政府突然宣布对4090出口实行管制，<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="20231018%E6%96%AD%E4%BE%9B4090.png" alt="RTX 4090在出口管制清单范围内，来源见水印"><br>
+这下国内一众厂商是买不到4090了，价格必然大涨，卧槽这下我也是一点也买不起了，彻底断了这个念想。然后现在手里能选的就只有4070Ti，查看价格后感觉PNY非自营的店比较划算，冒险赌一下，买它！5522元。</p>
+<h3 id="10-19闹剧收场">10.19闹剧收场</h3>
+<p>美国商务部今天中午再发一篇声明，声明实际管制的是商用显卡的生产，即中国大陆不允许直接生产4090非公版，而个人使用的游戏性能显卡并不限制购买，如下图：<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="20231019%E6%81%A2%E5%A4%8D4090%E9%94%80%E5%94%AE.png" alt="美国商务部声明解除4090出口管制"><br>
+虽然但是，我还是已经对它失去了信心，反正也买不起了，虽然最后选择的是美版铭瑄必恩威（有一说一这个翻译真是离谱，对消费者必须恩威并施是吧），比自营便宜1000块，已经是我能够接受的最低价了，不用再等了。</p>
+<p>只是……可惜了我1100W的电源，永远也发挥不了满功率。</p>
+<h3 id="10-23购入从硬盘">10.23购入从硬盘</h3>
+<p>双十一！京东自营的光威硬盘便宜了300块！TLC颗粒，PCIE4.0，4T，长江颗粒3.0！Buff叠满了，虽然不能满减，但是250元1T的价格还有什么好犹豫的呢？直接入手！</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%A3%85%E6%9C%BA/">装机</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/08/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E9%85%8D%E7%BD%AEcmake%E5%92%8Cgdb%E8%B0%83%E8%AF%95C-C-%E9%A1%B9%E7%9B%AE%E7%A8%8B%E5%BA%8F/" title="vscode配置cmake和gdb调试C/C++项目程序"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B86.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">vscode配置cmake和gdb调试C/C++项目程序</div></div></a></div><div class="next-post pull-right"><a href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Docx%E4%B9%A0%E9%A2%98%E9%9B%86/" title="Docx习题集"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B89.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Docx习题集</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0CUDA%E4%B8%8ECUDNN%E5%AE%89%E8%A3%85%E7%9A%84%E5%9D%91/" title="记CUDA与CUDNN安装的坑"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B81.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-02-23</div><div class="title">记CUDA与CUDNN安装的坑</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="this.onerror=null;this.src='/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E9%97%AE%E5%8F%B7.gif'" alt="avatar"/></div><div class="author-info__name">Tschen Böffee</div><div class="author-info__description">Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BugBubbles"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">白天研究生，晚上研究死</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E5%80%BE%E5%90%91"><span class="toc-number">1.</span> <span class="toc-text">个人倾向</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%B7%E6%A0%BC%E6%B8%85%E5%8D%95"><span class="toc-number">1.1.</span> <span class="toc-text">价格清单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%B2%E7%BB%8F%E8%B4%AD%E4%B9%B0%E7%9A%84%E9%85%8D%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">已经购买的配件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%B5%E6%BA%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">电源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%A3%E7%83%AD%E5%99%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">散热器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E4%BB%B6%E4%BB%B7%E6%A0%BC%E8%B5%B0%E5%8A%BF"><span class="toc-number">1.3.</span> <span class="toc-text">配件价格走势</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-number">2.</span> <span class="toc-text">测试结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-number">2.1.</span> <span class="toc-text">CPU测试结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E5%8D%A1%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C"><span class="toc-number">2.2.</span> <span class="toc-text">显卡测试结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A3%85%E6%9C%BA%E6%97%A5%E8%AE%B0"><span class="toc-number">3.</span> <span class="toc-text">装机日记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-5%E7%94%B5%E6%BA%90%E7%84%A6%E8%99%91"><span class="toc-number">3.1.</span> <span class="toc-text">9.5电源焦虑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-18%E9%BB%91%E5%A4%A9%E9%B9%85%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.2.</span> <span class="toc-text">10.18黑天鹅事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-19%E9%97%B9%E5%89%A7%E6%94%B6%E5%9C%BA"><span class="toc-number">3.3.</span> <span class="toc-text">10.19闹剧收场</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-23%E8%B4%AD%E5%85%A5%E4%BB%8E%E7%A1%AC%E7%9B%98"><span class="toc-number">3.4.</span> <span class="toc-text">10.23购入从硬盘</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hallo Welt!"/></a><div class="content"><a class="title" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!">Hallo Welt!</a><time datetime="2024-06-08T07:45:10.890Z" title="发表于 2024-06-08 15:45:10">2024-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像去雨系列方法汇总"/></a><div class="content"><a class="title" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总">图像去雨系列方法汇总</a><time datetime="2024-05-12T16:00:00.000Z" title="发表于 2024-05-13 00:00:00">2024-05-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="24年5月进展"/></a><div class="content"><a class="title" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展">24年5月进展</a><time datetime="2024-05-11T16:00:00.000Z" title="发表于 2024-05-12 00:00:00">2024-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B811.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="扩散模型详解——DDIM"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM">扩散模型详解——DDIM</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B84.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="条件扩散模型"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型">条件扩散模型</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Tschen Böffee</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const loadUtterances = () => {
+    let ele = document.createElement('script')
+    ele.id = 'utterances_comment'
+    ele.src = 'https://utteranc.es/client.js'
+    ele.setAttribute('repo', 'BugBubbles/BlogTalk')
+    ele.setAttribute('issue-term', 'title')
+    const nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    ele.setAttribute('theme', nowTheme)
+    ele.crossOrigin = 'anonymous'
+    ele.async = true
+    document.getElementById('utterances-wrap').appendChild(ele)
+  }
+
+  const utterancesTheme = theme => {
+    const iframe = document.querySelector('.utterances-frame')
+    if (iframe) {
+      const theme = theme === 'dark' ? 'photon-dark' : 'github-light'
+      const message = {
+        type: 'set-theme',
+        theme: theme
+      };
+      iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+  }
+
+  btf.addGlobalFn('themeChange', utterancesTheme, 'utterances')
+
+  if ('Utterances' === 'Utterances' || !true) {
+    if (true) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+    else loadUtterances()
+  } else {
+    window.loadOtherComment = loadUtterances
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

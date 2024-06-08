@@ -1,0 +1,385 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Das Blog von BugBubbles - 科研民工</title><meta name="author" content="Tschen Böffee"><meta name="copyright" content="Tschen Böffee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Das Blog von BugBubbles">
+<meta property="og:url" content="http://bugbubbles.github.io/page/3/index.html">
+<meta property="og:site_name" content="Das Blog von BugBubbles">
+<meta property="og:description" content="Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif">
+<meta property="article:author" content="Tschen Böffee">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif"><link rel="shortcut icon" href="/img/%E7%BB%BF%E5%8F%B6.png"><link rel="canonical" href="http://bugbubbles.github.io/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":160,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Das Blog von BugBubbles',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-06-08 16:09:30'
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', () => { preloader.initLoading() }, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', () => { preloader.endLoading() }, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="onerror=null;src='/img/猫猫虫，问号.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/homepage.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Das Blog von BugBubbles"><span class="site-name">Das Blog von BugBubbles</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Das Blog von BugBubbles</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2024/02/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B42%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年2月进展"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B87.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="24年2月进展"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/02/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B42%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年2月进展">24年2月进展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-21T16:00:00.000Z" title="发表于 2024-02-22 00:00:00">2024-02-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</a></span></div><div class="content">第一篇文献
+End-to-End Object Detection with Transformers
+解决的问题
+本文旨在提出一个新的图像检测框架，以完成对大规模数据集下的多物体图像检测（甚至包括全景分割）。
+主要内容
+本文有至少三个创新点，分别予以叙述。
+创新点一：损失函数
+检测框架的损失函数一般包括两部分，即分类误差和检测误差，然后使用超参数正则化为同一个损失函数。本文的损失函数在两点上作修改以适应当前的检测任务，其一是将交叉熵函数（对数形式）改为非对数的普通项（经验表明在当前模型条件下有着更好的检测结果）；其二是在检测框损失函数上，同时使用了l1\mathcal{l}_1l1​损失和交集损失并正则化，论文“Generalized intersection over union”保证了该正则化结果在检测上更有效。
+创新点二：网络架构
+
+将Transformer和CNN结合的网络有不少，本文基本上是最早提出将基于CNN生成的图像特征与与Transformer的位置编码结合的，结合方式特殊在于：CNN提取出的网络特征有2048个维度，本文使用1×11\times 11×1卷积将其减少 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%BC%A0%E6%AD%A3%E5%8F%8B%E6%A0%87%E5%AE%9A%E6%B3%95%E9%97%AE%E9%A2%98/" title="张正友标定法问题"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B87.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="张正友标定法问题"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%BC%A0%E6%AD%A3%E5%8F%8B%E6%A0%87%E5%AE%9A%E6%B3%95%E9%97%AE%E9%A2%98/" title="张正友标定法问题">张正友标定法问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-10T15:02:14.000Z" title="发表于 2023-10-10 23:02:14">2023-10-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/">机器视觉</a></span></div><div class="content">前言
+张正友标定法太闻名了，历久不衰，20年后仍然以它作为机器视觉的标定基础，在机器视觉这门课的学习过程中，有个别问题，在此予以记录。
+靶标精确度问题
+问题描述：在标定前，如果靶标的方格子长度事先不已知，能否标定出相机的内外参数？
+符号定义
+现有靶标上的点使用齐次坐标Mi=(xi,yi,1)T\mathbf{M}_i=(x_i, y_i, 1)^\mathrm{T}Mi​=(xi​,yi​,1)T表示，相机平面上对应的点使用mi=(ui,vi,1)\mathbf{m}_i=(u_i,v_i,1)mi​=(ui​,vi​,1)表示，以上两组点列值的坐标均已知。相机内参的形式固定且已知，参数待定，形式为：
+A=[αxγu00αyv0001]\mathbf{A}=\left[
+\begin{matrix}
+\alpha_x&amp;\gamma&amp;u_0\\
+0&amp;\alpha_y&amp;v_0\\
+0&amp;0&amp;1\\
+\end{matrix}
+\right]
+A=​αx​00​γαy​0​u0​v0​1​​
+相机的外参形式不明确，表示为：
+D=[r11r12t1r ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="数学概念表达"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B84.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数学概念表达"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="数学概念表达">数学概念表达</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-17T16:00:00.000Z" title="发表于 2023-10-18 00:00:00">2023-10-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</a></span></div><div class="content">前言
+这里记录一下学习过程中遇到的一些数学记号及其对应性质，在下次遇到后可以直接使用不至于陌生。对于成体系的数学记号，则单独归纳为一篇博客。
+KL散度
+参考自：KL散度
+英文名：Kullback-Leibler divergence，是一种用于衡量两个概率分布之间差异的指标，其定义为：
+DKL[P(x)∣∣Q(x)]=∑x∈XP(x)ln⁡[P(x)Q(x)]D_\mathrm{KL}[P(x)||Q(x)]=\sum\limits_{x\in\mathcal{X}}P(x)\ln\Big[\frac{P(x)}{Q(x)}\Big]
+DKL​[P(x)∣∣Q(x)]=x∈X∑​P(x)ln[Q(x)P(x)​]
+KL散度描述的是使用概率分布Q(x)Q(x)Q(x)来描述分布P(x)P(x)P(x)的编码损失，其性质是非负的、仿射不变的且非对称的。
+期望记法
+在文献Auto-Encoding Variational Bayes和Denoising Diffusion Probabilistic Models等中经常见到的一种表达式，例如：Eq[∙]\mathbb{E}_q[\bulle ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E6%8E%A8%E5%AF%BC/" title="机器学习算法推导"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机器学习算法推导"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95%E6%8E%A8%E5%AF%BC/" title="机器学习算法推导">机器学习算法推导</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-13T16:00:00.000Z" title="发表于 2023-10-14 00:00:00">2023-10-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</a></span></div><div class="content">前言
+经常在论文中看到一些熟悉又陌生的算法名，例如EM，例如GMM，HMM等等，这些算法好像都是知道个大概，但是要我自己去实现，感觉总是这里缺先验那里缺先验，不能完整地复述出来，就是不是自己的东西，有必要像矩阵求导那样，推导一个完整的式子来。
+期望最大化算法
+英文原名：Expectation-Maximization，缩写名：EM
+问题描述
+给定某个概率分布X\mathcal{X}X的系列观测值X(θ)X(\theta)X(θ)，其中θ\thetaθ是某个未知的，需要被优化的参数，现假设待观测值Z XZ~\mathcal{X}Z X，参数估计要求算法使得似然函数L(θ;X)L(\theta;X)L(θ;X)取得最大值。即使得在出现观测值XXX的概率最大：
+L(θ;X)=p(X∣θ)=∑z∈Zp(X,Z∣θ)zL(\theta;X)=p(X|\theta)=\sum\limits_{z\in\mathcal{Z}}p(X,Z|\theta)z
+L(θ;X)=p(X∣θ)=z∈Z∑​p(X,Z∣θ)z
+算法核心
+由于不能直接得到隐变量θ\thetaθ的值，且随机变量ZZZ的分布情况也未知， ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA%E7%BB%AD%E9%9B%86/" title="矩阵理论续集"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B86.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="矩阵理论续集"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA%E7%BB%AD%E9%9B%86/" title="矩阵理论续集">矩阵理论续集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-15T10:13:01.000Z" title="发表于 2023-07-15 18:13:01">2023-07-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</a></span></div><div class="content">个人写作笔记，如有问题，请不吝赐教！
+目录如下：
+
+矩阵求导
+矩阵的迹
+
+定义
+性质
+微分性质
+
+
+矩阵的范数
+
+矩阵原生范数
+向量范数导出的矩阵范数
+矩阵范数的导数
+向量范数的导数
+常见矩阵导数表
+
+
+
+上一篇中矩阵迹、矩阵范数的导数部分还留白白斩斩的，这里补充一下。
+
+这里是上一篇的链接
+矩阵求导
+还差一个最普适的情况——“矩阵对矩阵求导”没有分析，这种情况在神经网络中貌似特别常见。这里对这种情况的公式进行证明，证明方法与证明列向量的方式是完全一样的，不同之处在于，列向量在证明第二项时可以提取公因式产生矩阵分块，而在矩阵对矩阵求导中，不会得到矩阵分块，只能是矩阵直积，具体过程如下。
+设矩阵 A∈Cm×l\mathbf{A}\in\mathbb{C}^{m\times l}A∈Cm×l，B∈Cl×n\mathbf{B}\in\mathbb{C}^{l\times n}B∈Cl×n，W∈Cp×q\mathbf{W}\in\mathbb{C}^{p\times q}W∈Cp×q，证明：
+dABdW=dAdW(B⊗Iq)+(A⊗Ip)dBdW\begin{align*}
+&amp;\fra ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" title="矩阵课程笔记"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B811.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="矩阵课程笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" title="矩阵课程笔记">矩阵课程笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-15T08:26:27.000Z" title="发表于 2023-07-15 16:26:27">2023-07-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</a></span></div><div class="content">个人写作笔记，如有问题，请不吝赐教！
+目录如下：
+
+矩阵之间的关系
+若当标准形
+
+矩阵多项式
+若当标准化
+凯莱-哈密顿定理
+
+
+矩阵分析应用
+
+矩阵函数
+矩阵的微积分
+
+定义
+
+矩阵函数对纯量求导
+纯量对向量的导数
+
+
+预备知识
+
+矩阵直积
+矩阵拉直
+
+
+复杂导数
+
+预备知识：矩阵直积
+矩阵对矩阵的导数
+
+
+求导运算法则
+
+矩阵对列向量求导
+向量对向量求导
+
+
+矩阵的全微分
+运算式证明
+
+
+
+
+
+矩阵之间的关系
+相抵：A,B∈Cm×n,A⋍B  ⟺  ∃U∈Cm×m,V∈Cn×n,s.t.B=UAV\mathbf{A},\mathbf{B}\in \mathbb{C}^{m\times n},\mathbf{A}\backsimeq\mathbf{B} \iff \exist \mathbf{U}\in \mathbb{C}^{m\times m}, \mathbf{V}\in \mathbb{C}^{n\times n},s.t.\quad \mathbf{ B=UAV}A,B∈Cm×n,A⋍B⟺∃U∈Cm×m,V∈Cn×n,s.t.B=UAV
+相似、合同变换都是一种相抵关系。
+正规 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/01/%E6%97%A5%E8%AE%B0/%E5%B0%8F%E5%88%9B%E6%84%8F%E6%B4%BB%E5%8A%A8%E6%B1%87%E6%80%BB/" title="小创意活动汇总"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="小创意活动汇总"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/01/%E6%97%A5%E8%AE%B0/%E5%B0%8F%E5%88%9B%E6%84%8F%E6%B4%BB%E5%8A%A8%E6%B1%87%E6%80%BB/" title="小创意活动汇总">小创意活动汇总</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-01-03T16:00:00.000Z" title="发表于 2024-01-04 00:00:00">2024-01-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></span></div><div class="content">目录
+
+前言
+
+必要条件
+
+
+某些小创意
+
+填空剧本
+
+衍生版填空
+花火版填空
+
+
+情景剧
+问答游戏
+
+
+
+前言
+党日活动半个月一次，频率真的高啊，我可不想办成干巴巴的念PPT大会，上一次的情景剧扮演给了我一个很好的启示，如果能够把所以的活动都办到那个境界，也确实很满意了。
+必要条件
+办好一个活动，既要达到教育的目的以应付上级任务，又要不耽搁自己和他人过于多的时间，还要有乐趣，这三者貌似就是一个矛盾结合体，首先要满足以下的定量指标：
+
+总时长最好不超过半个小时；
+尽量让全体与会人员都参与进来，不要有人被冷落；
+活动不能庸俗，不能与联欢会等活动重复，党日活动毕竟不是联欢会，要有一定的政治性和严肃性；
+道具尽量少，不要搞得太花哨了；
+能够让他们自己动脑筋最好，而不是主持人牵着鼻子走。
+
+能够达到以上的五个条件，就是一个比较好的，又有新意又绝对不落俗套的活动。
+某些小创意
+鉴于我玩过的这么多桌游，总是能找到一些好的点子的，不过难在将它们与党日要求结合。
+填空剧本
+最合适的场景是：知识竞赛；
+将全部成员分成两个对立的组（例如红军和国军），在某一特定的历史背景下，选定故事场景（保证不是真实的或者 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/10/%E6%97%A5%E8%AE%B0/%E7%A0%94%E7%A9%B6%E7%94%9F%E6%B4%BB/" title="研究生活"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B89.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="研究生活"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/%E6%97%A5%E8%AE%B0/%E7%A0%94%E7%A9%B6%E7%94%9F%E6%B4%BB/" title="研究生活">研究生活</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-07T16:00:00.000Z" title="发表于 2023-10-08 00:00:00">2023-10-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></span></div><div class="content">2023/10/8 大作业
+国庆节已经过完，最后的长假不情不愿地落下了帷幕。我必须面对看似凶险异常的研究生生活了，曾经许下的承诺每天读一篇文献，其实现在来看也一点没有做到（当然可以给自己找借口说：还没有定方向，但是没有定方向就意味着可以不学习吗？不然也）。在做第一个大作业的时候，我才意识到自己有多么头大，主要遇到了以下的问题：
+
+写报告发现讲事情讲不清楚，抽象能力不够，什么层次该写什么内容？顶层设计需不需要写技术细节？当然是不需要，但是下意识要混一点进去，造成了无处不综述，无处不技术的尴尬局面，以致于写到后面发现没东西可写了。
+工程问题和研究问题弄混了，工程问题是理论研究已经很充分了，在理论上证明了问题是可以解决的，才能在工程上去找路径；但是如果理论研究都没有透彻，就要把一个问题转化成工程问题进行研究，可能行得通（像古人那样凭经验和试错），但是大多数情况下是行不通的，切记不要觉得一个问题有趣就把它当作工程问题进行实践，大概率是没有结果的！
+
+2023/10/19 显卡之纠结
+从8月底开始陆陆续续一直在关注显卡啊电脑配件这些的价格，看了很久很久，平均每天要在这上面花费一个到两个小时的时间 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/11/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B411%E6%9C%88%E8%BF%9B%E5%B1%95/" title="23年11月进展"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B81.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="23年11月进展"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/11/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B411%E6%9C%88%E8%BF%9B%E5%B1%95/" title="23年11月进展">23年11月进展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-06T14:43:00.000Z" title="发表于 2023-11-06 22:43:00">2023-11-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</a></span></div><div class="content">第一篇文献
+11月6日
+文献名：A Differentiable Recurrent Surface for Asynchronous Event-Based Data
+arxiv
+解决的问题
+本文解决了使用事件流数据中，难以把握手工选定的事件描述在时间和空间相关性上的设计性，从而导致时空相关性缺失的问题。本文的目标是寻找一个参数化的映射M\mathcal{M}M，使事件数据尽可能地稠密集中，并保留时空关系，提出了一种使用可学习、数据驱动的事件描述方法。
+采用的方法
+基本思路
+对于某个给定的事件流，选定一定的时间间隔τ\tauτ，在该段时间间隔内，每个像素位置处均产生了一个事件顺序列，设计（或者生成）合理的特征集合，可以在每个像素位置上得到一个特征顺序列。然后，使用长短期记忆网络LSTM对每个像素位置处的特征顺序列进行异步处理，得到固定输出长度的输出向量，取定每个输出向量的最后一个有效元素作为当前位置的特征描述，整个图像上每个有事件位置的像素便可以得到当前时间段内的事件描述（是一个H×WH\times WH×W的矩阵），称为稠密曲面Dense Surface。
+核心方法
+本文设计的LS ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B811.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="扩散模型详解——DDIM"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM">扩散模型详解——DDIM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">扩散模型</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Diffusion/">Diffusion</a></span></div><div class="content">前言
+扩散模型DDPM的一个比较常用的变体，取消了DDPM所要求的扩散过程马尔可夫性质，转而引入更加一般意义上的扩散模型，因此是DDPM的更一般形式。其极大地减少了扩散过程的采样步数，从原理上提高了扩散模型的实用性，与LDM相比，DDIM的数学过程更加严格。
+Denoising Diffusion Implicit Model
+本文主要参考自论文[1]。简单地说，DDIM不限制模型一定是马尔可夫的，去噪过程中下一步的样本直接来自于上一步的样本，因此原理上可以实现对随机过程的去随机化，即扩散过程将成为某个固定取值的确定性过程，保证使用相同输入得到的生成结果是相同的，这一性质有助于提高生成式模型的结果稳健性和效率。
+优化目标
+DDIM与DDPM共享同一个目标函数，即最大化对数似然函数，其形式如下：
+arg min⁡θEq[−log⁡pθ(x0)]≥arg min⁡θEx0:T∼qσ(x0:T)[−log⁡pθ(x0:T)+log⁡qσ(x1:T∣x0)]\argmin_{\boldsymbol{\theta}}\mathbb{E}_q[-\log p_{\boldsymbol{\theta ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="this.onerror=null;this.src='/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E9%97%AE%E5%8F%B7.gif'" alt="avatar"/></div><div class="author-info__name">Tschen Böffee</div><div class="author-info__description">Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BugBubbles"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">白天研究生，晚上研究死</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hallo Welt!"/></a><div class="content"><a class="title" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!">Hallo Welt!</a><time datetime="2024-06-08T07:45:10.890Z" title="发表于 2024-06-08 15:45:10">2024-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像去雨系列方法汇总"/></a><div class="content"><a class="title" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总">图像去雨系列方法汇总</a><time datetime="2024-05-12T16:00:00.000Z" title="发表于 2024-05-13 00:00:00">2024-05-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="24年5月进展"/></a><div class="content"><a class="title" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展">24年5月进展</a><time datetime="2024-05-11T16:00:00.000Z" title="发表于 2024-05-12 00:00:00">2024-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B811.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="扩散模型详解——DDIM"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM">扩散模型详解——DDIM</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B84.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="条件扩散模型"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型">条件扩散模型</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/"><span class="card-category-list-name">光年实习</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">学习</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%90%9E%E6%9C%BA/"><span class="card-category-list-name">搞机</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">数学基础</span><span class="card-category-list-count">12</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"><span class="card-category-list-name">扩散模型</span><span class="card-category-list-count">3</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="card-category-list-name">日记</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"><span class="card-category-list-name">研究生</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/"><span class="card-category-list-name">细分领域</span><span class="card-category-list-count">4</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Torch/" style="font-size: 1.18em; color: #999ca1">Torch</a> <a href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96/" style="font-size: 1.42em; color: #99a6b7">最优化</a> <a href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/" style="font-size: 1.1em; color: #999">研究生</a> <a href="/tags/%E9%81%A5%E6%84%9F/" style="font-size: 1.1em; color: #999">遥感</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/" style="font-size: 1.34em; color: #99a3b0">数据工作</a> <a href="/tags/%E7%AE%97%E5%AD%90/" style="font-size: 1.1em; color: #999">算子</a> <a href="/tags/%E8%A3%85%E6%9C%BA/" style="font-size: 1.18em; color: #999ca1">装机</a> <a href="/tags/linux/" style="font-size: 1.26em; color: #999fa8">linux</a> <a href="/tags/%E6%A3%80%E6%B5%8B/" style="font-size: 1.1em; color: #999">检测</a> <a href="/tags/Gazebo/" style="font-size: 1.1em; color: #999">Gazebo</a> <a href="/tags/C/" style="font-size: 1.18em; color: #999ca1">C++</a> <a href="/tags/Butterfly/" style="font-size: 1.1em; color: #999">Butterfly</a> <a href="/tags/R-CNN/" style="font-size: 1.1em; color: #999">R-CNN</a> <a href="/tags/%E5%9B%9B%E5%85%83%E6%95%B0/" style="font-size: 1.1em; color: #999">四元数</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" style="font-size: 1.1em; color: #999">项目进展</a> <a href="/tags/VAE/" style="font-size: 1.1em; color: #999">VAE</a> <a href="/tags/SNN/" style="font-size: 1.18em; color: #999ca1">SNN</a> <a href="/tags/latex/" style="font-size: 1.18em; color: #999ca1">latex</a> <a href="/tags/Derain/" style="font-size: 1.1em; color: #999">Derain</a> <a href="/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/" style="font-size: 1.5em; color: #99a9bf">读文献进展</a> <a href="/tags/OCR%E6%B5%8B%E8%AF%95/" style="font-size: 1.18em; color: #999ca1">OCR测试</a> <a href="/tags/CUDA/" style="font-size: 1.26em; color: #999fa8">CUDA</a> <a href="/tags/gazebo/" style="font-size: 1.34em; color: #99a3b0">gazebo</a> <a href="/tags/Denoise/" style="font-size: 1.1em; color: #999">Denoise</a> <a href="/tags/ros/" style="font-size: 1.34em; color: #99a3b0">ros</a> <a href="/tags/YOLO/" style="font-size: 1.1em; color: #999">YOLO</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/Diffusion/" style="font-size: 1.26em; color: #999fa8">Diffusion</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" style="font-size: 1.1em; color: #999">机器视觉</a> <a href="/tags/verilog/" style="font-size: 1.1em; color: #999">verilog</a> <a href="/tags/zotero/" style="font-size: 1.18em; color: #999ca1">zotero</a> <a href="/tags/Google/" style="font-size: 1.1em; color: #999">Google</a> <a href="/tags/Docker/" style="font-size: 1.1em; color: #999">Docker</a> <a href="/tags/PX4/" style="font-size: 1.34em; color: #99a3b0">PX4</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1.18em; color: #999ca1">分布式</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA/" style="font-size: 1.1em; color: #999">事件相机</a> <a href="/tags/docker/" style="font-size: 1.1em; color: #999">docker</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">60</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-06-08T08:09:29.700Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Tschen Böffee</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

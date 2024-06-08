@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>基于gazebo的无人机事件相机探测 | Das Blog von BugBubbles</title><meta name="author" content="Tschen Böffee"><meta name="copyright" content="Tschen Böffee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="仿真配置 仿真环境基于Gazebo引擎，在ROS系统下配置，使用PX4飞控拓展和XTDrone无人机，首先请参照以下方式完成环境构建： 环境安装 与ros安装与使用心得相同，安装ROS和PX4，然后安装Gazebo。推荐在docker容器中安装以保护系统环境，可参考博客。然后在构建容器前，注意为容器开启GPU的支持和图形界面支持，请仔细参考上述博客。这里提供一个拉取自ros官方的镜像ros:noe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于gazebo的无人机事件相机探测">
+<meta property="og:url" content="http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E5%9F%BA%E4%BA%8Egazebo%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%8E%A2%E6%B5%8B/index.html">
+<meta property="og:site_name" content="Das Blog von BugBubbles">
+<meta property="og:description" content="仿真配置 仿真环境基于Gazebo引擎，在ROS系统下配置，使用PX4飞控拓展和XTDrone无人机，首先请参照以下方式完成环境构建： 环境安装 与ros安装与使用心得相同，安装ROS和PX4，然后安装Gazebo。推荐在docker容器中安装以保护系统环境，可参考博客。然后在构建容器前，注意为容器开启GPU的支持和图形界面支持，请仔细参考上述博客。这里提供一个拉取自ros官方的镜像ros:noe">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B80.jpg">
+<meta property="article:published_time" content="2024-04-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-08T07:45:11.020Z">
+<meta property="article:author" content="Tschen Böffee">
+<meta property="article:tag" content="PX4">
+<meta property="article:tag" content="ros">
+<meta property="article:tag" content="gazebo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B80.jpg"><link rel="shortcut icon" href="/img/%E7%BB%BF%E5%8F%B6.png"><link rel="canonical" href="http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E5%9F%BA%E4%BA%8Egazebo%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%8E%A2%E6%B5%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":160,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '基于gazebo的无人机事件相机探测',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-08 15:45:11'
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', () => { preloader.initLoading() }, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', () => { preloader.endLoading() }, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="onerror=null;src='/img/猫猫虫，问号.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B80.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Das Blog von BugBubbles"><span class="site-name">Das Blog von BugBubbles</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">基于gazebo的无人机事件相机探测</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-07T16:00:00.000Z" title="发表于 2024-04-08 00:00:00">2024-04-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-08T07:45:11.020Z" title="更新于 2024-06-08 15:45:11">2024-06-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/">陨石坑</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="基于gazebo的无人机事件相机探测"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>仿真配置</h1>
+<p>仿真环境基于Gazebo引擎，在ROS系统下配置，使用PX4飞控拓展和XTDrone无人机，首先请参照以下方式完成环境构建：</p>
+<h2 id="环境安装">环境安装</h2>
+<p>与<a href="/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/ros%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/">ros安装与使用心得</a>相同，安装ROS和PX4，然后安装Gazebo。推荐在docker容器中安装以保护系统环境，可参考<a target="_blank" rel="noopener" href="https://www.yuque.com/xtdrone/manual_cn/docker">博客</a>。然后在构建容器前，注意为容器开启GPU的支持和图形界面支持，请仔细参考上述博客。这里提供一个拉取自ros官方的镜像<code>ros:noetic</code>，使用其构建了一个自定义的镜像，如下所示：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ros:noetic</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&quot;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse&quot;</span> &gt; /etc/apt/sources.list</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&quot;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse&quot;</span> &gt;&gt; /etc/apt/sources.list</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&quot;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse&quot;</span> &gt;&gt; /etc/apt/sources.list</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&quot;deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse&quot;</span> &gt;&gt; /etc/apt/sources.list</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update &amp;&amp; apt upgrade -y &amp;&amp; apt install curl -y</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> sudo sh -c <span class="string">&#x27;. /etc/lsb-release &amp;&amp; echo &quot;deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#x27;</span></span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update &amp;&amp; apt upgrade -y &amp;&amp; apt install git wget ninja-build exiftool ninja-build protobuf-compiler libeigen3-dev genromfs xmlstarlet libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev python3-pip gawk -y</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update &amp;&amp; apt upgrade -y</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">mkdir</span> -p /etc/ros/rosdep/sources.list.d/</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> curl -o /etc/ros/rosdep/sources.list.d/20-default.list https://mirrors.tuna.tsinghua.edu.cn/github-raw/ros/rosdistro/master/rosdep/sources.list.d/20-default.list</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> useradd -m docker</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> usermod -aG sudo docker</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&quot;docker:123456&quot;</span> | chpasswd</span></span><br><span class="line"><span class="keyword">USER</span> docker</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&#x27;export ROSDISTRO_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/rosdistro/index-v4.yaml&#x27;</span> &gt;&gt; ~/.bashrc</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&#x27;source /opt/ros/noetic/setup.bash&#x27;</span> &gt;&gt; ~/.bashrc</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip config <span class="built_in">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> pip3 install packaging numpy empy toml pyyaml jinja2 pyargparse kconfiglib jsonschema future</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /home/docker</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;/bin/bash&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+<p>推荐在数据盘中下载XTDrone和PX4相关文件以节省系统空间，使用以下命令构建容器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it --privileged --gpus all -e NVIDIA_DRIVER_CAPABILITIES=all -v ~/src/PX4-Autopilot:/src/PX4-Autopilot:rw  -v /tmp/.X11-unix:/tmp/.X11-unix   -e DISPLAY  --network=host --name=p2 ros/noetic bash</span><br></pre></td></tr></table></figure>
+<p>然后在容器中安装gazebo，并增加以下环境变量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> ROSDISTRO_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/rosdistro/index-v4.yaml</span><br><span class="line"><span class="built_in">source</span> /opt/ros/noetic/setup.bash</span><br><span class="line"><span class="built_in">export</span> PATH=/home/docker/squashfs-root:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">source</span> /src/PX4_Autopilot/Tools/setup_gazebo.bash /src/PX4_Autopilot/ /src/PX4_Autopilot/build/px4_sitl_default</span><br><span class="line"><span class="built_in">export</span> ROS_PACKAGE_PATH=<span class="variable">$ROS_PACKAGE_PATH</span>:/src/PX4_Autopilot</span><br><span class="line"><span class="built_in">export</span> ROS_PACKAGE_PATH=<span class="variable">$ROS_PACKAGE_PATH</span>:/src/PX4_Autopilot/Tools/sitl_gazebo</span><br><span class="line"><span class="built_in">export</span> GAZEBO_MODEL_PATH=<span class="variable">$GAZEBO_MODEL_PATH</span>:~/.gazebo/models</span><br></pre></td></tr></table></figure>
+<p>待gazebo、px4和ros都安装完毕后，容器中可以使用<code>roslaunch</code>命令检查安装情况。</p>
+<h2 id="构建传感器插件">构建传感器插件</h2>
+<p>ROS系统的一切插件都是使用<code>sdf</code>描述语言完成的，这里，构建的传感器需要包括普通光学相机、惯性传感器IMU，另外就是重要部分事件相机。我并没有完全弄明白传感器的继承关系，所以现在只能使用传感器的订阅与推送机制完成事件相机的仿真输出。首先，在PX4的根目录下，找到<code>./Tools/sitl_gazebo/models</code>文件夹，该文件夹下存放了所有的<code>gazebo</code>自带的模型，用户自定义的模型可以放在<code>~/.gazebo/models</code>目录下，也可以放在自带的模型目录下。在<code>sdf</code>文件中使用<code>model://</code>路径，即指代的是<code>$&#123;PX4_ROOT&#125;/Tools/sitl_gazebo/models</code>目录下的模型。</p>
+<ol>
+<li>在<code>~/.gazebo/models</code>目录下创建一个新的模型文件夹，命名为<code>event_camera</code>，在其中创建一个<code>model.sdf</code>文件和’model.config’文件，文件夹的结构如下：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">event_camera</span><br><span class="line">├── model.config</span><br><span class="line">└── model.sdf</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在<code>model.config</code>文件中填写如下内容，这一部分主要是描述性质的内容，不影响模型的正常使用：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">model</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>event_camera<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">sdf</span>&gt;</span>model.sdf<span class="tag">&lt;/<span class="name">sdf</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Your name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span></span><br><span class="line">    A simple event camera model</span><br><span class="line">  <span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">model</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>在<code>model.sdf</code>文件中填写如下内容：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sdf</span> <span class="attr">version</span>=<span class="string">&#x27;1.7&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">model</span> <span class="attr">name</span>=<span class="string">&#x27;event_camera&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pose</span>&gt;</span>0 0 0 0 0 0<span class="tag">&lt;/<span class="name">pose</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">link</span> <span class="attr">name</span>=<span class="string">&quot;link&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">inertial</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">mass</span>&gt;</span>0.015<span class="tag">&lt;/<span class="name">mass</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">inertia</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ixx</span>&gt;</span>4.15e-6<span class="tag">&lt;/<span class="name">ixx</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">ixy</span>&gt;</span>0<span class="tag">&lt;/<span class="name">ixy</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">ixz</span>&gt;</span>0<span class="tag">&lt;/<span class="name">ixz</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">iyy</span>&gt;</span>2.407e-6<span class="tag">&lt;/<span class="name">iyy</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">iyz</span>&gt;</span>0<span class="tag">&lt;/<span class="name">iyz</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">izz</span>&gt;</span>2.407e-6<span class="tag">&lt;/<span class="name">izz</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">inertia</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">inertial</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">collision</span> <span class="attr">name</span>=<span class="string">&#x27;collision&#x27;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">geometry</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">box</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">size</span>&gt;</span>0.01 0.01 0.01<span class="tag">&lt;/<span class="name">size</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">box</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">geometry</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">max_contacts</span>&gt;</span>10<span class="tag">&lt;/<span class="name">max_contacts</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">surface</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">contact</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">ode</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">contact</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bounce</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">friction</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">ode</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">friction</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">surface</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">collision</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">visual</span> <span class="attr">name</span>=<span class="string">&#x27;visual&#x27;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">geometry</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">box</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">size</span>&gt;</span>0.01 0.01 0.01<span class="tag">&lt;/<span class="name">size</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">box</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">geometry</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">visual</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">sensor</span> <span class="attr">name</span>=<span class="string">&#x27;camera&#x27;</span> <span class="attr">type</span>=<span class="string">&#x27;camera&#x27;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">camera</span> <span class="attr">name</span>=<span class="string">&#x27;__default__&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">horizontal_fov</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">horizontal_fov</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">image</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">width</span>&gt;</span>128<span class="tag">&lt;/<span class="name">width</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">height</span>&gt;</span>128<span class="tag">&lt;/<span class="name">height</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">image</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">clip</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">near</span>&gt;</span>0.1<span class="tag">&lt;/<span class="name">near</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">far</span>&gt;</span>100<span class="tag">&lt;/<span class="name">far</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">clip</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">camera</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">always_on</span>&gt;</span>1<span class="tag">&lt;/<span class="name">always_on</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">update_rate</span>&gt;</span>400<span class="tag">&lt;/<span class="name">update_rate</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">visualize</span>&gt;</span>1<span class="tag">&lt;/<span class="name">visualize</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span> <span class="attr">name</span>=<span class="string">&#x27;camera_controller&#x27;</span> <span class="attr">filename</span>=<span class="string">&#x27;libgazebo_dvs_plugin.so&#x27;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">sensorName</span>&gt;</span>dvs<span class="tag">&lt;/<span class="name">sensorName</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">robotNamespace</span>&gt;</span>/<span class="tag">&lt;/<span class="name">robotNamespace</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">eventThreshold</span>&gt;</span>20<span class="tag">&lt;/<span class="name">eventThreshold</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">eventsTopicName</span>&gt;</span>events<span class="tag">&lt;/<span class="name">eventsTopicName</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">imageTopicName</span>&gt;</span>image_raw<span class="tag">&lt;/<span class="name">imageTopicName</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">cameraInfoTopicName</span>&gt;</span>camera_info<span class="tag">&lt;/<span class="name">cameraInfoTopicName</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">sensor</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">self_collide</span>&gt;</span>0<span class="tag">&lt;/<span class="name">self_collide</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">kinematic</span>&gt;</span>0<span class="tag">&lt;/<span class="name">kinematic</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">link</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">model</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">sdf</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>说明：<code>libgazebo_dvs_plugin.so</code>动态链接库是后面将要编写的事件相机插件，在<code>&lt;plugin&gt;</code>字段中定义的全部变量，可以与插件进行交互，后续在软件工程的目录中说明，其余字段是定义事件相机的参数模型。</p>
+<p>然后，回到用户目录下<code>cd ~</code>，使用ROS指令创建工作空间（如果有了就不用创建了）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/catkin_ws/src</span><br><span class="line"><span class="built_in">cd</span> ~/catkin_ws/src</span><br><span class="line">catkin_init_workspace</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+<p>可将工作空间的环境变量添加到<code>~/.bashrc</code>文件中，以便每次启动终端时自动加载：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/catkin_ws/devel/setup.bash</span><br></pre></td></tr></table></figure>
+<p>然后来到<code>catkin_ws/src</code>目录下，创建一个新的包，命名为<code>gazebo_dvs_plugin</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">catkin_create_pkg gazebo_dvs_plugin rpg_dvs_ros std_msgs sensor_msgs roscpp</span><br></pre></td></tr></table></figure>
+<p>指令将自动查找并安装对应的模块包，但是，<code>rpg_dvs_ros</code>包是瑞士ETH研究团队开发的DVS驱动库，不一定能够自动安装，需要手动安装，可前往其<a target="_blank" rel="noopener" href="https://github.com/uzh-rpg/rpg_dvs_ros.git">github</a>，根据其安装说明完成安装，在安装过程中，库<code>libcaer-dev</code>可能会报错找不到目录，此时，需要在github上查找该库（也是同一团队开发）并将其克隆至<code>src</code>目录下，再使用编译指令<code>catkin build</code>完成编译安装。</p>
+<p>然后，请直接克隆如下地址的插件项目，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws/src</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:BugBubbles/gazebo_dvs_plugin.git</span><br><span class="line">catkin build</span><br></pre></td></tr></table></figure>
+<p>完成插件的构建，此时将在本地目录<code>~/catkin_ws/devel/lib</code>中生成一个<code>libgazebo_dvs_plugin.so</code>的动态链接库文件，该文件就是gazebo仿真器将要调用的插件接口。仿真环境的构建将在下一章中提出。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/PX4/">PX4</a><a class="post-meta__tags" href="/tags/ros/">ros</a><a class="post-meta__tags" href="/tags/gazebo/">gazebo</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/04/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B44%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年4月进展"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B84.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">24年4月进展</div></div></a></div><div class="next-post pull-right"><a href="/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/ros%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" title="ros安装与使用心得"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ros安装与使用心得</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/ros%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" title="ros安装与使用心得"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-02</div><div class="title">ros安装与使用心得</div></div></a></div><div><a href="/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%8F%92%E4%BB%B6/" title="自动化数据采集插件"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B811.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-18</div><div class="title">自动化数据采集插件</div></div></a></div><div><a href="/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E8%A1%A8%E9%9D%A2%E4%B8%89%E7%BB%B4%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/" title="月球表面三维环境构建"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E8%A1%A8%E9%9D%A2%E4%B8%89%E7%BB%B4%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/%E6%95%B4%E4%BD%93%E6%8E%A7%E5%88%B6%E4%B8%8E%E4%BF%A1%E5%8F%B7%E9%87%87%E9%9B%86%E5%8F%AF%E8%A7%86%E5%8C%96%E7%95%8C%E9%9D%A2.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-18</div><div class="title">月球表面三维环境构建</div></div></a></div><div><a href="/2024/04/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Docker%E5%AE%89%E8%A3%85PX4-Gazebo%E4%BB%BF%E7%9C%9F%E5%BF%83%E5%BE%97/" title="Docker安装PX4+Gazebo安装与仿真心得"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-04-02</div><div class="title">Docker安装PX4+Gazebo安装与仿真心得</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="this.onerror=null;this.src='/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E9%97%AE%E5%8F%B7.gif'" alt="avatar"/></div><div class="author-info__name">Tschen Böffee</div><div class="author-info__description">Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BugBubbles"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">白天研究生，晚上研究死</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">仿真配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">环境安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E4%BC%A0%E6%84%9F%E5%99%A8%E6%8F%92%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">构建传感器插件</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hallo Welt!"/></a><div class="content"><a class="title" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!">Hallo Welt!</a><time datetime="2024-06-08T07:45:10.890Z" title="发表于 2024-06-08 15:45:10">2024-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像去雨系列方法汇总"/></a><div class="content"><a class="title" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总">图像去雨系列方法汇总</a><time datetime="2024-05-12T16:00:00.000Z" title="发表于 2024-05-13 00:00:00">2024-05-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="24年5月进展"/></a><div class="content"><a class="title" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展">24年5月进展</a><time datetime="2024-05-11T16:00:00.000Z" title="发表于 2024-05-12 00:00:00">2024-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B811.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="扩散模型详解——DDIM"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM">扩散模型详解——DDIM</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B84.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="条件扩散模型"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型">条件扩散模型</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Tschen Böffee</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const loadUtterances = () => {
+    let ele = document.createElement('script')
+    ele.id = 'utterances_comment'
+    ele.src = 'https://utteranc.es/client.js'
+    ele.setAttribute('repo', 'BugBubbles/BlogTalk')
+    ele.setAttribute('issue-term', 'title')
+    const nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    ele.setAttribute('theme', nowTheme)
+    ele.crossOrigin = 'anonymous'
+    ele.async = true
+    document.getElementById('utterances-wrap').appendChild(ele)
+  }
+
+  const utterancesTheme = theme => {
+    const iframe = document.querySelector('.utterances-frame')
+    if (iframe) {
+      const theme = theme === 'dark' ? 'photon-dark' : 'github-light'
+      const message = {
+        type: 'set-theme',
+        theme: theme
+      };
+      iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+  }
+
+  btf.addGlobalFn('themeChange', utterancesTheme, 'utterances')
+
+  if ('Utterances' === 'Utterances' || !true) {
+    if (true) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+    else loadUtterances()
+  } else {
+    window.loadOtherComment = loadUtterances
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

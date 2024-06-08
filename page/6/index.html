@@ -1,0 +1,410 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Das Blog von BugBubbles - 科研民工</title><meta name="author" content="Tschen Böffee"><meta name="copyright" content="Tschen Böffee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Das Blog von BugBubbles">
+<meta property="og:url" content="http://bugbubbles.github.io/page/6/index.html">
+<meta property="og:site_name" content="Das Blog von BugBubbles">
+<meta property="og:description" content="Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif">
+<meta property="article:author" content="Tschen Böffee">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://bugbubbles.github.io/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif"><link rel="shortcut icon" href="/img/%E7%BB%BF%E5%8F%B6.png"><link rel="canonical" href="http://bugbubbles.github.io/page/6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":160,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Das Blog von BugBubbles',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-06-08 16:09:30'
+}</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', () => { preloader.initLoading() }, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', () => { preloader.endLoading() }, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="onerror=null;src='/img/猫猫虫，问号.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/homepage.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Das Blog von BugBubbles"><span class="site-name">Das Blog von BugBubbles</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Das Blog von BugBubbles</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2023/10/SNN%E7%9B%B8%E5%85%B3/SNN%E5%88%9D%E8%A7%81/" title="SNN初见"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B80.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SNN初见"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/SNN%E7%9B%B8%E5%85%B3/SNN%E5%88%9D%E8%A7%81/" title="SNN初见">SNN初见</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-17T08:04:43.000Z" title="发表于 2023-10-17 16:04:43">2023-10-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/SNN/">SNN</a></span></div><div class="content">前言
+事不宜迟，看完的文献总是浅尝辄止，没有总结吸收，还不是自己的东西。积土成山，风雨兴焉！
+脉冲
+神经元之间通过神经冲动传递信号，脉冲是神经冲动的数学模型。在时域上一连串脉冲组成的冲激函数串称为脉冲序列或者脉冲串spike train[1]。
+脉冲序列
+通常以冲激函数串表示脉冲序列，则在不同时间处的脉冲组成的脉冲串记为A=∑i=0∞δ(t−ti)A=\sum\limits_{i=0}^{\infty}\delta(t-t_i)A=i=0∑∞​δ(t−ti​)。
+脉冲序列的描述
+表征脉冲序列的物理量是活动频率firing rate，缩写为FR，其原始定义为单位时间内的脉冲数目，即：
+FR(t)=lim⁡Δt→0N(t,t+Δt)Δt\mathrm{FR}(t)=\lim\limits_{\Delta t\rightarrow 0}\frac{N(t,t+\Delta t)}{\Delta t}
+FR(t)=Δt→0lim​ΔtN(t,t+Δt)​
+这一定义式仅具有理论意义，不具有工程实践的价值，因此常用单位时间内的脉冲频率表示FR，在大量样本数据情况下，脉冲频率近似等于脉冲概率，即：
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/11/SNN%E7%9B%B8%E5%85%B3/%E7%8E%B0%E6%9C%89%E8%84%89%E5%86%B2%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6/" title="现有脉冲网络框架"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="现有脉冲网络框架"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/11/SNN%E7%9B%B8%E5%85%B3/%E7%8E%B0%E6%9C%89%E8%84%89%E5%86%B2%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6/" title="现有脉冲网络框架">现有脉冲网络框架</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-20T16:00:00.000Z" title="发表于 2023-11-21 00:00:00">2023-11-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/SNN/">SNN</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</a></span></div><div class="content">前言
+脉冲神经网络不像深度神经网络那样，有非常成熟的训练框架如torch，tensorflow或者国内如oneflow，paddle等，在不带其他依赖包的前提下可以完成独立训练、推理以至部署。本博客的目的在于，收集整理现有的全部脉冲神经网络（说是全部其实言过其实，我压根就没看过几篇），从这些网络的搭建中学习设计思想，运用这部分网络完成自己的研究工作，或是为将来的框架发展做出自己的贡献。
+目录
+
+SLAYER框架
+
+Version 1
+
+
+
+SLAYER框架
+由新加坡国立大学Garrick Orchard团队设计搭建的脉冲神经网络，目前已经迭代两个版本，首先介绍版本1。
+Version 1
+本框架的基本原理是：使用替代梯度完成对脉冲网络的训练。文献名：SLAYER: Spike Layer Error Reassignment in Time
+神经元模型
+本文选用的脉冲神经元模型是脉冲响应模型Spike Response Model(SRM)，其核心的数学表达式为：输入至膜上的电位脉冲ai(t)a_i(t)ai​(t)等于输入脉冲si(t)s_i(t)si​(t)与膜响应函数ε(t)\v ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/5-6T%E6%9D%82%E9%A1%B9%E6%96%87%E4%BB%B6/" title="5.6T杂项文件"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B86.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="5.6T杂项文件"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/5-6T%E6%9D%82%E9%A1%B9%E6%96%87%E4%BB%B6/" title="5.6T杂项文件">5.6T杂项文件</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-30T13:23:08.000Z" title="发表于 2023-07-30 21:23:08">2023-07-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/">数据工作</a></span></div><div class="content">公众号推文
+5.6T原始数据目录为/mnt/cos/cos_shanghai_2/raw_datasets/mt/ 和/mnt/cos/cos_shanghai_2/raw_datasets/mt/p3/p1 ，均为月份标号，覆盖了从2021年11月起至2023年1月止的大量公众号、视频号推送文章，对该数据集的解压和清洗结果在以下链接中。
+5.6T数据解压
+taobao
+目录路径 /mnt/cos/cos_shanghai_2/raw_datasets/mt/taobao
+目录文件类型
+含有极多子文件夹，且不同的子文件夹内装有的文件类型也不同，下表是全部子文件夹中，装有的全部类型的文件数量和文件大小，没标明的文件大小在5M以下。
+
+
+
+后缀名
+数量
+备注
+文件总大小
+
+
+
+
+pdf
+38139+60
+PDF（60个）
+117.2G+188M
+
+
+rar
+250
+大部分是PPT和PPT模板文件，一定数量是pdf
+69G
+
+
+zip
+117
+大部分是pdf，夹杂有少量其他类型的文件，主要是券商的报告和医学、社会科学论文报告等
+497G
+
+
+ppt
+90
+
+104M
+
+
+pptx
+36
+
+2 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Docx%E4%B9%A0%E9%A2%98%E9%9B%86/" title="Docx习题集"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B89.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Docx习题集"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Docx%E4%B9%A0%E9%A2%98%E9%9B%86/" title="Docx习题集">Docx习题集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-30T13:44:11.000Z" title="发表于 2023-07-30 21:44:11">2023-07-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/">数据工作</a></span></div><div class="content">90万道小学语数外、初高中语数外政史地理化生共21科习题。
+题库输出
+处理完毕的题目存放于根目录/dataset_goosefs/cos_shanghai_2/ready_datasets/zh2/shiti/output 将根据处理框架的更新情况刷新题目：
+
+20230722更新：/dataset_goosefs/cos_shanghai_2/ready_datasets/zh2/shiti/output/20230722
+
+
+习题总体情况
+
+习题含图片约占30%，共计32万道左右，包括题干有图片、选项有图片、解答有图片（公式以图片表述、比较少用的数学符号以图片插入），这部分完全不能解析；
+习题含公式约占20%，这部分不含图片，能使用脚本或者Pandoc软件解析；
+选择题（单道选择题约占总数60%，多道选择题约占总数20%），填空题约占10%，简答题和作文题共计占10%，总共能用的题目约61万道。
+目前尚未发现不能转换的docx格式，仅转换了所有习题中的docx文件，未转换doc格式的文件（占比小于5%，转换较为复杂，尚未研究明白）。
+
+习题转换项目
+
+将docx直接转换为格式化的h ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Google-Coding%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E9%9B%86/" title="Google Coding代码数据集"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B81.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Google Coding代码数据集"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Google-Coding%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E9%9B%86/" title="Google Coding代码数据集">Google Coding代码数据集</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-30T13:26:21.000Z" title="发表于 2023-07-30 21:26:21">2023-07-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/">数据工作</a></span></div><div class="content">数据集文件存储位置
+/mnt/cos/cos_shanghai_1/raw_datasets/google_coding
+解压缩并提取数据库文件后的数据集文件存储位置如下：
+/mnt/cos/cos_shanghai_1/raw_datasets/google_coding/google_coding_unzip
+数据集文件schema
+每个文件夹中有两个数据库文件raw_data.sqlar和solutions.sqlar，其余为样例数据和测试数据。其中每个数据库文件的存储格式如下，
+1234567CREATE TABLE sqlar(  name TEXT PRIMARY KEY,  -- name of the file  mode INT,               -- access permissions  mtime INT,              -- last modification time  sz INT,                 -- original file size  data BLOB               -- compresse ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/MNBVC%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9D%A5%E6%BA%90%E6%B1%87%E6%80%BB/" title="MNBVC数据集来源汇总"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B87.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MNBVC数据集来源汇总"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/MNBVC%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9D%A5%E6%BA%90%E6%B1%87%E6%80%BB/" title="MNBVC数据集来源汇总">MNBVC数据集来源汇总</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-30T13:42:58.000Z" title="发表于 2023-07-30 21:42:58">2023-07-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/">数据工作</a></span></div><div class="content">本汇总来自于本汇总来自于MNBVC数据文件下，含有links.txt文件的文件夹的hugging face、悟道和oscar数据集
+
+hugging face数据集：约4GB
+
+https://huggingface.co/datasets/miracl/miracl-corpus
+https://huggingface.co/datasets/wangrui6/Zhihu-KOL
+
+
+OSCAR数据集：约30G
+
+https://huggingface.co/datasets/oscar-corpus/OSCAR-2201
+
+
+悟道数据集：约1.9GB
+
+北京智源人工智能研究院 (baai.ac.cn)
+
+
+
+本汇总来自于MNBVC数据文件下，含有links.txt文件的文件夹，去除了来自hugging face、悟道和oscar数据集
+
+北理工张华平实验室数据集：共有约3.5GB
+
+http://www.nlpir.org/wordpress/2017/07/13/nlpir新闻语料库-2400万字/
+http://www.nlpir.org/wordpress/2017/10/0 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E7%99%BE%E5%BA%A6%E4%BA%91OCR%E6%B5%8B%E8%AF%95/" title="百度云OCR测试"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="百度云OCR测试"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E7%99%BE%E5%BA%A6%E4%BA%91OCR%E6%B5%8B%E8%AF%95/" title="百度云OCR测试">百度云OCR测试</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-30T13:15:45.000Z" title="发表于 2023-07-30 21:15:45">2023-07-30</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/OCR%E6%B5%8B%E8%AF%95/">OCR测试</a></span></div><div class="content">百度云OCR介绍
+Untitled
+办公文档识别接口：https://ai.baidu.com/tech/ocr/doc_analysis_office
+接口调用说明: https://ai.baidu.com/ai-doc/OCR/ykg9c09ji
+重点关心正文提取能力：版面分析+文字识别能力。
+中文和繁体中文
+测试case覆盖：包含多栏、公式、页眉页脚、图片/表格等复杂版面。
+评价标准：版面检测准确率，文字识别准确率。
+
+测试结果：
+
+
+注音文本
+版面检测：较为准确，图片全部识别，正文文本类型全部正确检测，标题误判定为正文。
+侧栏页码检测位置置于文本内
+
+
+文字识别准确率：中文文本全部识别正确，极个别注音字符识别错误，总体准确率99%以上。
+
+
+
+中文期刊文章
+版面检测：能正确检测标题、页眉、脚注、页码等信息，正文检测正确，对于期刊这种高度格式化的文本图像，检测效果很好。
+
+文本识别：上标识别出错，其余文字识别正确，正文文本识别正确率99%以上。
+
+
+
+两栏文本
+版面检测：能正确检测出页眉和小标题，能检测出两栏文本但是没有将其按栏分开，而是两栏交错地放在一起，不能检测出数学公式。 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/10/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%9C%80%E6%96%B0%E8%BF%9B%E5%B1%95/" title="事件相机应用最新进展"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B87.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="事件相机应用最新进展"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/10/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%9C%80%E6%96%B0%E8%BF%9B%E5%B1%95/" title="事件相机应用最新进展">事件相机应用最新进展</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-20T08:04:43.000Z" title="发表于 2023-10-20 16:04:43">2023-10-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/">细分领域</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA/">事件相机</a></span></div><div class="content">前言
+江老师既然已经给定了选题，咱也不要犹豫了，犹豫就会败北，赶快开始准备综述材料和积累与运用吧！
+在写作每周的综述报告时，虽然老师没有要求，自己还是要严格对待，至少要包括这些内容：主要看了什么内容，用一句话概括一下。技术应用型论文，侧重介绍方法和实施手段，特别是算法设计上。理论研究型论文，侧重介绍理论推导和关键技巧。
+两种论文，都要以能够找出其不足和缺点作为论文阅读的终极目标，当然也不需要按图索骥，慢慢积累，水到自然渠成。可惜分身乏术，不然还能分个身出来复现一下它们的算法和结果，如果能做到那就实在是太厉害了。
+2023/10/23 当周进展
+本周论文概览
+本周一共看了6篇文献，其中4篇都是同一个类型（讲STDP生理学基础的）所以归作一篇文献，另外两篇是事件相机在无人机领域的应用，两篇都是避障，第一篇是动态避障，另一篇是静态避障，两篇都用了YOLO检测模型。
+第一篇文献
+文献名：基于动态视觉传感器的无人机目标检测与避障
+北航学报
+解决的问题
+无人机在动态和静态两种情况下检测出篮球并实施躲避。
+采用的方法
+事实上是多传感器融合，如下图：
+
+有关事件相机的处理时，采取的方法实际上选用事件图 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/12/%E6%97%A5%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/" title="终于考完了"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B86.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="终于考完了"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/12/%E6%97%A5%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/" title="终于考完了">终于考完了</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-12-28T07:45:13.000Z" title="发表于 2022-12-28 15:45:13">2022-12-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></span></div><div class="content">考试结束
+12月27号，本科期间的最后一堂考试缓缓落下帷幕，没想到居然是一门闭卷考试。考试科目《制导与控制》是仪器专业的特色课程，全程讲的是坐标系变换和姿态控制，令人眼花缭乱的变换矩阵，花里胡哨的矢量运算，学的时候是一点也没有学明白，但是复习完了感觉，跟《惯性器件原理》一样，都还是能有收获的。至少再次温习了一波坐标系变换的公式。
+
+令人喜悦的latex模板
+另一个很棒的收获是，终于搭出了一个属于我的latex模板，可惜搭得太晚了，最后两次大作业总算也是派上了用场。非常推荐里面的tikz宏包，画出来的矢量图确实很好看，修改起来也比我以前一直用的ppt要方便许多，不过也是一贯的跟latex一样的德性，上手门槛过于高，弄明白这个环境都费了好久
+Deutsch的瓶颈
+自从还在学校的11月中旬起，就因为封校的原因不再学习过德语的语法，仅仅保持着每天背单词的习惯。现在背到这里，光看单词意思还是知道，但是始终看不懂一个完整的句子，自己也不能利用学到的单词造句。学习到这里也快进入瓶颈了，怎么得也要会造句子呢，哪怕是极其不地道也行呢，正语序反语序，倒底什么时候该用什么语序，始终没有弄清楚过，这个问题还有 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!"><img class="post-bg" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hallo Welt!"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!">Hallo Welt!</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-08T07:45:10.890Z" title="发表于 2024-06-08 15:45:10">2024-06-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></span></div><div class="content">这是某位小白的第一篇githubio的博客，不得不说确实是被这个博客美观的造型吸引过来了。
+初步计划的博客内容安排
+
+
+
+项目
+内容
+时间规划
+更新频率
+备注
+
+
+
+
+日记部分
+想写啥写啥
+近期
+随机
+
+
+
+德语学习
+学习的语法知识
+12月20号以后
+每周一更
+
+
+
+事件相机
+主要是事件相机图像检测算法
+期末考试以后
+争取每周一更
+
+
+
+
+==flag一般立起来就是准备倒的，希望都能做到🙏==
+当然当务之急还是先学习学习如何搭建一个美观的博客，毕竟作为强迫症晚期患者，一个不漂亮的界面实在是令人发指。
+</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="this.onerror=null;this.src='/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E9%97%AE%E5%8F%B7.gif'" alt="avatar"/></div><div class="author-info__name">Tschen Böffee</div><div class="author-info__description">Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BugBubbles"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">白天研究生，晚上研究死</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B82.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hallo Welt!"/></a><div class="content"><a class="title" href="/2024/06/%E6%97%A5%E8%AE%B0/hello-world/" title="Hallo Welt!">Hallo Welt!</a><time datetime="2024-06-08T07:45:10.890Z" title="发表于 2024-06-08 15:45:10">2024-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="图像去雨系列方法汇总"/></a><div class="content"><a class="title" href="/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/" title="图像去雨系列方法汇总">图像去雨系列方法汇总</a><time datetime="2024-05-12T16:00:00.000Z" title="发表于 2024-05-13 00:00:00">2024-05-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="24年5月进展"/></a><div class="content"><a class="title" href="/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/" title="24年5月进展">24年5月进展</a><time datetime="2024-05-11T16:00:00.000Z" title="发表于 2024-05-12 00:00:00">2024-05-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B811.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="扩散模型详解——DDIM"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDIM/" title="扩散模型详解——DDIM">扩散模型详解——DDIM</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B84.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="条件扩散模型"/></a><div class="content"><a class="title" href="/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" title="条件扩散模型">条件扩散模型</a><time datetime="2024-05-07T16:00:00.000Z" title="发表于 2024-05-08 00:00:00">2024-05-08</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/"><span class="card-category-list-name">光年实习</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">学习</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%90%9E%E6%9C%BA/"><span class="card-category-list-name">搞机</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">数学基础</span><span class="card-category-list-count">12</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"><span class="card-category-list-name">扩散模型</span><span class="card-category-list-count">3</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/"><span class="card-category-list-name">日记</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"><span class="card-category-list-name">研究生</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/"><span class="card-category-list-name">细分领域</span><span class="card-category-list-count">4</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Torch/" style="font-size: 1.18em; color: #999ca1">Torch</a> <a href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96/" style="font-size: 1.42em; color: #99a6b7">最优化</a> <a href="/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/" style="font-size: 1.1em; color: #999">研究生</a> <a href="/tags/%E9%81%A5%E6%84%9F/" style="font-size: 1.1em; color: #999">遥感</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/" style="font-size: 1.34em; color: #99a3b0">数据工作</a> <a href="/tags/%E7%AE%97%E5%AD%90/" style="font-size: 1.1em; color: #999">算子</a> <a href="/tags/%E8%A3%85%E6%9C%BA/" style="font-size: 1.18em; color: #999ca1">装机</a> <a href="/tags/linux/" style="font-size: 1.26em; color: #999fa8">linux</a> <a href="/tags/%E6%A3%80%E6%B5%8B/" style="font-size: 1.1em; color: #999">检测</a> <a href="/tags/Gazebo/" style="font-size: 1.1em; color: #999">Gazebo</a> <a href="/tags/C/" style="font-size: 1.18em; color: #999ca1">C++</a> <a href="/tags/Butterfly/" style="font-size: 1.1em; color: #999">Butterfly</a> <a href="/tags/R-CNN/" style="font-size: 1.1em; color: #999">R-CNN</a> <a href="/tags/%E5%9B%9B%E5%85%83%E6%95%B0/" style="font-size: 1.1em; color: #999">四元数</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/" style="font-size: 1.1em; color: #999">项目进展</a> <a href="/tags/VAE/" style="font-size: 1.1em; color: #999">VAE</a> <a href="/tags/SNN/" style="font-size: 1.18em; color: #999ca1">SNN</a> <a href="/tags/latex/" style="font-size: 1.18em; color: #999ca1">latex</a> <a href="/tags/Derain/" style="font-size: 1.1em; color: #999">Derain</a> <a href="/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/" style="font-size: 1.5em; color: #99a9bf">读文献进展</a> <a href="/tags/OCR%E6%B5%8B%E8%AF%95/" style="font-size: 1.18em; color: #999ca1">OCR测试</a> <a href="/tags/CUDA/" style="font-size: 1.26em; color: #999fa8">CUDA</a> <a href="/tags/gazebo/" style="font-size: 1.34em; color: #99a3b0">gazebo</a> <a href="/tags/Denoise/" style="font-size: 1.1em; color: #999">Denoise</a> <a href="/tags/ros/" style="font-size: 1.34em; color: #99a3b0">ros</a> <a href="/tags/YOLO/" style="font-size: 1.1em; color: #999">YOLO</a> <a href="/tags/vscode/" style="font-size: 1.1em; color: #999">vscode</a> <a href="/tags/Diffusion/" style="font-size: 1.26em; color: #999fa8">Diffusion</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" style="font-size: 1.1em; color: #999">机器视觉</a> <a href="/tags/verilog/" style="font-size: 1.1em; color: #999">verilog</a> <a href="/tags/zotero/" style="font-size: 1.18em; color: #999ca1">zotero</a> <a href="/tags/Google/" style="font-size: 1.1em; color: #999">Google</a> <a href="/tags/Docker/" style="font-size: 1.1em; color: #999">Docker</a> <a href="/tags/PX4/" style="font-size: 1.34em; color: #99a3b0">PX4</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" style="font-size: 1.18em; color: #999ca1">分布式</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA/" style="font-size: 1.1em; color: #999">事件相机</a> <a href="/tags/docker/" style="font-size: 1.1em; color: #999">docker</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">60</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-06-08T08:09:29.700Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Tschen Böffee</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
