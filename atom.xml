@@ -1,2028 +1,1887 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"
-  xmlns:atom="http://www.w3.org/2005/Atom"
-  xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Das Blog von BugBubbles</title>
-    <link>http://bugbubbles.github.io/</link>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Das Blog von BugBubbles</title>
+  <icon>http://bugbubbles.github.io/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif</icon>
+  <subtitle>科研民工</subtitle>
+  <link href="http://bugbubbles.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://bugbubbles.github.io/"/>
+  <updated>2024-10-14T03:47:32.384Z</updated>
+  <id>http://bugbubbles.github.io/</id>
+  
+  <author>
+    <name>Tschen Böffee</name>
     
-    <image>
-      <url>http://bugbubbles.github.io/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif</url>
-      <title>Das Blog von BugBubbles</title>
-      <link>http://bugbubbles.github.io/</link>
-    </image>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>g2o使用笔记</title>
+    <link href="http://bugbubbles.github.io/2024/10/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/g2o%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>http://bugbubbles.github.io/2024/10/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/g2o%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</id>
+    <published>2024-10-10T16:00:00.000Z</published>
+    <updated>2024-10-14T03:47:32.384Z</updated>
     
-    <atom:link href="http://bugbubbles.github.io/atom.xml" rel="self" type="application/rss+xml"/>
     
-    <description>Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!</description>
-    <pubDate>Mon, 14 Oct 2024 03:47:32 GMT</pubDate>
-    <generator>http://hexo.io/</generator>
-    
-    <item>
-      <title>g2o使用笔记</title>
-      <link>http://bugbubbles.github.io/2024/10/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/g2o%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</link>
-      <guid>http://bugbubbles.github.io/2024/10/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/g2o%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</guid>
-      <pubDate>Thu, 10 Oct 2024 16:00:00 GMT</pubDate>
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;现有的位姿求解算法，有直接线性变换法、非线性优化法，其中最广为人知的是基于捆绑调整的非线性优化方法（&lt;em&gt;Bundle</description>
-          
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;现有的位姿求解算法，有直接线性变换法、非线性优化法，其中最广为人知的是基于捆绑调整的非线性优化方法（&lt;em&gt;Bundle</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/C/">C++</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/10/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/g2o%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>空间导航数学基础</title>
-      <link>http://bugbubbles.github.io/2024/09/%E9%99%A8%E7%9F%B3%E5%9D%91/%E7%A9%BA%E9%97%B4%E5%AF%BC%E8%88%AA%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
-      <guid>http://bugbubbles.github.io/2024/09/%E9%99%A8%E7%9F%B3%E5%9D%91/%E7%A9%BA%E9%97%B4%E5%AF%BC%E8%88%AA%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
-      <pubDate>Wed, 11 Sep 2024 16:00:00 GMT</pubDate>
+    
+    
+    <category term="学习" scheme="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="最优化" scheme="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    
+    <category term="C++" scheme="http://bugbubbles.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>空间导航数学基础</title>
+    <link href="http://bugbubbles.github.io/2024/09/%E9%99%A8%E7%9F%B3%E5%9D%91/%E7%A9%BA%E9%97%B4%E5%AF%BC%E8%88%AA%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    <id>http://bugbubbles.github.io/2024/09/%E9%99%A8%E7%9F%B3%E5%9D%91/%E7%A9%BA%E9%97%B4%E5%AF%BC%E8%88%AA%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</id>
+    <published>2024-09-11T16:00:00.000Z</published>
+    <updated>2024-09-13T04:50:33.640Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;style&gt;
+    <summary type="html">&lt;style&gt;
   .small-img {
     width: 400px;
   }
 &lt;/style&gt;
 &lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;空间导航方式分为相对导航&lt;em&gt;Relative Navigation&lt;/em&gt;和迷失空间导航&lt;em&gt;Lost in</description>
-          
+&lt;p&gt;空间导航方式分为相对导航&lt;em&gt;Relative Navigation&lt;/em&gt;和迷失空间导航&lt;em&gt;Lost in</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/">陨石坑</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/">项目进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/09/%E9%99%A8%E7%9F%B3%E5%9D%91/%E7%A9%BA%E9%97%B4%E5%AF%BC%E8%88%AA%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>24年8月进展</title>
-      <link>http://bugbubbles.github.io/2024/08/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B48%E6%9C%88%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2024/08/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B48%E6%9C%88%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Tue, 27 Aug 2024 16:00:00 GMT</pubDate>
+    
+    
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="项目进展" scheme="http://bugbubbles.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年8月进展</title>
+    <link href="http://bugbubbles.github.io/2024/08/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B48%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/08/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B48%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-08-27T16:00:00.000Z</published>
+    <updated>2024-09-13T04:48:27.312Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;p&gt;8月以来经历了暑假放假，中间迷惘一周，大致于8月16号之后才正式进入状态。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;8月以来经历了暑假放假，中间迷惘一周，大致于8月16号之后才正式进入状态。&lt;/p&gt;
 &lt;h1&gt;第一篇文献&lt;/h1&gt;
 &lt;p&gt;Event-Based Motion Magnification&lt;/p&gt;
-&lt;h2</description>
-          
+&lt;h2</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/08/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B48%E6%9C%88%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>24年7月进展</title>
-      <link>http://bugbubbles.github.io/2024/07/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B47%E6%9C%88%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2024/07/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B47%E6%9C%88%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Tue, 23 Jul 2024 16:00:00 GMT</pubDate>
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年7月进展</title>
+    <link href="http://bugbubbles.github.io/2024/07/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B47%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/07/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B47%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-07-23T16:00:00.000Z</published>
+    <updated>2024-07-25T01:34:10.224Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;第一篇文献&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;第一篇文献&lt;/h1&gt;
 &lt;p&gt;Diffusion Models for Implicit Image Segmentation Ensembles&lt;/p&gt;
-&lt;h2</description>
-          
+&lt;h2</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/07/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B47%E6%9C%88%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>光束法平差入门</title>
-      <link>http://bugbubbles.github.io/2024/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%85%89%E6%9D%9F%E6%B3%95%E5%B9%B3%E5%B7%AE%E5%85%A5%E9%97%A8/</link>
-      <guid>http://bugbubbles.github.io/2024/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%85%89%E6%9D%9F%E6%B3%95%E5%B9%B3%E5%B7%AE%E5%85%A5%E9%97%A8/</guid>
-      <pubDate>Sun, 21 Jul 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;光束法平差Bundle Adjustment，据说是三维重建领域的标配算法，然而我懂不了一点，因此专门开一个博客予以记录。本文主要参考了&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/">三维重建</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%85%89%E6%9D%9F%E6%B3%95%E5%B9%B3%E5%B7%AE%E5%85%A5%E9%97%A8/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>vscode远程误删除恢复</title>
-      <link>http://bugbubbles.github.io/2024/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E8%BF%9C%E7%A8%8B%E8%AF%AF%E5%88%A0%E9%99%A4%E6%81%A2%E5%A4%8D/</link>
-      <guid>http://bugbubbles.github.io/2024/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E8%BF%9C%E7%A8%8B%E8%AF%AF%E5%88%A0%E9%99%A4%E6%81%A2%E5%A4%8D/</guid>
-      <pubDate>Wed, 17 Jul 2024 16:00:00 GMT</pubDate>
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>光束法平差入门</title>
+    <link href="http://bugbubbles.github.io/2024/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%85%89%E6%9D%9F%E6%B3%95%E5%B9%B3%E5%B7%AE%E5%85%A5%E9%97%A8/"/>
+    <id>http://bugbubbles.github.io/2024/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%85%89%E6%9D%9F%E6%B3%95%E5%B9%B3%E5%B7%AE%E5%85%A5%E9%97%A8/</id>
+    <published>2024-07-21T16:00:00.000Z</published>
+    <updated>2024-10-14T01:36:08.658Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;写在前面&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;光束法平差Bundle Adjustment，据说是三维重建领域的标配算法，然而我懂不了一点，因此专门开一个博客予以记录。本文主要参考了&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="最优化" scheme="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    
+    <category term="三维重建" scheme="http://bugbubbles.github.io/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vscode远程误删除恢复</title>
+    <link href="http://bugbubbles.github.io/2024/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E8%BF%9C%E7%A8%8B%E8%AF%AF%E5%88%A0%E9%99%A4%E6%81%A2%E5%A4%8D/"/>
+    <id>http://bugbubbles.github.io/2024/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E8%BF%9C%E7%A8%8B%E8%AF%AF%E5%88%A0%E9%99%A4%E6%81%A2%E5%A4%8D/</id>
+    <published>2024-07-17T16:00:00.000Z</published>
+    <updated>2024-07-18T12:00:57.845Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;写在前面&lt;/h1&gt;
 &lt;p&gt;惊险一刻！今天在调试项目的时候，不经意间把一个非常重要的文件夹&lt;code&gt;lunar_crater&lt;/code&gt;给误删除了。&lt;/p&gt;
-&lt;div class=&quot;note , danger</description>
-          
+&lt;div class=&quot;note , danger</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/vscode/">vscode</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E8%BF%9C%E7%A8%8B%E8%AF%AF%E5%88%A0%E9%99%A4%E6%81%A2%E5%A4%8D/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>24年6月进展</title>
-      <link>http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B46%E6%9C%88%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B46%E6%9C%88%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Sun, 23 Jun 2024 16:00:00 GMT</pubDate>
+    
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="vscode" scheme="http://bugbubbles.github.io/tags/vscode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年6月进展</title>
+    <link href="http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B46%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B46%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-06-23T16:00:00.000Z</published>
+    <updated>2024-07-08T11:10:25.129Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;第一篇文献&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;第一篇文献&lt;/h1&gt;
 &lt;p&gt;MetaEarth: A Generative Foundation Model for Global-scale Remote Sensing Image Generation&lt;/p&gt;
-&lt;h2</description>
-          
+&lt;h2</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B46%E6%9C%88%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>从零开始实现扩散模型</title>
-      <link>http://bugbubbles.github.io/2024/06/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/</link>
-      <guid>http://bugbubbles.github.io/2024/06/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/</guid>
-      <pubDate>Fri, 14 Jun 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;关于扩散模型的数学基础性的知识，可以参照原始论文&lt;a href=&quot;#ref-1&quot;&gt;&lt;sup&gt;[1]&lt;/sup&gt;&lt;/a&gt;和&lt;a href=&quot;#ref-2&quot;&gt;&lt;sup&gt;[2]&lt;/sup&gt;&lt;/a&gt;；亦可以参考本文相关的&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/Torch/">Torch</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">扩散模型</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/06/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>祖传代码</title>
-      <link>http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%A5%96%E4%BC%A0%E4%BB%A3%E7%A0%81/</link>
-      <guid>http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%A5%96%E4%BC%A0%E4%BB%A3%E7%A0%81/</guid>
-      <pubDate>Mon, 10 Jun 2024 16:00:00 GMT</pubDate>
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零开始实现扩散模型</title>
+    <link href="http://bugbubbles.github.io/2024/06/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"/>
+    <id>http://bugbubbles.github.io/2024/06/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/</id>
+    <published>2024-06-14T16:00:00.000Z</published>
+    <updated>2024-07-25T12:26:48.177Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;关于扩散模型的数学基础性的知识，可以参照原始论文&lt;a href=&quot;#ref-1&quot;&gt;&lt;sup&gt;[1]&lt;/sup&gt;&lt;/a&gt;和&lt;a href=&quot;#ref-2&quot;&gt;&lt;sup&gt;[2]&lt;/sup&gt;&lt;/a&gt;；亦可以参考本文相关的&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Torch" scheme="http://bugbubbles.github.io/tags/Torch/"/>
+    
+    <category term="扩散模型" scheme="http://bugbubbles.github.io/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>祖传代码</title>
+    <link href="http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%A5%96%E4%BC%A0%E4%BB%A3%E7%A0%81/"/>
+    <id>http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%A5%96%E4%BC%A0%E4%BB%A3%E7%A0%81/</id>
+    <published>2024-06-10T16:00:00.000Z</published>
+    <updated>2024-06-11T01:44:42.558Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;本博客只是记录一下从师兄等处继承得到的一些代码及其使用说明。&lt;/p&gt;
 &lt;h1&gt;国产事件相机&lt;/h1&gt;
-&lt;p&gt;SDK及其使用说明：&lt;a</description>
-          
+&lt;p&gt;SDK及其使用说明：&lt;a</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA/">事件相机</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%A5%96%E4%BC%A0%E4%BB%A3%E7%A0%81/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>Hallo Welt!</title>
-      <link>http://bugbubbles.github.io/2024/06/%E6%97%A5%E8%AE%B0/hello-world/</link>
-      <guid>http://bugbubbles.github.io/2024/06/%E6%97%A5%E8%AE%B0/hello-world/</guid>
-      <pubDate>Sat, 08 Jun 2024 07:45:10 GMT</pubDate>
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="事件相机" scheme="http://bugbubbles.github.io/tags/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hallo Welt!</title>
+    <link href="http://bugbubbles.github.io/2024/06/%E6%97%A5%E8%AE%B0/hello-world/"/>
+    <id>http://bugbubbles.github.io/2024/06/%E6%97%A5%E8%AE%B0/hello-world/</id>
+    <published>2024-06-08T07:45:10.890Z</published>
+    <updated>2022-12-12T16:00:00.000Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;p&gt;这是某位小白的第一篇&lt;code&gt;githubio&lt;/code&gt;的博客，不得不说确实是被这个博客美观的造型吸引过来了。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;这是某位小白的第一篇&lt;code&gt;githubio&lt;/code&gt;的博客，不得不说确实是被这个博客美观的造型吸引过来了。&lt;/p&gt;
 &lt;h2 id=&quot;初步计划的博客内容安排&quot;&gt;初步计划的博客内容安排&lt;/h2&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th</description>
-          
+&lt;th</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%97%A5%E8%AE%B0/">日记</category>
-      
-      
-      
-      <comments>http://bugbubbles.github.io/2024/06/%E6%97%A5%E8%AE%B0/hello-world/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>图像去雨系列方法汇总</title>
-      <link>http://bugbubbles.github.io/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</link>
-      <guid>http://bugbubbles.github.io/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</guid>
-      <pubDate>Sun, 12 May 2024 16:00:00 GMT</pubDate>
+    
+    
+    <category term="日记" scheme="http://bugbubbles.github.io/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>图像去雨系列方法汇总</title>
+    <link href="http://bugbubbles.github.io/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/"/>
+    <id>http://bugbubbles.github.io/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</id>
+    <published>2024-05-12T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.950Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;服务于所谓的图像去条纹，真是心都操碎了，到处去查论文看文献，之前一直在图像去噪那里寻寻觅觅冷冷清清，现在总算是找到了方向。&lt;/p&gt;
-&lt;p&gt;所谓图像去雨，就是广泛意义上的图层分解中，将&lt;strong&gt;或者&lt;/strong&gt;雨滴图层&lt;strong&gt;与&lt;/</description>
-          
+&lt;p&gt;所谓图像去雨，就是广泛意义上的图层分解中，将&lt;strong&gt;或者&lt;/strong&gt;雨滴图层&lt;strong&gt;与&lt;/</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/">细分领域</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/Derain/">Derain</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>24年5月进展</title>
-      <link>http://bugbubbles.github.io/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Sat, 11 May 2024 16:00:00 GMT</pubDate>
+    
+    
+    <category term="细分领域" scheme="http://bugbubbles.github.io/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/"/>
+    
+    
+    <category term="Derain" scheme="http://bugbubbles.github.io/tags/Derain/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年5月进展</title>
+    <link href="http://bugbubbles.github.io/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-05-11T16:00:00.000Z</published>
+    <updated>2024-06-22T11:34:53.394Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;第一篇文献&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;第一篇文献&lt;/h1&gt;
 &lt;p&gt;Boundary-Aware Divide and Conquer: A Diffusion-based Solution for Unsupervised Shadow Removal&lt;/p&gt;
-&lt;h2</description>
-          
+&lt;h2</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>各种DDPM衍生模型</title>
-      <link>http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%84%E7%A7%8DDDPM%E8%A1%8D%E7%94%9F%E6%A8%A1%E5%9E%8B/</link>
-      <guid>http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%84%E7%A7%8DDDPM%E8%A1%8D%E7%94%9F%E6%A8%A1%E5%9E%8B/</guid>
-      <pubDate>Tue, 07 May 2024 16:00:00 GMT</pubDate>
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>各种DDPM衍生模型</title>
+    <link href="http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%84%E7%A7%8DDDPM%E8%A1%8D%E7%94%9F%E6%A8%A1%E5%9E%8B/"/>
+    <id>http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%84%E7%A7%8DDDPM%E8%A1%8D%E7%94%9F%E6%A8%A1%E5%9E%8B/</id>
+    <published>2024-05-07T16:00:00.000Z</published>
+    <updated>2024-06-21T03:32:10.114Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;本博客收集整理近年来一些常用的DDPM衍生模型，其特点是：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;大多&lt;strong&gt;不需要&lt;/strong&gt;重新训练，仅使用DDPM训练的UNet作噪声估计器；&lt;/li&gt;
-&lt;li&gt;聚焦于某个领域（如算法提速、图像恢复等）；&lt;/l</description>
-          
+&lt;li&gt;聚焦于某个领域（如算法提速、图像恢复等）；&lt;/l</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">扩散模型</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/Diffusion/">Diffusion</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%84%E7%A7%8DDDPM%E8%A1%8D%E7%94%9F%E6%A8%A1%E5%9E%8B/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>条件扩散模型</title>
-      <link>http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/</link>
-      <guid>http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/</guid>
-      <pubDate>Tue, 07 May 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;扩散模型再怎么牛，也只能在同一个数据集下生成类似的图像，不可能随心所欲地命令其生成想要的图像。但是实际上文生图早已实现，而且不是什么难事，这是怎么做到的呢？这便是条件扩散模型的功劳，是它实现了文本等语义信息的编码嵌入，控制扩散模型生成指定内容的图像，</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">扩散模型</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/Diffusion/">Diffusion</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>N2N系列图像去噪方法汇总</title>
-      <link>http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/N2N%E7%B3%BB%E5%88%97%E5%9B%BE%E5%83%8F%E5%8E%BB%E5%99%AA%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</link>
-      <guid>http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/N2N%E7%B3%BB%E5%88%97%E5%9B%BE%E5%83%8F%E5%8E%BB%E5%99%AA%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</guid>
-      <pubDate>Fri, 26 Apr 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;这里的图像去噪，更多地指的是带有某些特殊模式的噪声，这种模式大多有特定的物理机理，例如最常见的高斯白噪声和泊松噪声。常规的方法将这些噪声的信息作为先验信息，手工设计处理算法例如BM3D&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/">细分领域</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/Denoise/">Denoise</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/N2N%E7%B3%BB%E5%88%97%E5%9B%BE%E5%83%8F%E5%8E%BB%E5%99%AA%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>变分法与泛函极值</title>
-      <link>http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E6%B3%95%E4%B8%8E%E6%B3%9B%E5%87%BD%E6%9E%81%E5%80%BC/</link>
-      <guid>http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E6%B3%95%E4%B8%8E%E6%B3%9B%E5%87%BD%E6%9E%81%E5%80%BC/</guid>
-      <pubDate>Sun, 21 Apr 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;众所周知泛函分析心犯寒，无数的前人帮我证明了，它确实是工科生能够遇到的最难的数学。不过好在我有那么一点点点点点的泛函分析基础，希望我能快速学会这个东西，将它用在工程实践中，我并不需要掌握太多理论上的推导与证明。&lt;/p&gt;
-&lt;p&gt;参考&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E6%B3%95%E4%B8%8E%E6%B3%9B%E5%87%BD%E6%9E%81%E5%80%BC/#disqus_thread</comments>
-      
-    </item>
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
     
-    <item>
-      <title>墨卡托投影</title>
-      <link>http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%A2%A8%E5%8D%A1%E6%89%98%E6%8A%95%E5%BD%B1/</link>
-      <guid>http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%A2%A8%E5%8D%A1%E6%89%98%E6%8A%95%E5%BD%B1/</guid>
-      <pubDate>Sat, 20 Apr 2024 16:00:00 GMT</pubDate>
+    <category term="扩散模型" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="Diffusion" scheme="http://bugbubbles.github.io/tags/Diffusion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>条件扩散模型</title>
+    <link href="http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"/>
+    <id>http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/</id>
+    <published>2024-05-07T16:00:00.000Z</published>
+    <updated>2024-07-01T07:34:45.691Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;扩散模型再怎么牛，也只能在同一个数据集下生成类似的图像，不可能随心所欲地命令其生成想要的图像。但是实际上文生图早已实现，而且不是什么难事，这是怎么做到的呢？这便是条件扩散模型的功劳，是它实现了文本等语义信息的编码嵌入，控制扩散模型生成指定内容的图像，</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="扩散模型" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="Diffusion" scheme="http://bugbubbles.github.io/tags/Diffusion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>N2N系列图像去噪方法汇总</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/N2N%E7%B3%BB%E5%88%97%E5%9B%BE%E5%83%8F%E5%8E%BB%E5%99%AA%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/N2N%E7%B3%BB%E5%88%97%E5%9B%BE%E5%83%8F%E5%8E%BB%E5%99%AA%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</id>
+    <published>2024-04-26T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.940Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;这里的图像去噪，更多地指的是带有某些特殊模式的噪声，这种模式大多有特定的物理机理，例如最常见的高斯白噪声和泊松噪声。常规的方法将这些噪声的信息作为先验信息，手工设计处理算法例如BM3D&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="细分领域" scheme="http://bugbubbles.github.io/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/"/>
+    
+    
+    <category term="Denoise" scheme="http://bugbubbles.github.io/tags/Denoise/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>变分法与泛函极值</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E6%B3%95%E4%B8%8E%E6%B3%9B%E5%87%BD%E6%9E%81%E5%80%BC/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E6%B3%95%E4%B8%8E%E6%B3%9B%E5%87%BD%E6%9E%81%E5%80%BC/</id>
+    <published>2024-04-21T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.860Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;众所周知泛函分析心犯寒，无数的前人帮我证明了，它确实是工科生能够遇到的最难的数学。不过好在我有那么一点点点点点的泛函分析基础，希望我能快速学会这个东西，将它用在工程实践中，我并不需要掌握太多理论上的推导与证明。&lt;/p&gt;
+&lt;p&gt;参考&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="最优化" scheme="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>墨卡托投影</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%A2%A8%E5%8D%A1%E6%89%98%E6%8A%95%E5%BD%B1/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%A2%A8%E5%8D%A1%E6%89%98%E6%8A%95%E5%BD%B1/</id>
+    <published>2024-04-20T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.860Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;墨卡托投影我最早于大四上学期的制导与控制课程接触到，当时压根没有认真听，只知道有这个概念（不过我估计认真听了也不会记得），现在查阅网络资料自行学习一下，这个部分对于地理领域和遥感领域都有一定的参考意义。&lt;/p&gt;
-&lt;p&gt;墨卡托投影是十五世纪的意大利地理</description>
-          
+&lt;p&gt;墨卡托投影是十五世纪的意大利地理</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E9%81%A5%E6%84%9F/">遥感</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%A2%A8%E5%8D%A1%E6%89%98%E6%8A%95%E5%BD%B1/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>月球表面三维环境构建</title>
-      <link>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E8%A1%A8%E9%9D%A2%E4%B8%89%E7%BB%B4%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/</link>
-      <guid>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E8%A1%A8%E9%9D%A2%E4%B8%89%E7%BB%B4%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/</guid>
-      <pubDate>Wed, 17 Apr 2024 16:00:00 GMT</pubDate>
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="遥感" scheme="http://bugbubbles.github.io/tags/%E9%81%A5%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>月球表面三维环境构建</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E8%A1%A8%E9%9D%A2%E4%B8%89%E7%BB%B4%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E8%A1%A8%E9%9D%A2%E4%B8%89%E7%BB%B4%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/</id>
+    <published>2024-04-17T16:00:00.000Z</published>
+    <updated>2024-07-08T12:31:21.171Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;p&gt;本文主要从两个方向介绍，一种是基于射影变换的月球表面环境构建；另一种是基于高度图的三维仿真环境构建，目前两种方式都已经实现。本文将引导读者从获取数据集开始完成对月球表面的三维环境构建仿真。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;本文主要从两个方向介绍，一种是基于射影变换的月球表面环境构建；另一种是基于高度图的三维仿真环境构建，目前两种方式都已经实现。本文将引导读者从获取数据集开始完成对月球表面的三维环境构建仿真。&lt;/p&gt;
 &lt;h1&gt;构建仿真文件&lt;/h1&gt;
-&lt;p&gt;在构建三维表面环境的配置中，需要加入一</description>
-          
+&lt;p&gt;在构建三维表面环境的配置中，需要加入一</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/">陨石坑</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/ros/">ros</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/gazebo/">gazebo</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E8%A1%A8%E9%9D%A2%E4%B8%89%E7%BB%B4%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>自动化数据采集与标注</title>
-      <link>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E4%B8%8E%E6%A0%87%E6%B3%A8/</link>
-      <guid>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E4%B8%8E%E6%A0%87%E6%B3%A8/</guid>
-      <pubDate>Wed, 17 Apr 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/">陨石坑</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/C/">C++</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/ros/">ros</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/gazebo/">gazebo</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E4%B8%8E%E6%A0%87%E6%B3%A8/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>图像检测模型详解</title>
-      <link>http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3/</link>
-      <guid>http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3/</guid>
-      <pubDate>Fri, 12 Apr 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;图像检测领域是一个较大的分支，目前主流的方法是YOLO，但是R-CNN系列也是非常经典的方法，有必要对这两种类型的方法 作深入的了解，才方便 后续的方法</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/">细分领域</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%A3%80%E6%B5%8B/">检测</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/R-CNN/">R-CNN</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/YOLO/">YOLO</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>24年4月进展</title>
-      <link>http://bugbubbles.github.io/2024/04/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B44%E6%9C%88%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2024/04/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B44%E6%9C%88%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Thu, 11 Apr 2024 16:00:00 GMT</pubDate>
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="ros" scheme="http://bugbubbles.github.io/tags/ros/"/>
+    
+    <category term="gazebo" scheme="http://bugbubbles.github.io/tags/gazebo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自动化数据采集与标注</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E4%B8%8E%E6%A0%87%E6%B3%A8/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E4%B8%8E%E6%A0%87%E6%B3%A8/</id>
+    <published>2024-04-17T16:00:00.000Z</published>
+    <updated>2024-07-16T11:21:41.290Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;第一篇文献&lt;/h1&gt;
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="C++" scheme="http://bugbubbles.github.io/tags/C/"/>
+    
+    <category term="ros" scheme="http://bugbubbles.github.io/tags/ros/"/>
+    
+    <category term="gazebo" scheme="http://bugbubbles.github.io/tags/gazebo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图像检测模型详解</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3/</id>
+    <published>2024-04-12T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.960Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;图像检测领域是一个较大的分支，目前主流的方法是YOLO，但是R-CNN系列也是非常经典的方法，有必要对这两种类型的方法 作深入的了解，才方便 后续的方法</summary>
+        
+      
+    
+    
+    
+    <category term="细分领域" scheme="http://bugbubbles.github.io/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/"/>
+    
+    
+    <category term="检测" scheme="http://bugbubbles.github.io/tags/%E6%A3%80%E6%B5%8B/"/>
+    
+    <category term="R-CNN" scheme="http://bugbubbles.github.io/tags/R-CNN/"/>
+    
+    <category term="YOLO" scheme="http://bugbubbles.github.io/tags/YOLO/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年4月进展</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B44%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B44%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-04-11T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.920Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;第一篇文献&lt;/h1&gt;
 &lt;p&gt;Retinomorphic Object Detection in Asynchronous Visual Streams&lt;/p&gt;
-&lt;h2</description>
-          
+&lt;h2</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/04/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B44%E6%9C%88%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>基于gazebo的无人机事件相机探测</title>
-      <link>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E5%9F%BA%E4%BA%8Egazebo%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%8E%A2%E6%B5%8B/</link>
-      <guid>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E5%9F%BA%E4%BA%8Egazebo%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%8E%A2%E6%B5%8B/</guid>
-      <pubDate>Sun, 07 Apr 2024 16:00:00 GMT</pubDate>
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于gazebo的无人机事件相机探测</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E5%9F%BA%E4%BA%8Egazebo%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%8E%A2%E6%B5%8B/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E5%9F%BA%E4%BA%8Egazebo%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%8E%A2%E6%B5%8B/</id>
+    <published>2024-04-07T16:00:00.000Z</published>
+    <updated>2024-07-01T07:34:20.281Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;仿真配置&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;仿真配置&lt;/h1&gt;
 &lt;p&gt;仿真环境基于Gazebo引擎，在ROS系统下配置，使用PX4飞控拓展和XTDrone无人机，首先请参照以下方式完成环境构建：&lt;/p&gt;
 &lt;h2 id=&quot;环境安装&quot;&gt;环境安装&lt;/h2&gt;
-&lt;p&gt;与&lt;a</description>
-          
+&lt;p&gt;与&lt;a</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/">陨石坑</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/PX4/">PX4</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/ros/">ros</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/gazebo/">gazebo</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E5%9F%BA%E4%BA%8Egazebo%E7%9A%84%E6%97%A0%E4%BA%BA%E6%9C%BA%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%8E%A2%E6%B5%8B/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>ros安装与使用心得</title>
-      <link>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/ros%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</link>
-      <guid>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/ros%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</guid>
-      <pubDate>Tue, 02 Apr 2024 10:09:40 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
-&lt;p&gt;希望通过本博客，记录本人搭建的完全过程，减少后来者的搭建成本，以此避免反复造轮子，在本文中，沿用了&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/">陨石坑</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/PX4/">PX4</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/ros/">ros</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/gazebo/">gazebo</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/ros%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>Docker安装PX4+Gazebo安装与仿真心得</title>
-      <link>http://bugbubbles.github.io/2024/04/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Docker%E5%AE%89%E8%A3%85PX4-Gazebo%E4%BB%BF%E7%9C%9F%E5%BF%83%E5%BE%97/</link>
-      <guid>http://bugbubbles.github.io/2024/04/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Docker%E5%AE%89%E8%A3%85PX4-Gazebo%E4%BB%BF%E7%9C%9F%E5%BF%83%E5%BE%97/</guid>
-      <pubDate>Tue, 02 Apr 2024 03:51:40 GMT</pubDate>
+    
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="PX4" scheme="http://bugbubbles.github.io/tags/PX4/"/>
+    
+    <category term="ros" scheme="http://bugbubbles.github.io/tags/ros/"/>
+    
+    <category term="gazebo" scheme="http://bugbubbles.github.io/tags/gazebo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ros安装与使用心得</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/ros%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/ros%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</id>
+    <published>2024-04-02T10:09:40.000Z</published>
+    <updated>2024-07-01T07:23:22.996Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;希望通过本博客，记录本人搭建的完全过程，减少后来者的搭建成本，以此避免反复造轮子，在本文中，沿用了&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="PX4" scheme="http://bugbubbles.github.io/tags/PX4/"/>
+    
+    <category term="ros" scheme="http://bugbubbles.github.io/tags/ros/"/>
+    
+    <category term="gazebo" scheme="http://bugbubbles.github.io/tags/gazebo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker安装PX4+Gazebo安装与仿真心得</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Docker%E5%AE%89%E8%A3%85PX4-Gazebo%E4%BB%BF%E7%9C%9F%E5%BF%83%E5%BE%97/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Docker%E5%AE%89%E8%A3%85PX4-Gazebo%E4%BB%BF%E7%9C%9F%E5%BF%83%E5%BE%97/</id>
+    <published>2024-04-02T03:51:40.000Z</published>
+    <updated>2024-06-08T07:45:10.840Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Ubuntu22.04-&amp;gt;Ubuntu20.04-&amp;gt;Ubuntu22.04-&amp;gt;Ubunut20.04&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;关于这个软件的配置和安装，看到以上的四个系统版本，首先会联想到什么 ？&lt;/p&gt;
-&lt;div</description>
-          
+&lt;div</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/Docker/">Docker</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/PX4/">PX4</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/Gazebo/">Gazebo</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/04/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Docker%E5%AE%89%E8%A3%85PX4-Gazebo%E4%BB%BF%E7%9C%9F%E5%BF%83%E5%BE%97/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>四元数理论</title>
-      <link>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%9B%9B%E5%85%83%E6%95%B0%E7%90%86%E8%AE%BA/</link>
-      <guid>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%9B%9B%E5%85%83%E6%95%B0%E7%90%86%E8%AE%BA/</guid>
-      <pubDate>Thu, 28 Mar 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
-&lt;p&gt;四元数&lt;em&gt;quaternion&lt;/em&gt;，一个熟悉又陌生的东西，我曾经短暂地接触过，但是又倏忽地将它抛弃。如今，我再次拜倒在它的脚下，只因为我现在不得不使用它，希望它能够不计前嫌</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E5%9B%9B%E5%85%83%E6%95%B0/">四元数</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%9B%9B%E5%85%83%E6%95%B0%E7%90%86%E8%AE%BA/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>使用IDM下载谷歌云盘资料</title>
-      <link>http://bugbubbles.github.io/2024/03/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E4%BD%BF%E7%94%A8IDM%E4%B8%8B%E8%BD%BD%E8%B0%B7%E6%AD%8C%E4%BA%91%E7%9B%98%E8%B5%84%E6%96%99/</link>
-      <guid>http://bugbubbles.github.io/2024/03/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E4%BD%BF%E7%94%A8IDM%E4%B8%8B%E8%BD%BD%E8%B0%B7%E6%AD%8C%E4%BA%91%E7%9B%98%E8%B5%84%E6%96%99/</guid>
-      <pubDate>Wed, 20 Mar 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/Google/">Google</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/03/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E4%BD%BF%E7%94%A8IDM%E4%B8%8B%E8%BD%BD%E8%B0%B7%E6%AD%8C%E4%BA%91%E7%9B%98%E8%B5%84%E6%96%99/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>月球陨石坑项目进展</title>
-      <link>http://bugbubbles.github.io/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Mon, 18 Mar 2024 16:00:00 GMT</pubDate>
-      
-      <description>我的毕业设计项目进展</description>
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/">陨石坑</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/">项目进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
     
-    <item>
-      <title>pytorch-lightning使用心得</title>
-      <link>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/pytorch-lightning%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</link>
-      <guid>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/pytorch-lightning%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</guid>
-      <pubDate>Mon, 18 Mar 2024 12:29:55 GMT</pubDate>
+    
+    <category term="Docker" scheme="http://bugbubbles.github.io/tags/Docker/"/>
+    
+    <category term="PX4" scheme="http://bugbubbles.github.io/tags/PX4/"/>
+    
+    <category term="Gazebo" scheme="http://bugbubbles.github.io/tags/Gazebo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>四元数理论</title>
+    <link href="http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%9B%9B%E5%85%83%E6%95%B0%E7%90%86%E8%AE%BA/"/>
+    <id>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%9B%9B%E5%85%83%E6%95%B0%E7%90%86%E8%AE%BA/</id>
+    <published>2024-03-28T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.860Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;四元数&lt;em&gt;quaternion&lt;/em&gt;，一个熟悉又陌生的东西，我曾经短暂地接触过，但是又倏忽地将它抛弃。如今，我再次拜倒在它的脚下，只因为我现在不得不使用它，希望它能够不计前嫌</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="四元数" scheme="http://bugbubbles.github.io/tags/%E5%9B%9B%E5%85%83%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用IDM下载谷歌云盘资料</title>
+    <link href="http://bugbubbles.github.io/2024/03/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E4%BD%BF%E7%94%A8IDM%E4%B8%8B%E8%BD%BD%E8%B0%B7%E6%AD%8C%E4%BA%91%E7%9B%98%E8%B5%84%E6%96%99/"/>
+    <id>http://bugbubbles.github.io/2024/03/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E4%BD%BF%E7%94%A8IDM%E4%B8%8B%E8%BD%BD%E8%B0%B7%E6%AD%8C%E4%BA%91%E7%9B%98%E8%B5%84%E6%96%99/</id>
+    <published>2024-03-20T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.850Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="Google" scheme="http://bugbubbles.github.io/tags/Google/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>月球陨石坑项目进展</title>
+    <link href="http://bugbubbles.github.io/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-03-18T16:00:00.000Z</published>
+    <updated>2024-09-18T09:44:01.045Z</updated>
+    
+    
+    <summary type="html">我的毕业设计项目进展</summary>
+    
+    
+    
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="项目进展" scheme="http://bugbubbles.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pytorch-lightning使用心得</title>
+    <link href="http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/pytorch-lightning%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/"/>
+    <id>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/pytorch-lightning%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</id>
+    <published>2024-03-18T12:29:55.000Z</published>
+    <updated>2024-07-25T12:25:04.227Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;这是啥？从未见过，甚至一来还屡出Bug，我差点就想把这个模块完全给删了。&lt;/p&gt;
-&lt;p&gt;真是不用不知道，一用吓一跳，好吧，原来这个东西竟然是基于torch构建的一个顶层/分布式/工作流/工具集的究极糅合框架，极大&lt;strong&gt;方便&lt;/strong&gt;</description>
-          
+&lt;p&gt;真是不用不知道，一用吓一跳，好吧，原来这个东西竟然是基于torch构建的一个顶层/分布式/工作流/工具集的究极糅合框架，极大&lt;strong&gt;方便&lt;/strong&gt;</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/">自学部分</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/Torch/">Torch</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/pytorch-lightning%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>CUDA为Torch编写自定义算子</title>
-      <link>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E4%B8%BATorch%E7%BC%96%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AE%97%E5%AD%90/</link>
-      <guid>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E4%B8%BATorch%E7%BC%96%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AE%97%E5%AD%90/</guid>
-      <pubDate>Fri, 15 Mar 2024 02:48:33 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
-&lt;div class=&quot;note , danger</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/">自学部分</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/CUDA/">CUDA</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/Torch/">Torch</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/%E7%AE%97%E5%AD%90/">算子</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E4%B8%BATorch%E7%BC%96%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AE%97%E5%AD%90/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>docker使用心得</title>
-      <link>http://bugbubbles.github.io/2024/03/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/docker%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</link>
-      <guid>http://bugbubbles.github.io/2024/03/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/docker%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</guid>
-      <pubDate>Thu, 14 Mar 2024 02:30:18 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/docker/">docker</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/linux/">linux</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/03/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/docker%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>CUDA编程初体验</title>
-      <link>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E7%BC%96%E7%A8%8B%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
-      <guid>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E7%BC%96%E7%A8%8B%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
-      <pubDate>Mon, 11 Mar 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/CUDA/">CUDA</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/C/">C++</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E7%BC%96%E7%A8%8B%E5%88%9D%E4%BD%93%E9%AA%8C/#disqus_thread</comments>
-      
-    </item>
+    <category term="自学部分" scheme="http://bugbubbles.github.io/categories/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/"/>
     
-    <item>
-      <title>变分自编码器</title>
-      <link>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/</link>
-      <guid>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/</guid>
-      <pubDate>Thu, 07 Mar 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;变分自编码器，英文原名&lt;em&gt;Variational Auto-Encoder&lt;/em&gt;，来自于2014年的论文&lt;em&gt;Auto-Encoding Variational Bayes&lt;/em&gt;&lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/VAE/">VAE</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>扩散模型详解——DDPM</title>
-      <link>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDPM/</link>
-      <guid>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDPM/</guid>
-      <pubDate>Thu, 07 Mar 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;扩散模型是一种新型生成式模型，专攻于图像生成任务。其特点是把图像视为张量空间中离散分布的点，每个点之间由大量高斯随机噪声淹没，图像与图像之间存在相当的距离，因此，能够设计一种噪声去除的方法，将不同张量点之间的噪声去除，即可得到离散的张量点值，即需要生</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/">扩散模型</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/Diffusion/">Diffusion</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDPM/#disqus_thread</comments>
-      
-    </item>
+    <category term="Torch" scheme="http://bugbubbles.github.io/tags/Torch/"/>
     
-    <item>
-      <title>24年3月进展</title>
-      <link>http://bugbubbles.github.io/2024/03/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B43%E6%9C%88%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2024/03/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B43%E6%9C%88%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Tue, 05 Mar 2024 03:57:33 GMT</pubDate>
-      
-      <description>这是24年三月份阅读的重要文献摘编，基本上以扩散模型作为关键词。</description>
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/03/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B43%E6%9C%88%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
+  </entry>
+  
+  <entry>
+    <title>CUDA为Torch编写自定义算子</title>
+    <link href="http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E4%B8%BATorch%E7%BC%96%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AE%97%E5%AD%90/"/>
+    <id>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E4%B8%BATorch%E7%BC%96%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AE%97%E5%AD%90/</id>
+    <published>2024-03-15T02:48:33.000Z</published>
+    <updated>2024-06-08T07:45:10.960Z</updated>
     
-    <item>
-      <title>24年2月进展</title>
-      <link>http://bugbubbles.github.io/2024/02/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B42%E6%9C%88%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2024/02/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B42%E6%9C%88%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Wed, 21 Feb 2024 16:00:00 GMT</pubDate>
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;第一篇文献&lt;/h1&gt;
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;div class=&quot;note , danger</summary>
+        
+      
+    
+    
+    
+    <category term="自学部分" scheme="http://bugbubbles.github.io/categories/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/"/>
+    
+    
+    <category term="CUDA" scheme="http://bugbubbles.github.io/tags/CUDA/"/>
+    
+    <category term="Torch" scheme="http://bugbubbles.github.io/tags/Torch/"/>
+    
+    <category term="算子" scheme="http://bugbubbles.github.io/tags/%E7%AE%97%E5%AD%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker使用心得</title>
+    <link href="http://bugbubbles.github.io/2024/03/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/docker%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/"/>
+    <id>http://bugbubbles.github.io/2024/03/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/docker%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/</id>
+    <published>2024-03-14T02:30:18.000Z</published>
+    <updated>2024-06-08T07:45:10.850Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="docker" scheme="http://bugbubbles.github.io/tags/docker/"/>
+    
+    <category term="linux" scheme="http://bugbubbles.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CUDA编程初体验</title>
+    <link href="http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E7%BC%96%E7%A8%8B%E5%88%9D%E4%BD%93%E9%AA%8C/"/>
+    <id>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E7%BC%96%E7%A8%8B%E5%88%9D%E4%BD%93%E9%AA%8C/</id>
+    <published>2024-03-11T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.960Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="CUDA" scheme="http://bugbubbles.github.io/tags/CUDA/"/>
+    
+    <category term="C++" scheme="http://bugbubbles.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>变分自编码器</title>
+    <link href="http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/"/>
+    <id>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/</id>
+    <published>2024-03-07T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.860Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;变分自编码器，英文原名&lt;em&gt;Variational Auto-Encoder&lt;/em&gt;，来自于2014年的论文&lt;em&gt;Auto-Encoding Variational Bayes&lt;/em&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="最优化" scheme="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    
+    <category term="VAE" scheme="http://bugbubbles.github.io/tags/VAE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>扩散模型详解——DDPM</title>
+    <link href="http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDPM/"/>
+    <id>http://bugbubbles.github.io/2024/03/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3%E2%80%94%E2%80%94DDPM/</id>
+    <published>2024-03-07T16:00:00.000Z</published>
+    <updated>2024-06-15T07:34:09.704Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;扩散模型是一种新型生成式模型，专攻于图像生成任务。其特点是把图像视为张量空间中离散分布的点，每个点之间由大量高斯随机噪声淹没，图像与图像之间存在相当的距离，因此，能够设计一种噪声去除的方法，将不同张量点之间的噪声去除，即可得到离散的张量点值，即需要生</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="扩散模型" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="Diffusion" scheme="http://bugbubbles.github.io/tags/Diffusion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年3月进展</title>
+    <link href="http://bugbubbles.github.io/2024/03/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B43%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/03/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B43%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-03-05T03:57:33.000Z</published>
+    <updated>2024-06-08T07:45:10.910Z</updated>
+    
+    
+    <summary type="html">这是24年三月份阅读的重要文献摘编，基本上以扩散模型作为关键词。</summary>
+    
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年2月进展</title>
+    <link href="http://bugbubbles.github.io/2024/02/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B42%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/02/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B42%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-02-21T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.900Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;第一篇文献&lt;/h1&gt;
 &lt;p&gt;End-to-End Object Detection with Transformers&lt;/p&gt;
-&lt;h2</description>
-          
+&lt;h2</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/02/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B42%E6%9C%88%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>记linux的交换内存</title>
-      <link>http://bugbubbles.github.io/2024/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0linux%E7%9A%84%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</link>
-      <guid>http://bugbubbles.github.io/2024/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0linux%E7%9A%84%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</guid>
-      <pubDate>Tue, 20 Feb 2024 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/linux/">linux</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0linux%E7%9A%84%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>24年1月进展</title>
-      <link>http://bugbubbles.github.io/2024/01/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B41%E6%9C%88%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2024/01/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B41%E6%9C%88%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Thu, 18 Jan 2024 14:43:00 GMT</pubDate>
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记linux的交换内存</title>
+    <link href="http://bugbubbles.github.io/2024/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0linux%E7%9A%84%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/"/>
+    <id>http://bugbubbles.github.io/2024/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0linux%E7%9A%84%E4%BA%A4%E6%8D%A2%E5%86%85%E5%AD%98/</id>
+    <published>2024-02-20T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.860Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;第一篇文献&lt;/h1&gt;
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="linux" scheme="http://bugbubbles.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年1月进展</title>
+    <link href="http://bugbubbles.github.io/2024/01/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B41%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/01/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B41%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-01-18T14:43:00.000Z</published>
+    <updated>2024-06-08T07:45:10.900Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;第一篇文献&lt;/h1&gt;
 &lt;p&gt;SpikingJelly: An open-source machine learning infrastructurepla tform for spike-based intelligence&lt;/p&gt;
-&lt;h2</description>
-          
+&lt;h2</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2024/01/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B41%E6%9C%88%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>小创意活动汇总</title>
-      <link>http://bugbubbles.github.io/2024/01/%E6%97%A5%E8%AE%B0/%E5%B0%8F%E5%88%9B%E6%84%8F%E6%B4%BB%E5%8A%A8%E6%B1%87%E6%80%BB/</link>
-      <guid>http://bugbubbles.github.io/2024/01/%E6%97%A5%E8%AE%B0/%E5%B0%8F%E5%88%9B%E6%84%8F%E6%B4%BB%E5%8A%A8%E6%B1%87%E6%80%BB/</guid>
-      <pubDate>Wed, 03 Jan 2024 16:00:00 GMT</pubDate>
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小创意活动汇总</title>
+    <link href="http://bugbubbles.github.io/2024/01/%E6%97%A5%E8%AE%B0/%E5%B0%8F%E5%88%9B%E6%84%8F%E6%B4%BB%E5%8A%A8%E6%B1%87%E6%80%BB/"/>
+    <id>http://bugbubbles.github.io/2024/01/%E6%97%A5%E8%AE%B0/%E5%B0%8F%E5%88%9B%E6%84%8F%E6%B4%BB%E5%8A%A8%E6%B1%87%E6%80%BB/</id>
+    <published>2024-01-03T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.890Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;目录&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;目录&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#%E5%89%8D%E8%A8%80&quot;&gt;前言&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a</description>
-          
+&lt;li&gt;&lt;a</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%97%A5%E8%AE%B0/">日记</category>
-      
-      
-      
-      <comments>http://bugbubbles.github.io/2024/01/%E6%97%A5%E8%AE%B0/%E5%B0%8F%E5%88%9B%E6%84%8F%E6%B4%BB%E5%8A%A8%E6%B1%87%E6%80%BB/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>23年12月进展</title>
-      <link>http://bugbubbles.github.io/2023/12/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B412%E6%9C%88%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2023/12/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B412%E6%9C%88%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Tue, 26 Dec 2023 14:43:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
-&lt;p&gt;从11月下旬开始7个大作业。。。一直在赶作业，一直赶，赶到差不多12月中旬才做完，之后一周一直在玩&lt;em&gt;Stable</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/12/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B412%E6%9C%88%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>Zotero参考文献自定义</title>
-      <link>http://bugbubbles.github.io/2023/12/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Zotero%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E8%87%AA%E5%AE%9A%E4%B9%89/</link>
-      <guid>http://bugbubbles.github.io/2023/12/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Zotero%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E8%87%AA%E5%AE%9A%E4%B9%89/</guid>
-      <pubDate>Tue, 19 Dec 2023 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;多亏了科学写作与报告这门课，让我意识到了参考文献格式的重要性，毕业论文的主要问题就出现在这里。忽而想起能否通过自动化的方法完成格式编排而不是一条一条的手工编写，自然而然地就想到了Zotero，这时候就需要发挥自己的主观能动性了。一番折腾居然还真给办成了，虽然编写的代码奇丑无</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/zotero/">zotero</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/12/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Zotero%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E8%87%AA%E5%AE%9A%E4%B9%89/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>SCADA了解笔记</title>
-      <link>http://bugbubbles.github.io/2023/11/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/SCADA%E4%BA%86%E8%A7%A3%E7%AC%94%E8%AE%B0/</link>
-      <guid>http://bugbubbles.github.io/2023/11/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/SCADA%E4%BA%86%E8%A7%A3%E7%AC%94%E8%AE%B0/</guid>
-      <pubDate>Wed, 22 Nov 2023 16:00:00 GMT</pubDate>
+    <category term="日记" scheme="http://bugbubbles.github.io/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>23年12月进展</title>
+    <link href="http://bugbubbles.github.io/2023/12/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B412%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2023/12/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B412%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2023-12-26T14:43:00.000Z</published>
+    <updated>2024-06-08T07:45:10.900Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;从11月下旬开始7个大作业。。。一直在赶作业，一直赶，赶到差不多12月中旬才做完，之后一周一直在玩&lt;em&gt;Stable</summary>
+        
+      
+    
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Zotero参考文献自定义</title>
+    <link href="http://bugbubbles.github.io/2023/12/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Zotero%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E8%87%AA%E5%AE%9A%E4%B9%89/"/>
+    <id>http://bugbubbles.github.io/2023/12/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Zotero%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E8%87%AA%E5%AE%9A%E4%B9%89/</id>
+    <published>2023-12-19T16:00:00.000Z</published>
+    <updated>2024-10-18T10:13:11.697Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;多亏了科学写作与报告这门课，让我意识到了参考文献格式的重要性，毕业论文的主要问题就出现在这里。忽而想起能否通过自动化的方法完成格式编排而不是一条一条的手工编写，自然而然地就想到了Zotero，这时候就需要发挥自己的主观能动性了。一番折腾居然还真给办成了，虽然编写的代码奇丑无</summary>
+        
+      
+    
+    
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="zotero" scheme="http://bugbubbles.github.io/tags/zotero/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SCADA了解笔记</title>
+    <link href="http://bugbubbles.github.io/2023/11/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/SCADA%E4%BA%86%E8%A7%A3%E7%AC%94%E8%AE%B0/"/>
+    <id>http://bugbubbles.github.io/2023/11/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/SCADA%E4%BA%86%E8%A7%A3%E7%AC%94%E8%AE%B0/</id>
+    <published>2023-11-22T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.960Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 &lt;p&gt;用于学习过程中的笔记。&lt;/p&gt;
 &lt;h2 id=&quot;部分专业名词&quot;&gt;部分专业名词&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;SCADA：Supervisory Control And Data</description>
-          
+&lt;li&gt;SCADA：Supervisory Control And Data</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/11/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/SCADA%E4%BA%86%E8%A7%A3%E7%AC%94%E8%AE%B0/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>现有脉冲网络框架</title>
-      <link>http://bugbubbles.github.io/2023/11/SNN%E7%9B%B8%E5%85%B3/%E7%8E%B0%E6%9C%89%E8%84%89%E5%86%B2%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6/</link>
-      <guid>http://bugbubbles.github.io/2023/11/SNN%E7%9B%B8%E5%85%B3/%E7%8E%B0%E6%9C%89%E8%84%89%E5%86%B2%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6/</guid>
-      <pubDate>Mon, 20 Nov 2023 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
-&lt;p&gt;脉冲神经网络不像深度神经网络那样，有非常成熟的训练框架如&lt;em&gt;torch&lt;/em&gt;，&lt;em&gt;tensorflow&lt;/em&gt;或者国内如&lt;em&gt;oneflow&lt;/em&gt;，&lt;em&gt;paddle&lt;/em&gt;等，在不带其他依赖包的前提下可以完成独立训练、推理以</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/SNN/">SNN</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/11/SNN%E7%9B%B8%E5%85%B3/%E7%8E%B0%E6%9C%89%E8%84%89%E5%86%B2%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>linux命令行配置代理</title>
-      <link>http://bugbubbles.github.io/2023/11/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</link>
-      <guid>http://bugbubbles.github.io/2023/11/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</guid>
-      <pubDate>Sun, 19 Nov 2023 16:00:00 GMT</pubDate>
+    
+    <category term="学习" scheme="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/tags/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>现有脉冲网络框架</title>
+    <link href="http://bugbubbles.github.io/2023/11/SNN%E7%9B%B8%E5%85%B3/%E7%8E%B0%E6%9C%89%E8%84%89%E5%86%B2%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6/"/>
+    <id>http://bugbubbles.github.io/2023/11/SNN%E7%9B%B8%E5%85%B3/%E7%8E%B0%E6%9C%89%E8%84%89%E5%86%B2%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6/</id>
+    <published>2023-11-20T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.730Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;脉冲神经网络不像深度神经网络那样，有非常成熟的训练框架如&lt;em&gt;torch&lt;/em&gt;，&lt;em&gt;tensorflow&lt;/em&gt;或者国内如&lt;em&gt;oneflow&lt;/em&gt;，&lt;em&gt;paddle&lt;/em&gt;等，在不带其他依赖包的前提下可以完成独立训练、推理以</summary>
+        
+      
+    
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="SNN" scheme="http://bugbubbles.github.io/tags/SNN/"/>
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux命令行配置代理</title>
+    <link href="http://bugbubbles.github.io/2023/11/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/"/>
+    <id>http://bugbubbles.github.io/2023/11/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/</id>
+    <published>2023-11-19T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.850Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 &lt;p&gt;近日&lt;em&gt;Clash&lt;/em&gt;家族代理软件通通寄，本来以为在服务器上安装一个Clash是非常容易的一件事，没想到还是踩了两个坑，好在最后都解决了，也顺利完成了代理上网的配置。&lt;/p&gt;
-&lt;h2</description>
-          
+&lt;h2</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/linux/">linux</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/11/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>23年11月进展</title>
-      <link>http://bugbubbles.github.io/2023/11/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B411%E6%9C%88%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2023/11/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B411%E6%9C%88%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Mon, 06 Nov 2023 14:43:00 GMT</pubDate>
+    
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="linux" scheme="http://bugbubbles.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>23年11月进展</title>
+    <link href="http://bugbubbles.github.io/2023/11/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B411%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2023/11/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B411%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2023-11-06T14:43:00.000Z</published>
+    <updated>2024-06-08T07:45:10.890Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;第一篇文献&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;第一篇文献&lt;/h1&gt;
 &lt;p&gt;11月6日&lt;/p&gt;
 &lt;p&gt;文献名：A Differentiable Recurrent Surface for Asynchronous Event-Based Data&lt;/p&gt;
 &lt;p&gt;arxiv&lt;/p&gt;
-&lt;h2</description>
-          
+&lt;h2</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">研究生</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/">读文献进展</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/11/%E7%A0%94%E7%A9%B6%E7%94%9F/23%E5%B9%B411%E6%9C%88%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>事件相机应用最新进展</title>
-      <link>http://bugbubbles.github.io/2023/10/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%9C%80%E6%96%B0%E8%BF%9B%E5%B1%95/</link>
-      <guid>http://bugbubbles.github.io/2023/10/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%9C%80%E6%96%B0%E8%BF%9B%E5%B1%95/</guid>
-      <pubDate>Fri, 20 Oct 2023 08:04:43 GMT</pubDate>
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>事件相机应用最新进展</title>
+    <link href="http://bugbubbles.github.io/2023/10/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%9C%80%E6%96%B0%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2023/10/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%9C%80%E6%96%B0%E8%BF%9B%E5%B1%95/</id>
+    <published>2023-10-20T08:04:43.000Z</published>
+    <updated>2023-11-01T16:00:00.000Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;江老师既然已经给定了选题，咱也不要犹豫了，犹豫就会败北，赶快开始准备综述材料和积累与运用吧！&lt;br&gt;
-在写作每周的综述报告时，虽然老师没有要求，自己还是要严格对待，至少要包括这些内容：主要看了什么内容，用一句话概括一下。技术应用型论文，侧重介绍方法和</description>
-          
+在写作每周的综述报告时，虽然老师没有要求，自己还是要严格对待，至少要包括这些内容：主要看了什么内容，用一句话概括一下。技术应用型论文，侧重介绍方法和</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/">细分领域</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA/">事件相机</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/10/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E6%9C%80%E6%96%B0%E8%BF%9B%E5%B1%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>数学概念表达</title>
-      <link>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5%E8%A1%A8%E8%BE%BE/</link>
-      <guid>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5%E8%A1%A8%E8%BE%BE/</guid>
-      <pubDate>Tue, 17 Oct 2023 16:00:00 GMT</pubDate>
+    
+    
+    <category term="细分领域" scheme="http://bugbubbles.github.io/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/"/>
+    
+    
+    <category term="事件相机" scheme="http://bugbubbles.github.io/tags/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数学概念表达</title>
+    <link href="http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5%E8%A1%A8%E8%BE%BE/"/>
+    <id>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5%E8%A1%A8%E8%BE%BE/</id>
+    <published>2023-10-17T16:00:00.000Z</published>
+    <updated>2024-07-27T08:49:27.521Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;这里记录一下学习过程中遇到的一些数学记号及其对应性质，在下次遇到后可以直接使用不至于陌生。对于成体系的数学记号，则单独归纳为一篇博客。&lt;/p&gt;
 &lt;h1&gt;KL散度&lt;/h1&gt;
-&lt;p&gt;参考自：&lt;a</description>
-          
+&lt;p&gt;参考自：&lt;a</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%95%B0%E5%AD%A6%E6%A6%82%E5%BF%B5%E8%A1%A8%E8%BE%BE/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>SNN初见</title>
-      <link>http://bugbubbles.github.io/2023/10/SNN%E7%9B%B8%E5%85%B3/SNN%E5%88%9D%E8%A7%81/</link>
-      <guid>http://bugbubbles.github.io/2023/10/SNN%E7%9B%B8%E5%85%B3/SNN%E5%88%9D%E8%A7%81/</guid>
-      <pubDate>Tue, 17 Oct 2023 08:04:43 GMT</pubDate>
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="最优化" scheme="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SNN初见</title>
+    <link href="http://bugbubbles.github.io/2023/10/SNN%E7%9B%B8%E5%85%B3/SNN%E5%88%9D%E8%A7%81/"/>
+    <id>http://bugbubbles.github.io/2023/10/SNN%E7%9B%B8%E5%85%B3/SNN%E5%88%9D%E8%A7%81/</id>
+    <published>2023-10-17T08:04:43.000Z</published>
+    <updated>2024-07-25T12:27:47.557Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;事不宜迟，看完的文献总是浅尝辄止，没有总结吸收，还不是自己的东西。积土成山，风雨兴焉！&lt;/p&gt;
 &lt;h1&gt;脉冲&lt;/h1&gt;
-&lt;p&gt;神经元之间通过神经冲动传递信号，脉冲是神经冲动的数学模型。在时域上一连串脉冲组成的冲激函数串称为&lt;strong&gt;脉冲序列&lt;/</description>
-          
+&lt;p&gt;神经元之间通过神经冲动传递信号，脉冲是神经冲动的数学模型。在时域上一连串脉冲组成的冲激函数串称为&lt;strong&gt;脉冲序列&lt;/</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/SNN/">SNN</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/10/SNN%E7%9B%B8%E5%85%B3/SNN%E5%88%9D%E8%A7%81/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>部分经典算法推导</title>
-      <link>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E9%83%A8%E5%88%86%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E6%8E%A8%E5%AF%BC/</link>
-      <guid>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E9%83%A8%E5%88%86%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E6%8E%A8%E5%AF%BC/</guid>
-      <pubDate>Fri, 13 Oct 2023 16:00:00 GMT</pubDate>
+    
+    
+    <category term="学习" scheme="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="SNN" scheme="http://bugbubbles.github.io/tags/SNN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>部分经典算法推导</title>
+    <link href="http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E9%83%A8%E5%88%86%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E6%8E%A8%E5%AF%BC/"/>
+    <id>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E9%83%A8%E5%88%86%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E6%8E%A8%E5%AF%BC/</id>
+    <published>2023-10-13T16:00:00.000Z</published>
+    <updated>2024-07-27T08:55:23.561Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;前言&lt;/h1&gt;
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
 &lt;p&gt;经常在论文中看到一些熟悉又陌生的算法名，例如EM，例如GMM，HMM等等，这些算法好像都是知道个大概，但是要我自己去实现，感觉总是这里缺先验那里缺先验，不能完整地复述出来，就是不是自己的东西，有必要像矩阵求导那样，推导一个完整的式子来。&lt;/p&gt;
-&lt;h</description>
-          
+&lt;h</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E9%83%A8%E5%88%86%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E6%8E%A8%E5%AF%BC/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>张正友标定法问题</title>
-      <link>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%BC%A0%E6%AD%A3%E5%8F%8B%E6%A0%87%E5%AE%9A%E6%B3%95%E9%97%AE%E9%A2%98/</link>
-      <guid>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%BC%A0%E6%AD%A3%E5%8F%8B%E6%A0%87%E5%AE%9A%E6%B3%95%E9%97%AE%E9%A2%98/</guid>
-      <pubDate>Tue, 10 Oct 2023 15:02:14 GMT</pubDate>
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="最优化" scheme="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>张正友标定法问题</title>
+    <link href="http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%BC%A0%E6%AD%A3%E5%8F%8B%E6%A0%87%E5%AE%9A%E6%B3%95%E9%97%AE%E9%A2%98/"/>
+    <id>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%BC%A0%E6%AD%A3%E5%8F%8B%E6%A0%87%E5%AE%9A%E6%B3%95%E9%97%AE%E9%A2%98/</id>
+    <published>2023-10-10T15:02:14.000Z</published>
+    <updated>2024-06-08T07:45:10.890Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 &lt;p&gt;张正友标定法太闻名了，历久不衰，20年后仍然以它作为机器视觉的标定基础，在机器视觉这门课的学习过程中，有个别问题，在此予以记录。&lt;/p&gt;
-&lt;h2</description>
-          
+&lt;h2</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/">机器视觉</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/10/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%BC%A0%E6%AD%A3%E5%8F%8B%E6%A0%87%E5%AE%9A%E6%B3%95%E9%97%AE%E9%A2%98/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>研究生活</title>
-      <link>http://bugbubbles.github.io/2023/10/%E6%97%A5%E8%AE%B0/%E7%A0%94%E7%A9%B6%E7%94%9F%E6%B4%BB/</link>
-      <guid>http://bugbubbles.github.io/2023/10/%E6%97%A5%E8%AE%B0/%E7%A0%94%E7%A9%B6%E7%94%9F%E6%B4%BB/</guid>
-      <pubDate>Sat, 07 Oct 2023 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;2023-10-8-大作业&quot;&gt;2023/10/8</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%97%A5%E8%AE%B0/">日记</category>
-      
-      
-      
-      <comments>http://bugbubbles.github.io/2023/10/%E6%97%A5%E8%AE%B0/%E7%A0%94%E7%A9%B6%E7%94%9F%E6%B4%BB/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>C++学习心得</title>
-      <link>http://bugbubbles.github.io/2023/08/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/C-%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/</link>
-      <guid>http://bugbubbles.github.io/2023/08/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/C-%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/</guid>
-      <pubDate>Wed, 02 Aug 2023 16:15:43 GMT</pubDate>
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="机器视觉" scheme="http://bugbubbles.github.io/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>研究生活</title>
+    <link href="http://bugbubbles.github.io/2023/10/%E6%97%A5%E8%AE%B0/%E7%A0%94%E7%A9%B6%E7%94%9F%E6%B4%BB/"/>
+    <id>http://bugbubbles.github.io/2023/10/%E6%97%A5%E8%AE%B0/%E7%A0%94%E7%A9%B6%E7%94%9F%E6%B4%BB/</id>
+    <published>2023-10-07T16:00:00.000Z</published>
+    <updated>2024-06-08T08:16:03.390Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h2 id=&quot;学习目标&quot;&gt;学习目标&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;2023-10-8-大作业&quot;&gt;2023/10/8</summary>
+        
+      
+    
+    
+    
+    <category term="日记" scheme="http://bugbubbles.github.io/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++学习心得</title>
+    <link href="http://bugbubbles.github.io/2023/08/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/C-%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/"/>
+    <id>http://bugbubbles.github.io/2023/08/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/C-%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/</id>
+    <published>2023-08-02T16:15:43.000Z</published>
+    <updated>2024-06-08T07:45:10.960Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;学习目标&quot;&gt;学习目标&lt;/h2&gt;
 &lt;p&gt;争取熟练掌握C++，达到能够在查看标准库手册、不引入第三方库的情况下独立完成某一个项目的能力，能有python的60%功力就已经足够了，为后续的研究、项目打下基础就好。&lt;/p&gt;
-&lt;h2</description>
-          
+&lt;h2</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/C/">C++</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/08/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/C-%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>vscode配置cmake和gdb调试C/C++项目程序</title>
-      <link>http://bugbubbles.github.io/2023/08/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E9%85%8D%E7%BD%AEcmake%E5%92%8Cgdb%E8%B0%83%E8%AF%95C-C-%E9%A1%B9%E7%9B%AE%E7%A8%8B%E5%BA%8F/</link>
-      <guid>http://bugbubbles.github.io/2023/08/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E9%85%8D%E7%BD%AEcmake%E5%92%8Cgdb%E8%B0%83%E8%AF%95C-C-%E9%A1%B9%E7%9B%AE%E7%A8%8B%E5%BA%8F/</guid>
-      <pubDate>Wed, 02 Aug 2023 05:37:19 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/vscode/">vscode</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/08/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E9%85%8D%E7%BD%AEcmake%E5%92%8Cgdb%E8%B0%83%E8%AF%95C-C-%E9%A1%B9%E7%9B%AE%E7%A8%8B%E5%BA%8F/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>装机配置清单</title>
-      <link>http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%A3%85%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%A3%85%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95/</guid>
-      <pubDate>Sun, 30 Jul 2023 15:17:28 GMT</pubDate>
+    
+    <category term="学习" scheme="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="C++" scheme="http://bugbubbles.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vscode配置cmake和gdb调试C/C++项目程序</title>
+    <link href="http://bugbubbles.github.io/2023/08/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E9%85%8D%E7%BD%AEcmake%E5%92%8Cgdb%E8%B0%83%E8%AF%95C-C-%E9%A1%B9%E7%9B%AE%E7%A8%8B%E5%BA%8F/"/>
+    <id>http://bugbubbles.github.io/2023/08/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E9%85%8D%E7%BD%AEcmake%E5%92%8Cgdb%E8%B0%83%E8%AF%95C-C-%E9%A1%B9%E7%9B%AE%E7%A8%8B%E5%BA%8F/</id>
+    <published>2023-08-02T05:37:19.000Z</published>
+    <updated>2024-07-15T14:30:47.526Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h2 id=&quot;个人倾向&quot;&gt;个人倾向&lt;/h2&gt;
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="vscode" scheme="http://bugbubbles.github.io/tags/vscode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>装机配置清单</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%A3%85%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%A3%85%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95/</id>
+    <published>2023-07-30T15:17:28.000Z</published>
+    <updated>2024-06-08T07:45:10.850Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;个人倾向&quot;&gt;个人倾向&lt;/h2&gt;
 &lt;p&gt;考虑用上全部工资和奖学金，预算为1.6w左右，考虑配置一个丐版4090。&lt;/p&gt;
-&lt;h3</description>
-          
+&lt;h3</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%A3%85%E6%9C%BA/">装机</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%A3%85%E6%9C%BA%E9%85%8D%E7%BD%AE%E6%B8%85%E5%8D%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>Docx习题集</title>
-      <link>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Docx%E4%B9%A0%E9%A2%98%E9%9B%86/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Docx%E4%B9%A0%E9%A2%98%E9%9B%86/</guid>
-      <pubDate>Sun, 30 Jul 2023 13:44:11 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;90万道小学语数外、初高中语数外政史地理化生共21科习题。&lt;/p&gt;
-&lt;h2</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/">数据工作</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Docx%E4%B9%A0%E9%A2%98%E9%9B%86/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>MNBVC数据集来源汇总</title>
-      <link>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/MNBVC%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9D%A5%E6%BA%90%E6%B1%87%E6%80%BB/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/MNBVC%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9D%A5%E6%BA%90%E6%B1%87%E6%80%BB/</guid>
-      <pubDate>Sun, 30 Jul 2023 13:42:58 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;本汇总来自于本汇总来自于MNBVC数据文件下，含有links-txt文件的文件夹的hugging-face、悟道和oscar数据集&quot;&gt;本汇总来自于本汇总来自于MNBVC数据文件下，含有links.txt文件的文件夹的hugging</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/">数据工作</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/MNBVC%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9D%A5%E6%BA%90%E6%B1%87%E6%80%BB/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>Google Coding代码数据集</title>
-      <link>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Google-Coding%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E9%9B%86/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Google-Coding%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E9%9B%86/</guid>
-      <pubDate>Sun, 30 Jul 2023 13:26:21 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/">数据工作</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Google-Coding%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E9%9B%86/#disqus_thread</comments>
-      
-    </item>
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
     
-    <item>
-      <title>5.6T杂项文件</title>
-      <link>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/5-6T%E6%9D%82%E9%A1%B9%E6%96%87%E4%BB%B6/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/5-6T%E6%9D%82%E9%A1%B9%E6%96%87%E4%BB%B6/</guid>
-      <pubDate>Sun, 30 Jul 2023 13:23:08 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;公众号推文&quot;&gt;公众号推文&lt;/h2&gt;
-&lt;p&gt;5.6T原始数据目录为&lt;code&gt;/mnt/cos/cos_shanghai_2/raw_datasets/mt/&lt;/code&gt;</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/">数据工作</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/5-6T%E6%9D%82%E9%A1%B9%E6%96%87%E4%BB%B6/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>百度云OCR测试</title>
-      <link>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E7%99%BE%E5%BA%A6%E4%BA%91OCR%E6%B5%8B%E8%AF%95/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E7%99%BE%E5%BA%A6%E4%BA%91OCR%E6%B5%8B%E8%AF%95/</guid>
-      <pubDate>Sun, 30 Jul 2023 13:15:45 GMT</pubDate>
+    <category term="装机" scheme="http://bugbubbles.github.io/tags/%E8%A3%85%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docx习题集</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Docx%E4%B9%A0%E9%A2%98%E9%9B%86/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Docx%E4%B9%A0%E9%A2%98%E9%9B%86/</id>
+    <published>2023-07-30T13:44:11.000Z</published>
+    <updated>2024-06-08T07:45:10.730Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;p&gt;百度云OCR介绍&lt;/p&gt;
+    <summary type="html">&lt;p&gt;90万道小学语数外、初高中语数外政史地理化生共21科习题。&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="光年实习" scheme="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/"/>
+    
+    
+    <category term="数据工作" scheme="http://bugbubbles.github.io/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MNBVC数据集来源汇总</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/MNBVC%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9D%A5%E6%BA%90%E6%B1%87%E6%80%BB/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/MNBVC%E6%95%B0%E6%8D%AE%E9%9B%86%E6%9D%A5%E6%BA%90%E6%B1%87%E6%80%BB/</id>
+    <published>2023-07-30T13:42:58.000Z</published>
+    <updated>2024-06-08T07:45:10.730Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;本汇总来自于本汇总来自于MNBVC数据文件下，含有links-txt文件的文件夹的hugging-face、悟道和oscar数据集&quot;&gt;本汇总来自于本汇总来自于MNBVC数据文件下，含有links.txt文件的文件夹的hugging</summary>
+        
+      
+    
+    
+    
+    <category term="光年实习" scheme="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/"/>
+    
+    
+    <category term="数据工作" scheme="http://bugbubbles.github.io/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Google Coding代码数据集</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Google-Coding%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E9%9B%86/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/Google-Coding%E4%BB%A3%E7%A0%81%E6%95%B0%E6%8D%AE%E9%9B%86/</id>
+    <published>2023-07-30T13:26:21.000Z</published>
+    <updated>2024-06-08T07:45:10.730Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="光年实习" scheme="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/"/>
+    
+    
+    <category term="数据工作" scheme="http://bugbubbles.github.io/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>5.6T杂项文件</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/5-6T%E6%9D%82%E9%A1%B9%E6%96%87%E4%BB%B6/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/5-6T%E6%9D%82%E9%A1%B9%E6%96%87%E4%BB%B6/</id>
+    <published>2023-07-30T13:23:08.000Z</published>
+    <updated>2024-06-08T07:45:10.730Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;公众号推文&quot;&gt;公众号推文&lt;/h2&gt;
+&lt;p&gt;5.6T原始数据目录为&lt;code&gt;/mnt/cos/cos_shanghai_2/raw_datasets/mt/&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="光年实习" scheme="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/"/>
+    
+    
+    <category term="数据工作" scheme="http://bugbubbles.github.io/tags/%E6%95%B0%E6%8D%AE%E5%B7%A5%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>百度云OCR测试</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E7%99%BE%E5%BA%A6%E4%BA%91OCR%E6%B5%8B%E8%AF%95/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E7%99%BE%E5%BA%A6%E4%BA%91OCR%E6%B5%8B%E8%AF%95/</id>
+    <published>2023-07-30T13:15:45.000Z</published>
+    <updated>2024-06-08T07:45:10.730Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;百度云OCR介绍&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;Untitled.pdf&quot;&gt;Untitled&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;办公文档识别接口：&lt;a</description>
-          
+&lt;p&gt;办公文档识别接口：&lt;a</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/OCR%E6%B5%8B%E8%AF%95/">OCR测试</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E7%99%BE%E5%BA%A6%E4%BA%91OCR%E6%B5%8B%E8%AF%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>腾讯OCR测试</title>
-      <link>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E8%85%BE%E8%AE%AFOCR%E6%B5%8B%E8%AF%95/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E8%85%BE%E8%AE%AFOCR%E6%B5%8B%E8%AF%95/</guid>
-      <pubDate>Sun, 30 Jul 2023 13:09:09 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1&gt;腾讯OCR测试&lt;/h1&gt;
-&lt;p&gt;控制台： &lt;a</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/">光年实习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/OCR%E6%B5%8B%E8%AF%95/">OCR测试</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E8%85%BE%E8%AE%AFOCR%E6%B5%8B%E8%AF%95/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>Verilog 学习</title>
-      <link>http://bugbubbles.github.io/2023/07/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/Verilog%E5%AD%A6%E4%B9%A0/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/Verilog%E5%AD%A6%E4%B9%A0/</guid>
-      <pubDate>Thu, 27 Jul 2023 14:23:03 GMT</pubDate>
+    
+    <category term="光年实习" scheme="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/"/>
+    
+    
+    <category term="OCR测试" scheme="http://bugbubbles.github.io/tags/OCR%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>腾讯OCR测试</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E8%85%BE%E8%AE%AFOCR%E6%B5%8B%E8%AF%95/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0%E7%BB%8F%E5%8E%86/%E8%85%BE%E8%AE%AFOCR%E6%B5%8B%E8%AF%95/</id>
+    <published>2023-07-30T13:09:09.000Z</published>
+    <updated>2024-06-08T07:45:10.800Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+    <summary type="html">&lt;h1&gt;腾讯OCR测试&lt;/h1&gt;
+&lt;p&gt;控制台： &lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="光年实习" scheme="http://bugbubbles.github.io/categories/%E5%85%89%E5%B9%B4%E5%AE%9E%E4%B9%A0/"/>
+    
+    
+    <category term="OCR测试" scheme="http://bugbubbles.github.io/tags/OCR%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Verilog 学习</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/Verilog%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/Verilog%E5%AD%A6%E4%B9%A0/</id>
+    <published>2023-07-27T14:23:03.000Z</published>
+    <updated>2024-06-08T07:45:10.960Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 &lt;p&gt;嵌入式课程和导师的专长都是硬件电路设计，面向应用部署算法，因此有必要了解掌握Verilog语法及其设计思想。&lt;/p&gt;
 &lt;h3 id=&quot;名词解释&quot;&gt;名词解释&lt;/h3&gt;
-&lt;p&gt;VHDL : VHSIC : Very High Speed</description>
-          
+&lt;p&gt;VHDL : VHSIC : Very High Speed</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/verilog/">verilog</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/Verilog%E5%AD%A6%E4%B9%A0/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>mpich 学习</title>
-      <link>http://bugbubbles.github.io/2023/07/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/mpich-%E5%AD%A6%E4%B9%A0/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/mpich-%E5%AD%A6%E4%B9%A0/</guid>
-      <pubDate>Thu, 27 Jul 2023 14:23:03 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/">学习</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">分布式</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/mpich-%E5%AD%A6%E4%B9%A0/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>Butterfly风格调教</title>
-      <link>http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Butterfly%E9%A3%8E%E6%A0%BC%E8%B0%83%E6%95%99/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Butterfly%E9%A3%8E%E6%A0%BC%E8%B0%83%E6%95%99/</guid>
-      <pubDate>Mon, 17 Jul 2023 15:02:14 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1&gt;写在前面&lt;/h1&gt;
-&lt;p&gt;一直心心念念butterfly搭的网站公式字体不好看（原始字体应该是&lt;code&gt;Latin Modern</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/Butterfly/">Butterfly</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Butterfly%E9%A3%8E%E6%A0%BC%E8%B0%83%E6%95%99/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>矩阵理论续集</title>
-      <link>http://bugbubbles.github.io/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA%E7%BB%AD%E9%9B%86/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA%E7%BB%AD%E9%9B%86/</guid>
-      <pubDate>Sat, 15 Jul 2023 10:13:01 GMT</pubDate>
+    <category term="学习" scheme="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="verilog" scheme="http://bugbubbles.github.io/tags/verilog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mpich 学习</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/mpich-%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/mpich-%E5%AD%A6%E4%B9%A0/</id>
+    <published>2023-07-27T14:23:03.000Z</published>
+    <updated>2024-06-08T07:45:10.960Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;p&gt;个人写作笔记，如有问题，请不吝赐教！&lt;br&gt;
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="分布式" scheme="http://bugbubbles.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Butterfly风格调教</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Butterfly%E9%A3%8E%E6%A0%BC%E8%B0%83%E6%95%99/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/Butterfly%E9%A3%8E%E6%A0%BC%E8%B0%83%E6%95%99/</id>
+    <published>2023-07-17T15:02:14.000Z</published>
+    <updated>2024-06-08T07:45:10.840Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;写在前面&lt;/h1&gt;
+&lt;p&gt;一直心心念念butterfly搭的网站公式字体不好看（原始字体应该是&lt;code&gt;Latin Modern</summary>
+        
+      
+    
+    
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="Butterfly" scheme="http://bugbubbles.github.io/tags/Butterfly/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>矩阵理论续集</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA%E7%BB%AD%E9%9B%86/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA%E7%BB%AD%E9%9B%86/</id>
+    <published>2023-07-15T10:13:01.000Z</published>
+    <updated>2024-06-08T07:45:10.890Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;个人写作笔记，如有问题，请不吝赐教！&lt;br&gt;
 目录如下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC&quot;&gt;矩阵求导&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a</description>
-          
+&lt;li&gt;&lt;a</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA%E7%BB%AD%E9%9B%86/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>矩阵课程笔记</title>
-      <link>http://bugbubbles.github.io/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</link>
-      <guid>http://bugbubbles.github.io/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</guid>
-      <pubDate>Sat, 15 Jul 2023 08:26:27 GMT</pubDate>
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="最优化" scheme="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>矩阵课程笔记</title>
+    <link href="http://bugbubbles.github.io/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    <id>http://bugbubbles.github.io/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/</id>
+    <published>2023-07-15T08:26:27.000Z</published>
+    <updated>2024-06-08T07:45:10.890Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;p&gt;个人写作笔记，如有问题，请不吝赐教！&lt;br&gt;
+    <summary type="html">&lt;p&gt;个人写作笔记，如有问题，请不吝赐教！&lt;br&gt;
 目录如下：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a</description>
-          
+&lt;li&gt;&lt;a</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">数学基础</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/">最优化</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%9F%A9%E9%98%B5%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>记CUDA与CUDNN安装的坑</title>
-      <link>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0CUDA%E4%B8%8ECUDNN%E5%AE%89%E8%A3%85%E7%9A%84%E5%9D%91/</link>
-      <guid>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0CUDA%E4%B8%8ECUDNN%E5%AE%89%E8%A3%85%E7%9A%84%E5%9D%91/</guid>
-      <pubDate>Thu, 23 Feb 2023 03:21:27 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/%E8%A3%85%E6%9C%BA/">装机</category>
-      
-      <category domain="http://bugbubbles.github.io/tags/CUDA/">CUDA</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0CUDA%E4%B8%8ECUDNN%E5%AE%89%E8%A3%85%E7%9A%84%E5%9D%91/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>更改Markdown PDF输出的数学公式字体</title>
-      <link>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E6%9B%B4%E6%94%B9Markdown-PDF%E8%BE%93%E5%87%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%AD%97%E4%BD%93/</link>
-      <guid>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E6%9B%B4%E6%94%B9Markdown-PDF%E8%BE%93%E5%87%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%AD%97%E4%BD%93/</guid>
-      <pubDate>Thu, 16 Feb 2023 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;p&gt;本人作为强迫症重症患者，花费一整个下午晚上用于格式调整和风格优化的事情没有少做，今天分享一个新学到的知识：修改VS code插件&lt;mark&gt;&amp;gt;Markdown-PDF&lt;/mark&gt;的数学公式字体。（使用typora的同志请不用往下看了，是我不配了）&lt;/p&gt;
-&lt;h2</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/zotero/">zotero</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E6%9B%B4%E6%94%B9Markdown-PDF%E8%BE%93%E5%87%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%AD%97%E4%BD%93/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>latex使用setmathfont函数配置数学环境字体</title>
-      <link>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/latex%E4%BD%BF%E7%94%A8setmathfont%E5%87%BD%E6%95%B0%E9%85%8D%E7%BD%AE%E6%95%B0%E5%AD%A6%E7%8E%AF%E5%A2%83%E5%AD%97%E4%BD%93/</link>
-      <guid>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/latex%E4%BD%BF%E7%94%A8setmathfont%E5%87%BD%E6%95%B0%E9%85%8D%E7%BD%AE%E6%95%B0%E5%AD%A6%E7%8E%AF%E5%A2%83%E5%AD%97%E4%BD%93/</guid>
-      <pubDate>Tue, 14 Feb 2023 16:00:00 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h2 id=&quot;小叙&quot;&gt;小叙&lt;/h2&gt;
-&lt;p&gt;许久不更新，今日有闲写一笔。正所谓是忙中偷闲，明明毕业设计的任务大兵压境，结果还花费一个下午和晚上的时间泡在Latex的美化配置上，真是究极强迫症！&lt;img</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/latex/">latex</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/latex%E4%BD%BF%E7%94%A8setmathfont%E5%87%BD%E6%95%B0%E9%85%8D%E7%BD%AE%E6%95%B0%E5%AD%A6%E7%8E%AF%E5%A2%83%E5%AD%97%E4%BD%93/#disqus_thread</comments>
-      
-    </item>
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
     
-    <item>
-      <title>word公式常用快捷键</title>
-      <link>http://bugbubbles.github.io/2022/12/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/word%E5%85%AC%E5%BC%8F%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
-      <guid>http://bugbubbles.github.io/2022/12/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/word%E5%85%AC%E5%BC%8F%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
-      <pubDate>Thu, 29 Dec 2022 14:11:31 GMT</pubDate>
+    
+    <category term="最优化" scheme="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记CUDA与CUDNN安装的坑</title>
+    <link href="http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0CUDA%E4%B8%8ECUDNN%E5%AE%89%E8%A3%85%E7%9A%84%E5%9D%91/"/>
+    <id>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E8%AE%B0CUDA%E4%B8%8ECUDNN%E5%AE%89%E8%A3%85%E7%9A%84%E5%9D%91/</id>
+    <published>2023-02-23T03:21:27.000Z</published>
+    <updated>2024-06-08T07:45:10.860Z</updated>
+    
+    
+      
       
         
         
-          
-          
-      <description>&lt;h1&gt;写在前面&lt;/h1&gt;
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="装机" scheme="http://bugbubbles.github.io/tags/%E8%A3%85%E6%9C%BA/"/>
+    
+    <category term="CUDA" scheme="http://bugbubbles.github.io/tags/CUDA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>更改Markdown PDF输出的数学公式字体</title>
+    <link href="http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E6%9B%B4%E6%94%B9Markdown-PDF%E8%BE%93%E5%87%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%AD%97%E4%BD%93/"/>
+    <id>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E6%9B%B4%E6%94%B9Markdown-PDF%E8%BE%93%E5%87%BA%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%AD%97%E4%BD%93/</id>
+    <published>2023-02-16T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.850Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;本人作为强迫症重症患者，花费一整个下午晚上用于格式调整和风格优化的事情没有少做，今天分享一个新学到的知识：修改VS code插件&lt;mark&gt;&amp;gt;Markdown-PDF&lt;/mark&gt;的数学公式字体。（使用typora的同志请不用往下看了，是我不配了）&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="zotero" scheme="http://bugbubbles.github.io/tags/zotero/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>latex使用setmathfont函数配置数学环境字体</title>
+    <link href="http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/latex%E4%BD%BF%E7%94%A8setmathfont%E5%87%BD%E6%95%B0%E9%85%8D%E7%BD%AE%E6%95%B0%E5%AD%A6%E7%8E%AF%E5%A2%83%E5%AD%97%E4%BD%93/"/>
+    <id>http://bugbubbles.github.io/2023/02/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/latex%E4%BD%BF%E7%94%A8setmathfont%E5%87%BD%E6%95%B0%E9%85%8D%E7%BD%AE%E6%95%B0%E5%AD%A6%E7%8E%AF%E5%A2%83%E5%AD%97%E4%BD%93/</id>
+    <published>2023-02-14T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.850Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;小叙&quot;&gt;小叙&lt;/h2&gt;
+&lt;p&gt;许久不更新，今日有闲写一笔。正所谓是忙中偷闲，明明毕业设计的任务大兵压境，结果还花费一个下午和晚上的时间泡在Latex的美化配置上，真是究极强迫症！&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="latex" scheme="http://bugbubbles.github.io/tags/latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>word公式常用快捷键</title>
+    <link href="http://bugbubbles.github.io/2022/12/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/word%E5%85%AC%E5%BC%8F%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://bugbubbles.github.io/2022/12/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/word%E5%85%AC%E5%BC%8F%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <published>2022-12-29T14:11:31.000Z</published>
+    <updated>2024-06-08T07:45:10.850Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;写在前面&lt;/h1&gt;
 &lt;p&gt;不定期更新一波…&lt;/p&gt;
-&lt;p&gt;只要熟练快捷键和word排版的特点，word也能敲出很漂亮的公式，这里整理了一下使用word排版数学公式的相关快捷键和符号，仅供参考，其中的&lt;code&gt;[space]&lt;/code&gt;表示在输入代码的过程中敲击空格符。</description>
-          
+&lt;p&gt;只要熟练快捷键和word排版的特点，word也能敲出很漂亮的公式，这里整理了一下使用word排版数学公式的相关快捷键和符号，仅供参考，其中的&lt;code&gt;[space]&lt;/code&gt;表示在输入代码的过程中敲击空格符。</summary>
         
       
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/">搞机</category>
-      
-      
-      <category domain="http://bugbubbles.github.io/tags/latex/">latex</category>
-      
-      
-      <comments>http://bugbubbles.github.io/2022/12/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/word%E5%85%AC%E5%BC%8F%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/#disqus_thread</comments>
-      
-    </item>
     
-    <item>
-      <title>终于考完了</title>
-      <link>http://bugbubbles.github.io/2022/12/%E6%97%A5%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/</link>
-      <guid>http://bugbubbles.github.io/2022/12/%E6%97%A5%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/</guid>
-      <pubDate>Wed, 28 Dec 2022 07:45:13 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description>&lt;h1&gt;考试结束&lt;/h1&gt;
-&lt;p&gt;12月27号，本科期间的最后一堂考试缓缓落下帷幕，没想到居然是一门闭卷考试。考试科目《制导与控制》是仪器专业的特色课程，全程讲的是坐标系变换和姿态控制，令人眼花缭乱的变换矩阵，花里胡哨的矢量运算，学的时候是一点也没有学明白，但是复习完了感觉，跟《</description>
-          
-        
-      
-      
-      
-      
-      <category domain="http://bugbubbles.github.io/categories/%E6%97%A5%E8%AE%B0/">日记</category>
-      
-      
-      
-      <comments>http://bugbubbles.github.io/2022/12/%E6%97%A5%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/#disqus_thread</comments>
-      
-    </item>
     
-  </channel>
-</rss>
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="latex" scheme="http://bugbubbles.github.io/tags/latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>终于考完了</title>
+    <link href="http://bugbubbles.github.io/2022/12/%E6%97%A5%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/"/>
+    <id>http://bugbubbles.github.io/2022/12/%E6%97%A5%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%97%A5%E8%AE%B0/</id>
+    <published>2022-12-28T07:45:13.000Z</published>
+    <updated>2022-12-27T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;考试结束&lt;/h1&gt;
+&lt;p&gt;12月27号，本科期间的最后一堂考试缓缓落下帷幕，没想到居然是一门闭卷考试。考试科目《制导与控制》是仪器专业的特色课程，全程讲的是坐标系变换和姿态控制，令人眼花缭乱的变换矩阵，花里胡哨的矢量运算，学的时候是一点也没有学明白，但是复习完了感觉，跟《</summary>
+        
+      
+    
+    
+    
+    <category term="日记" scheme="http://bugbubbles.github.io/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+</feed>
