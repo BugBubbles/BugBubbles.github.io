@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Das Blog von BugBubbles</title>
-  <icon>http://bugbubbles.github.io/%E7%BB%BF%E5%8F%B6.png</icon>
+  <icon>http://bugbubbles.github.io/img/%E7%BB%BF%E5%8F%B6.png</icon>
   <subtitle>科研民工</subtitle>
   <link href="http://bugbubbles.github.io/atom.xml" rel="self"/>
   
