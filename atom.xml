@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Das Blog von BugBubbles</title>
+  <icon>http://bugbubbles.github.io/icon.png</icon>
+  <subtitle>科研民工</subtitle>
+  <link href="http://bugbubbles.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://bugbubbles.github.io/"/>
+  <updated>2024-10-14T03:47:32.384Z</updated>
+  <id>http://bugbubbles.github.io/</id>
+  
+  <author>
+    <name>Tschen Böffee</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>g2o使用笔记</title>
+    <link href="http://bugbubbles.github.io/2024/10/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/g2o%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"/>
+    <id>http://bugbubbles.github.io/2024/10/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/g2o%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/</id>
+    <published>2024-10-10T16:00:00.000Z</published>
+    <updated>2024-10-14T03:47:32.384Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;现有的位姿求解算法，有直接线性变换法、非线性优化法，其中最广为人知的是基于捆绑调整的非线性优化方法（&lt;em&gt;Bundle</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="最优化" scheme="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    
+    <category term="C++" scheme="http://bugbubbles.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>空间导航数学基础</title>
+    <link href="http://bugbubbles.github.io/2024/09/%E9%99%A8%E7%9F%B3%E5%9D%91/%E7%A9%BA%E9%97%B4%E5%AF%BC%E8%88%AA%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    <id>http://bugbubbles.github.io/2024/09/%E9%99%A8%E7%9F%B3%E5%9D%91/%E7%A9%BA%E9%97%B4%E5%AF%BC%E8%88%AA%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</id>
+    <published>2024-09-11T16:00:00.000Z</published>
+    <updated>2024-09-13T04:50:33.640Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;style&gt;
+  .small-img {
+    width: 400px;
+  }
+&lt;/style&gt;
+&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;空间导航方式分为相对导航&lt;em&gt;Relative Navigation&lt;/em&gt;和迷失空间导航&lt;em&gt;Lost in</summary>
+        
+      
+    
+    
+    
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="项目进展" scheme="http://bugbubbles.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年8月进展</title>
+    <link href="http://bugbubbles.github.io/2024/08/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B48%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/08/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B48%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-08-27T16:00:00.000Z</published>
+    <updated>2024-09-13T04:48:27.312Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;8月以来经历了暑假放假，中间迷惘一周，大致于8月16号之后才正式进入状态。&lt;/p&gt;
+&lt;h1&gt;第一篇文献&lt;/h1&gt;
+&lt;p&gt;Event-Based Motion Magnification&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年7月进展</title>
+    <link href="http://bugbubbles.github.io/2024/07/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B47%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/07/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B47%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-07-23T16:00:00.000Z</published>
+    <updated>2024-07-25T01:34:10.224Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;第一篇文献&lt;/h1&gt;
+&lt;p&gt;Diffusion Models for Implicit Image Segmentation Ensembles&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>光束法平差入门</title>
+    <link href="http://bugbubbles.github.io/2024/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%85%89%E6%9D%9F%E6%B3%95%E5%B9%B3%E5%B7%AE%E5%85%A5%E9%97%A8/"/>
+    <id>http://bugbubbles.github.io/2024/07/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%85%89%E6%9D%9F%E6%B3%95%E5%B9%B3%E5%B7%AE%E5%85%A5%E9%97%A8/</id>
+    <published>2024-07-21T16:00:00.000Z</published>
+    <updated>2024-10-14T01:36:08.658Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;光束法平差Bundle Adjustment，据说是三维重建领域的标配算法，然而我懂不了一点，因此专门开一个博客予以记录。本文主要参考了&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="最优化" scheme="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    
+    <category term="三维重建" scheme="http://bugbubbles.github.io/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vscode远程误删除恢复</title>
+    <link href="http://bugbubbles.github.io/2024/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E8%BF%9C%E7%A8%8B%E8%AF%AF%E5%88%A0%E9%99%A4%E6%81%A2%E5%A4%8D/"/>
+    <id>http://bugbubbles.github.io/2024/07/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/vscode%E8%BF%9C%E7%A8%8B%E8%AF%AF%E5%88%A0%E9%99%A4%E6%81%A2%E5%A4%8D/</id>
+    <published>2024-07-17T16:00:00.000Z</published>
+    <updated>2024-07-18T12:00:57.845Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;写在前面&lt;/h1&gt;
+&lt;p&gt;惊险一刻！今天在调试项目的时候，不经意间把一个非常重要的文件夹&lt;code&gt;lunar_crater&lt;/code&gt;给误删除了。&lt;/p&gt;
+&lt;div class=&quot;note , danger</summary>
+        
+      
+    
+    
+    
+    <category term="搞机" scheme="http://bugbubbles.github.io/categories/%E6%90%9E%E6%9C%BA/"/>
+    
+    
+    <category term="vscode" scheme="http://bugbubbles.github.io/tags/vscode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年6月进展</title>
+    <link href="http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B46%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B46%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-06-23T16:00:00.000Z</published>
+    <updated>2024-07-08T11:10:25.129Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;第一篇文献&lt;/h1&gt;
+&lt;p&gt;MetaEarth: A Generative Foundation Model for Global-scale Remote Sensing Image Generation&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零开始实现扩散模型</title>
+    <link href="http://bugbubbles.github.io/2024/06/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"/>
+    <id>http://bugbubbles.github.io/2024/06/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%9E%E7%8E%B0%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/</id>
+    <published>2024-06-14T16:00:00.000Z</published>
+    <updated>2024-07-25T12:26:48.177Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;关于扩散模型的数学基础性的知识，可以参照原始论文&lt;a href=&quot;#ref-1&quot;&gt;&lt;sup&gt;[1]&lt;/sup&gt;&lt;/a&gt;和&lt;a href=&quot;#ref-2&quot;&gt;&lt;sup&gt;[2]&lt;/sup&gt;&lt;/a&gt;；亦可以参考本文相关的&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://bugbubbles.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Torch" scheme="http://bugbubbles.github.io/tags/Torch/"/>
+    
+    <category term="扩散模型" scheme="http://bugbubbles.github.io/tags/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>祖传代码</title>
+    <link href="http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%A5%96%E4%BC%A0%E4%BB%A3%E7%A0%81/"/>
+    <id>http://bugbubbles.github.io/2024/06/%E7%A0%94%E7%A9%B6%E7%94%9F/%E7%A5%96%E4%BC%A0%E4%BB%A3%E7%A0%81/</id>
+    <published>2024-06-10T16:00:00.000Z</published>
+    <updated>2024-06-11T01:44:42.558Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;本博客只是记录一下从师兄等处继承得到的一些代码及其使用说明。&lt;/p&gt;
+&lt;h1&gt;国产事件相机&lt;/h1&gt;
+&lt;p&gt;SDK及其使用说明：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="事件相机" scheme="http://bugbubbles.github.io/tags/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hallo Welt!</title>
+    <link href="http://bugbubbles.github.io/2024/06/%E6%97%A5%E8%AE%B0/hello-world/"/>
+    <id>http://bugbubbles.github.io/2024/06/%E6%97%A5%E8%AE%B0/hello-world/</id>
+    <published>2024-06-08T07:45:10.890Z</published>
+    <updated>2022-12-12T16:00:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;这是某位小白的第一篇&lt;code&gt;githubio&lt;/code&gt;的博客，不得不说确实是被这个博客美观的造型吸引过来了。&lt;/p&gt;
+&lt;h2 id=&quot;初步计划的博客内容安排&quot;&gt;初步计划的博客内容安排&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th</summary>
+        
+      
+    
+    
+    
+    <category term="日记" scheme="http://bugbubbles.github.io/categories/%E6%97%A5%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>图像去雨系列方法汇总</title>
+    <link href="http://bugbubbles.github.io/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/"/>
+    <id>http://bugbubbles.github.io/2024/05/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%A8%E7%B3%BB%E5%88%97%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</id>
+    <published>2024-05-12T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.950Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;服务于所谓的图像去条纹，真是心都操碎了，到处去查论文看文献，之前一直在图像去噪那里寻寻觅觅冷冷清清，现在总算是找到了方向。&lt;/p&gt;
+&lt;p&gt;所谓图像去雨，就是广泛意义上的图层分解中，将&lt;strong&gt;或者&lt;/strong&gt;雨滴图层&lt;strong&gt;与&lt;/</summary>
+        
+      
+    
+    
+    
+    <category term="细分领域" scheme="http://bugbubbles.github.io/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/"/>
+    
+    
+    <category term="Derain" scheme="http://bugbubbles.github.io/tags/Derain/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>24年5月进展</title>
+    <link href="http://bugbubbles.github.io/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/"/>
+    <id>http://bugbubbles.github.io/2024/05/%E7%A0%94%E7%A9%B6%E7%94%9F/24%E5%B9%B45%E6%9C%88%E8%BF%9B%E5%B1%95/</id>
+    <published>2024-05-11T16:00:00.000Z</published>
+    <updated>2024-06-22T11:34:53.394Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;第一篇文献&lt;/h1&gt;
+&lt;p&gt;Boundary-Aware Divide and Conquer: A Diffusion-based Solution for Unsupervised Shadow Removal&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
+    
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>各种DDPM衍生模型</title>
+    <link href="http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%84%E7%A7%8DDDPM%E8%A1%8D%E7%94%9F%E6%A8%A1%E5%9E%8B/"/>
+    <id>http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E5%90%84%E7%A7%8DDDPM%E8%A1%8D%E7%94%9F%E6%A8%A1%E5%9E%8B/</id>
+    <published>2024-05-07T16:00:00.000Z</published>
+    <updated>2024-06-21T03:32:10.114Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;本博客收集整理近年来一些常用的DDPM衍生模型，其特点是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;大多&lt;strong&gt;不需要&lt;/strong&gt;重新训练，仅使用DDPM训练的UNet作噪声估计器；&lt;/li&gt;
+&lt;li&gt;聚焦于某个领域（如算法提速、图像恢复等）；&lt;/l</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="扩散模型" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="Diffusion" scheme="http://bugbubbles.github.io/tags/Diffusion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>条件扩散模型</title>
+    <link href="http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"/>
+    <id>http://bugbubbles.github.io/2024/05/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/%E6%9D%A1%E4%BB%B6%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/</id>
+    <published>2024-05-07T16:00:00.000Z</published>
+    <updated>2024-07-01T07:34:45.691Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;扩散模型再怎么牛，也只能在同一个数据集下生成类似的图像，不可能随心所欲地命令其生成想要的图像。但是实际上文生图早已实现，而且不是什么难事，这是怎么做到的呢？这便是条件扩散模型的功劳，是它实现了文本等语义信息的编码嵌入，控制扩散模型生成指定内容的图像，</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="扩散模型" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/"/>
+    
+    
+    <category term="Diffusion" scheme="http://bugbubbles.github.io/tags/Diffusion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>N2N系列图像去噪方法汇总</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/N2N%E7%B3%BB%E5%88%97%E5%9B%BE%E5%83%8F%E5%8E%BB%E5%99%AA%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/N2N%E7%B3%BB%E5%88%97%E5%9B%BE%E5%83%8F%E5%8E%BB%E5%99%AA%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/</id>
+    <published>2024-04-26T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.940Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;这里的图像去噪，更多地指的是带有某些特殊模式的噪声，这种模式大多有特定的物理机理，例如最常见的高斯白噪声和泊松噪声。常规的方法将这些噪声的信息作为先验信息，手工设计处理算法例如BM3D&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="细分领域" scheme="http://bugbubbles.github.io/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/"/>
+    
+    
+    <category term="Denoise" scheme="http://bugbubbles.github.io/tags/Denoise/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>变分法与泛函极值</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E6%B3%95%E4%B8%8E%E6%B3%9B%E5%87%BD%E6%9E%81%E5%80%BC/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%8F%98%E5%88%86%E6%B3%95%E4%B8%8E%E6%B3%9B%E5%87%BD%E6%9E%81%E5%80%BC/</id>
+    <published>2024-04-21T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.860Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;众所周知泛函分析心犯寒，无数的前人帮我证明了，它确实是工科生能够遇到的最难的数学。不过好在我有那么一点点点点点的泛函分析基础，希望我能快速学会这个东西，将它用在工程实践中，我并不需要掌握太多理论上的推导与证明。&lt;/p&gt;
+&lt;p&gt;参考&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="最优化" scheme="http://bugbubbles.github.io/tags/%E6%9C%80%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>墨卡托投影</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%A2%A8%E5%8D%A1%E6%89%98%E6%8A%95%E5%BD%B1/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E5%A2%A8%E5%8D%A1%E6%89%98%E6%8A%95%E5%BD%B1/</id>
+    <published>2024-04-20T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.860Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;墨卡托投影我最早于大四上学期的制导与控制课程接触到，当时压根没有认真听，只知道有这个概念（不过我估计认真听了也不会记得），现在查阅网络资料自行学习一下，这个部分对于地理领域和遥感领域都有一定的参考意义。&lt;/p&gt;
+&lt;p&gt;墨卡托投影是十五世纪的意大利地理</summary>
+        
+      
+    
+    
+    
+    <category term="数学基础" scheme="http://bugbubbles.github.io/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="遥感" scheme="http://bugbubbles.github.io/tags/%E9%81%A5%E6%84%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>月球表面三维环境构建</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E8%A1%A8%E9%9D%A2%E4%B8%89%E7%BB%B4%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E8%A1%A8%E9%9D%A2%E4%B8%89%E7%BB%B4%E7%8E%AF%E5%A2%83%E6%9E%84%E5%BB%BA/</id>
+    <published>2024-04-17T16:00:00.000Z</published>
+    <updated>2024-07-08T12:31:21.171Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;本文主要从两个方向介绍，一种是基于射影变换的月球表面环境构建；另一种是基于高度图的三维仿真环境构建，目前两种方式都已经实现。本文将引导读者从获取数据集开始完成对月球表面的三维环境构建仿真。&lt;/p&gt;
+&lt;h1&gt;构建仿真文件&lt;/h1&gt;
+&lt;p&gt;在构建三维表面环境的配置中，需要加入一</summary>
+        
+      
+    
+    
+    
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="ros" scheme="http://bugbubbles.github.io/tags/ros/"/>
+    
+    <category term="gazebo" scheme="http://bugbubbles.github.io/tags/gazebo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自动化数据采集与标注</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E4%B8%8E%E6%A0%87%E6%B3%A8/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E9%99%A8%E7%9F%B3%E5%9D%91/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E4%B8%8E%E6%A0%87%E6%B3%A8/</id>
+    <published>2024-04-17T16:00:00.000Z</published>
+    <updated>2024-07-16T11:21:41.290Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="C++" scheme="http://bugbubbles.github.io/tags/C/"/>
+    
+    <category term="ros" scheme="http://bugbubbles.github.io/tags/ros/"/>
+    
+    <category term="gazebo" scheme="http://bugbubbles.github.io/tags/gazebo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图像检测模型详解</title>
+    <link href="http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://bugbubbles.github.io/2024/04/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/%E5%9B%BE%E5%83%8F%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B%E8%AF%A6%E8%A7%A3/</id>
+    <published>2024-04-12T16:00:00.000Z</published>
+    <updated>2024-06-08T07:45:10.960Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;图像检测领域是一个较大的分支，目前主流的方法是YOLO，但是R-CNN系列也是非常经典的方法，有必要对这两种类型的方法 作深入的了解，才方便 后续的方法</summary>
+        
+      
+    
+    
+    
+    <category term="细分领域" scheme="http://bugbubbles.github.io/categories/%E7%BB%86%E5%88%86%E9%A2%86%E5%9F%9F/"/>
+    
+    
+    <category term="检测" scheme="http://bugbubbles.github.io/tags/%E6%A3%80%E6%B5%8B/"/>
+    
+    <category term="R-CNN" scheme="http://bugbubbles.github.io/tags/R-CNN/"/>
+    
+    <category term="YOLO" scheme="http://bugbubbles.github.io/tags/YOLO/"/>
+    
+  </entry>
+  
+</feed>
