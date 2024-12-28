@@ -6,7 +6,7 @@
   <link href="http://bugbubbles.github.io/atom.xml" rel="self"/>
   
   <link href="http://bugbubbles.github.io/"/>
-  <updated>2024-10-14T03:47:32.384Z</updated>
+  <updated>2024-12-28T04:09:53.391Z</updated>
   <id>http://bugbubbles.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>陨石坑检测算法记录</title>
+    <link href="http://bugbubbles.github.io/2024/12/%E9%99%A8%E7%9F%B3%E5%9D%91/%E9%99%A8%E7%9F%B3%E5%9D%91%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E8%AE%B0%E5%BD%95/"/>
+    <id>http://bugbubbles.github.io/2024/12/%E9%99%A8%E7%9F%B3%E5%9D%91/%E9%99%A8%E7%9F%B3%E5%9D%91%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E8%AE%B0%E5%BD%95/</id>
+    <published>2024-12-27T16:00:00.000Z</published>
+    <updated>2024-12-28T04:09:53.391Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;这里的陨石坑检测算法，需要区别目标检测。所谓目标检测，是指利用标注的边界框大致框出需要关注的目标实体，并分配对应的标签的过程。这里的算法重点落在&lt;strong&gt;框出&lt;/strong&gt;和&lt;strong&gt;标签&lt;/strong&gt;，分别代表了目标检测的两个基</summary>
+        
+      
+    
+    
+    
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="项目进展" scheme="http://bugbubbles.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
   
   <entry>
     <title>g2o使用笔记</title>
@@ -754,7 +780,7 @@
     <link href="http://bugbubbles.github.io/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/"/>
     <id>http://bugbubbles.github.io/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/</id>
     <published>2024-03-18T16:00:00.000Z</published>
-    <updated>2024-09-18T09:44:01.045Z</updated>
+    <updated>2024-12-28T03:39:53.911Z</updated>
     
     
     <summary type="html">我的毕业设计项目进展</summary>
