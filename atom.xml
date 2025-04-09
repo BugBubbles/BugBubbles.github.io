@@ -6,7 +6,7 @@
   <link href="http://bugbubbles.github.io/atom.xml" rel="self"/>
   
   <link href="http://bugbubbles.github.io/"/>
-  <updated>2024-12-28T04:09:53.391Z</updated>
+  <updated>2025-02-23T14:36:46.988Z</updated>
   <id>http://bugbubbles.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>陨石坑目录评估</title>
+    <link href="http://bugbubbles.github.io/2025/02/%E9%99%A8%E7%9F%B3%E5%9D%91/%E9%99%A8%E7%9F%B3%E5%9D%91%E7%9B%AE%E5%BD%95%E8%AF%84%E4%BC%B0/"/>
+    <id>http://bugbubbles.github.io/2025/02/%E9%99%A8%E7%9F%B3%E5%9D%91/%E9%99%A8%E7%9F%B3%E5%9D%91%E7%9B%AE%E5%BD%95%E8%AF%84%E4%BC%B0/</id>
+    <published>2025-02-22T16:00:00.000Z</published>
+    <updated>2025-02-23T14:36:46.988Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;记录&lt;/h1&gt;
+&lt;p&gt;在进行陨石坑目录评估的时候，由于需要使用到大范围内的DEM数据，直接从无到有构建程序将非常复杂，且难以被优化，效率也非常差，不如直接使用现有工具ArcGIS</summary>
+        
+      
+    
+    
+    
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="项目进展" scheme="http://bugbubbles.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
   
   <entry>
     <title>陨石坑检测算法记录</title>
@@ -826,7 +852,7 @@
     <link href="http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E4%B8%BATorch%E7%BC%96%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AE%97%E5%AD%90/"/>
     <id>http://bugbubbles.github.io/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/CUDA%E4%B8%BATorch%E7%BC%96%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AE%97%E5%AD%90/</id>
     <published>2024-03-15T02:48:33.000Z</published>
-    <updated>2024-06-08T07:45:10.960Z</updated>
+    <updated>2025-01-06T08:00:35.981Z</updated>
     
     
       
