@@ -6,7 +6,7 @@
   <link href="http://bugbubbles.github.io/atom.xml" rel="self"/>
   
   <link href="http://bugbubbles.github.io/"/>
-  <updated>2025-06-13T13:18:28.424Z</updated>
+  <updated>2025-06-13T13:23:37.874Z</updated>
   <id>http://bugbubbles.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://bugbubbles.github.io/2025/06/%E9%99%A8%E7%9F%B3%E5%9D%91/ISIS%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     <id>http://bugbubbles.github.io/2025/06/%E9%99%A8%E7%9F%B3%E5%9D%91/ISIS%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/</id>
     <published>2025-06-12T16:00:00.000Z</published>
-    <updated>2025-06-13T13:18:28.424Z</updated>
+    <updated>2025-06-13T13:23:37.874Z</updated>
     
     
       
@@ -1240,9 +1240,9 @@
     <category term="研究生" scheme="http://bugbubbles.github.io/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/"/>
     
     
-    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
-    
     <category term="SNN" scheme="http://bugbubbles.github.io/tags/SNN/"/>
+    
+    <category term="读文献进展" scheme="http://bugbubbles.github.io/tags/%E8%AF%BB%E6%96%87%E7%8C%AE%E8%BF%9B%E5%B1%95/"/>
     
   </entry>
   
