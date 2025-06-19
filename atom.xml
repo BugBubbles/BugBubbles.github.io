@@ -6,7 +6,7 @@
   <link href="http://bugbubbles.github.io/atom.xml" rel="self"/>
   
   <link href="http://bugbubbles.github.io/"/>
-  <updated>2025-02-23T14:36:46.988Z</updated>
+  <updated>2025-06-19T03:58:31.754Z</updated>
   <id>http://bugbubbles.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ISIS软件使用</title>
+    <link href="http://bugbubbles.github.io/2025/06/%E9%99%A8%E7%9F%B3%E5%9D%91/ISIS%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    <id>http://bugbubbles.github.io/2025/06/%E9%99%A8%E7%9F%B3%E5%9D%91/ISIS%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/</id>
+    <published>2025-06-12T16:00:00.000Z</published>
+    <updated>2025-06-19T03:58:31.754Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1&gt;前言&lt;/h1&gt;
+&lt;p&gt;ISIS软件是NASA提供的，用于处理其发布的全系列行星探测原始数据的软件，其主要的特性是为各个遥感原始数据块提供地理坐标，实现了部分EDR和CDR的地理配准。为了实现后续对月球南极地区、其他深空领域数据集的自定义使用，必须要将该软件安装并使用，以获</summary>
+        
+      
+    
+    
+    
+    <category term="陨石坑" scheme="http://bugbubbles.github.io/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/"/>
+    
+    
+    <category term="项目进展" scheme="http://bugbubbles.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/"/>
+    
+  </entry>
   
   <entry>
     <title>陨石坑目录评估</title>
