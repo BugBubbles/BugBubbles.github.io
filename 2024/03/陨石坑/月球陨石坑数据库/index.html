@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>月球陨石坑数据库 | Das Blog von BugBubbles</title><meta name="author" content="Tschen Böffee"><meta name="copyright" content="Tschen Böffee"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="我的毕业设计项目进展">
+<meta property="og:type" content="article">
+<meta property="og:title" content="月球陨石坑数据库">
+<meta property="og:url" content="http://bugbubbles.github.io/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:site_name" content="Das Blog von BugBubbles">
+<meta property="og:description" content="我的毕业设计项目进展">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://bugbubbles.github.io/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%9C%88%E7%90%83.png">
+<meta property="article:published_time" content="2024-03-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-20T02:40:45.249Z">
+<meta property="article:author" content="Tschen Böffee">
+<meta property="article:tag" content="项目进展">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://bugbubbles.github.io/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%9C%88%E7%90%83.png"><link rel="shortcut icon" href="/img/%E7%BB%BF%E5%8F%B6.png"><link rel="canonical" href="http://bugbubbles.github.io/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E6%95%B0%E6%8D%AE%E5%BA%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":160,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '月球陨石坑数据库',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-06-20 10:40:45'
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Das Blog von BugBubbles" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', () => { preloader.initLoading() }, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', () => { preloader.endLoading() }, 'preloader_end')
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="onerror=null;src='/img/猫猫虫，问号.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">72</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/2024/03/%E9%99%A8%E7%9F%B3%E5%9D%91/%E6%9C%88%E7%90%83%E9%99%A8%E7%9F%B3%E5%9D%91%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%9C%88%E7%90%83.png')"><nav id="nav"><span id="blog-info"><a href="/" title="Das Blog von BugBubbles"><span class="site-name">Das Blog von BugBubbles</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><i class="fa-fw fas fa-subway"></i><span> 开往</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">月球陨石坑数据库</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-18T16:00:00.000Z" title="发表于 2024-03-19 00:00:00">2024-03-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-06-20T02:40:45.249Z" title="更新于 2025-06-20 10:40:45">2025-06-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%99%A8%E7%9F%B3%E5%9D%91/">陨石坑</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="月球陨石坑数据库"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="现有开源资源">现有开源资源</h2>
+<p>两个重要的陨石坑数据来源，一个是<a href="https://astrogeology.usgs.gov/search?pmi-target=moon">LROC项目</a>，一个是<a target="_blank" rel="noopener" href="https://pds.lroc.asu.edu/data/">PDS存档</a>。</p>
+<h3 id="开源的月球坑数据集">开源的月球坑数据集</h3>
+<ol>
+<li>美国亚利桑那州立大学和NASA的合作项目LROC数据集：<a target="_blank" rel="noopener" href="https://pds.lroc.asu.edu/data/">https://pds.lroc.asu.edu/data/</a></li>
+<li>NASA发布的<strong>地外天体探测数据库</strong>：<a href="https://astrogeology.usgs.gov/search?target=&amp;system=&amp;p=1&amp;accscope=&amp;searchBar=">https://astrogeology.usgs.gov/search?target=&amp;system=&amp;p=1&amp;accscope=&amp;searchBar=</a></li>
+<li>NASA的LOLA计划的月球遥感原始图像集：<a target="_blank" rel="noopener" href="https://imbrium.mit.edu/DATA/">https://imbrium.mit.edu/DATA/</a></li>
+<li>国家航天局的月球表面照片<a target="_blank" rel="noopener" href="https://moon.bao.ac.cn/ce5web/searchOrder_dataSearchData.search">https://moon.bao.ac.cn/ce5web/searchOrder_dataSearchData.search</a></li>
+<li>LOLA发布的各个分辨率的DEM，大多分辨率较高：<a target="_blank" rel="noopener" href="https://imbrium.mit.edu/DATA/LOLA_GDR/">https://imbrium.mit.edu/DATA/LOLA_GDR/</a></li>
+</ol>
+<div class="note , warning flat"><p>真是巨坑，这个数据库可以批量下载，但是批量下载的链接已经失效了，修改方式在后面指出</p>
+</div>
+<h3 id="必备软件">必备软件</h3>
+<p>ArcGIS：遥感图像处理的经典软件，用于打开某些实在难以解读的文件，便于可视化处理。</p>
+<h3 id="国家航天局数据说明">国家航天局数据说明</h3>
+<p>国家航天局的资源可以批量下载，在以下<a target="_blank" rel="noopener" href="https://moon.bao.ac.cn/ce5web/searchOrder_pdsData.search">界面</a>：<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="PDS%E6%96%87%E4%BB%B6%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD.png" alt="PDS文件批量下载"><br>
+直接点击下载，得到的源格式文件中将存储有一个名叫<code>downloadResult.txt</code>的文件，该文件的每行即对应一个<code>pds</code>文件，例如：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http://moon.bao.ac.cn/cedownload/LCAM/2B/CE3_BMYK_LCAM-258_SCI_N_20131214130533_20131214130533_0001_A.2B</span><br><span class="line">http://moon.bao.ac.cn/cedownload/LCAM/2B/CE3_BMYK_LCAM-181_SCI_N_20131214130525_20131214130525_0001_A.2B</span><br><span class="line">http://moon.bao.ac.cn/cedownload/LCAM/2B/CE3_BMYK_LCAM-1923_SCI_N_20131214130820_20131214130820_0001_A.2B</span><br><span class="line">http://moon.bao.ac.cn/cedownload/LCAM/2B/CE3_BMYK_LCAM-3481_SCI_N_20131214131055_20131214131055_0001_A.2B</span><br><span class="line">http://moon.bao.ac.cn/cedownload/LCAM/2B/CE3_BMYK_LCAM-4017_SCI_N_20131214131149_20131214131149_0001_A.2B</span><br></pre></td></tr></table></figure>
+<p>但是，这些链接全部都是<strong>失效链接</strong>，直接使用<code>wget</code>等命令压根下载不下来，如果直接强行复制到浏览器下载，得到如下图所示（而且登录界面压根显示登录失败，我明明都输入得是正确的）。<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="%E9%94%99%E8%AF%AF%E7%9A%84%E4%B8%8B%E8%BD%BD%E9%93%BE%E6%8E%A5%E7%95%8C%E9%9D%A2.png" alt="错误的下载链接界面"><br>
+但是网站上单个链接却又可以下载，考虑到应该是更换了存储的数据库地址，因此使用开发工具检查后果然发现网址产生变更，新的域名网址为：<a target="_blank" rel="noopener" href="https://moon.bao.ac.cn/ce5web/cedownload">https://moon.bao.ac.cn/ce5web/cedownload</a>。<br>
+将该网址批量替换原始下载链接中的<code>http://moon.bao.ac.cn/cedownload</code>即可得到新的下载链接，如下：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://moon.bao.ac.cn/ce5web/cedownload/LCAM/2B/CE3_BMYK_LCAM-258_SCI_N_20131214130533_20131214130533_0001_A.2B</span><br><span class="line">https://moon.bao.ac.cn/ce5web/cedownload/LCAM/2B/CE3_BMYK_LCAM-181_SCI_N_20131214130525_20131214130525_0001_A.2B</span><br><span class="line">https://moon.bao.ac.cn/ce5web/cedownload/LCAM/2B/CE3_BMYK_LCAM-1923_SCI_N_20131214130820_20131214130820_0001_A.2B</span><br><span class="line">https://moon.bao.ac.cn/ce5web/cedownload/LCAM/2B/CE3_BMYK_LCAM-3481_SCI_N_20131214131055_20131214131055_0001_A.2B</span><br><span class="line">https://moon.bao.ac.cn/ce5web/cedownload/LCAM/2B/CE3_BMYK_LCAM-4017_SCI_N_20131214131149_20131214131149_0001_A.2B</span><br></pre></td></tr></table></figure>
+<p>然后即可编写<strong>循环</strong>脚本完成批量下载。</p>
+<h2 id="PDS存档数据集说明">PDS存档数据集说明</h2>
+<p><a target="_blank" rel="noopener" href="https://pds.lroc.asu.edu/data/">PDS数据库</a>包含三种基本的数据格式，EDR（Engineering Data Record）、CDR（Calibrated Data Record）和RDR（Reduced Data Record）。其中，EDR是原始工程数据，包括了大量无效或损坏的数据点；CDR是经过初步噪声校正处理的校正数据，而RDR则是通过选取感兴趣域，将CDR进行拼接、整合得到的特定位置下的精简数据集。关于以上三个数据集的详细说明，可以参考PDS官方发布的<a target="_blank" rel="noopener" href="https://pds.lroc.im-ldi.com/data/LRO-L-LROC-2-EDR-V1.0/LROLRC_0007/DOCUMENT/ARCHSIS.PDF">PDF说明文档</a>，以下简要地介绍该数据库的构成与使用指南。</p>
+<h3 id="EDR和CDR数据库">EDR和CDR数据库</h3>
+<p>EDR和CDR数据库都是以<code>NAC</code>和<code>WAC</code>两种相机格式分开存放的，其中<code>NAC</code>图像分辨率更高，适用于细节地域的遥感分析。单张图像文件以<code>.IMG</code>格式存放，附带有一个<code>.xml</code>标签文件。但是，该标签文件仅包含了部分相机参数和温度参数，并不含有遥感图像相关的地理位置和轨道姿态信息，无法用于地理分析，如图所示：<br>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="EDR%E5%92%8CCDR%E5%AD%98%E6%A1%A3%E5%BA%93.png" alt="EDR和CDR存档库"><br>
+为获取单张遥感图像对应地理位置信息和姿态信息、太阳入射高度角等信息，需要在其探测任务的父目录下载名为<code>INDEX.TAB</code>的文件，该文件通常位于<code>&lt;探测任务名&gt;/INDEX</code>目录下，例如<a target="_blank" rel="noopener" href="https://pds.lroc.im-ldi.com/data/LRO-L-LROC-2-EDR-V1.0/LROLRC_0007/INDEX/">https://pds.lroc.im-ldi.com/data/LRO-L-LROC-2-EDR-V1.0/LROLRC_0007/INDEX/</a>，其中包括两个有用文件<code>INDEX.LBL</code><br>
+和<code>INDEX.TAB</code>，前者是表头文件，后者是表格文件。其中<code>INDEX.TAB</code>文件的每一行对应一张遥感图像的信息，以逗号分开，而表头则指出了每一列的含义，包括了详细的相机参数、温度参数、地理信息、轨道信息等，可以用于后续地理分析与图像配准等。</p>
+<p>类似地，在<code>&lt;探测任务名&gt;/INDEX</code>目录下也可以找到<code>CUMINDEX.LBL</code>和<code>CUMINDEX.TAB</code>文件，这两个文件的作用与<code>INDEX.LBL</code>和<code>INDEX.TAB</code>类似，其对应的遥感图像是<code>WAC</code>图像，相应的参数也对应<code>WAC</code>相机参数。</p>
+<h1>参考文献</h1>
+<p><a id="ref-1"></a><br>
+[1] Yi Chang, Luxin Yan, Houzhang Fang, et al.Anisotropic Spectral-Spatial Total Variation Model for Multispectral Remote Sensing Image Destriping[J/OL].IEEE Trans. on Image Process.,2015,24(6):1852-1866<br>
+<a id="ref-2"></a><br>
+[2] Grill J. B. , Strub F. , Altché F. , et al.Bootstrap Your Own Latent - A New Approach to Self-Supervised Learning[A].Advances in Neural Information Processing Systems[C/OL].Curran Associates, Inc.,2020:21271-21284</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95/">项目进展</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/%E6%90%9E%E6%9C%BA%E5%BF%83%E5%BE%97/%E4%BD%BF%E7%94%A8IDM%E4%B8%8B%E8%BD%BD%E8%B0%B7%E6%AD%8C%E4%BA%91%E7%9B%98%E8%B5%84%E6%96%99/" title="使用IDM下载谷歌云盘资料"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B83.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">使用IDM下载谷歌云盘资料</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/pytorch-lightning%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" title="pytorch-lightning使用心得"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2024/03/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/pytorch-lightning%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/pytorch-lightning.gif" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">pytorch-lightning使用心得</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/09/%E9%99%A8%E7%9F%B3%E5%9D%91/%E7%A9%BA%E9%97%B4%E5%AF%BC%E8%88%AA%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" title="空间导航数学基础"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B80.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-09-12</div><div class="title">空间导航数学基础</div></div></a></div><div><a href="/2024/12/%E9%99%A8%E7%9F%B3%E5%9D%91/%E9%99%A8%E7%9F%B3%E5%9D%91%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E8%AE%B0%E5%BD%95/" title="陨石坑检测算法记录"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B88.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-12-28</div><div class="title">陨石坑检测算法记录</div></div></a></div><div><a href="/2025/02/%E9%99%A8%E7%9F%B3%E5%9D%91/%E9%99%A8%E7%9F%B3%E5%9D%91%E7%9B%AE%E5%BD%95%E8%AF%84%E4%BC%B0/" title="陨石坑目录评估"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-23</div><div class="title">陨石坑目录评估</div></div></a></div><div><a href="/2025/06/%E9%99%A8%E7%9F%B3%E5%9D%91/ISIS%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" title="ISIS软件使用"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B810.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-13</div><div class="title">ISIS软件使用</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="utterances-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%90%90%E6%B3%A1%E6%B3%A1.gif" onerror="this.onerror=null;this.src='/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E9%97%AE%E5%8F%B7.gif'" alt="avatar"/></div><div class="author-info__name">Tschen Böffee</div><div class="author-info__description">Hallo! Wunschen Sie meines Blog gefallen, um das guten Glück zu bekommen!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">72</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">39</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BugBubbles"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">白天研究生，晚上研究死</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%B0%E6%9C%89%E5%BC%80%E6%BA%90%E8%B5%84%E6%BA%90"><span class="toc-number">1.</span> <span class="toc-text">现有开源资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E7%9A%84%E6%9C%88%E7%90%83%E5%9D%91%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">1.1.</span> <span class="toc-text">开源的月球坑数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">必备软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BD%E5%AE%B6%E8%88%AA%E5%A4%A9%E5%B1%80%E6%95%B0%E6%8D%AE%E8%AF%B4%E6%98%8E"><span class="toc-number">1.3.</span> <span class="toc-text">国家航天局数据说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PDS%E5%AD%98%E6%A1%A3%E6%95%B0%E6%8D%AE%E9%9B%86%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">PDS存档数据集说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EDR%E5%92%8CCDR%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.1.</span> <span class="toc-text">EDR和CDR数据库</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">参考文献</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/06/%E9%99%A8%E7%9F%B3%E5%9D%91/ISIS%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" title="ISIS软件使用"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B810.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ISIS软件使用"/></a><div class="content"><a class="title" href="/2025/06/%E9%99%A8%E7%9F%B3%E5%9D%91/ISIS%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" title="ISIS软件使用">ISIS软件使用</a><time datetime="2025-06-12T16:00:00.000Z" title="发表于 2025-06-13 00:00:00">2025-06-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/%E9%99%A8%E7%9F%B3%E5%9D%91/%E9%99%A8%E7%9F%B3%E5%9D%91%E7%9B%AE%E5%BD%95%E8%AF%84%E4%BC%B0/" title="陨石坑目录评估"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="陨石坑目录评估"/></a><div class="content"><a class="title" href="/2025/02/%E9%99%A8%E7%9F%B3%E5%9D%91/%E9%99%A8%E7%9F%B3%E5%9D%91%E7%9B%AE%E5%BD%95%E8%AF%84%E4%BC%B0/" title="陨石坑目录评估">陨石坑目录评估</a><time datetime="2025-02-22T16:00:00.000Z" title="发表于 2025-02-23 00:00:00">2025-02-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/12/%E9%99%A8%E7%9F%B3%E5%9D%91/%E9%99%A8%E7%9F%B3%E5%9D%91%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E8%AE%B0%E5%BD%95/" title="陨石坑检测算法记录"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B88.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="陨石坑检测算法记录"/></a><div class="content"><a class="title" href="/2024/12/%E9%99%A8%E7%9F%B3%E5%9D%91/%E9%99%A8%E7%9F%B3%E5%9D%91%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E8%AE%B0%E5%BD%95/" title="陨石坑检测算法记录">陨石坑检测算法记录</a><time datetime="2024-12-27T16:00:00.000Z" title="发表于 2024-12-28 00:00:00">2024-12-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/g2o%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" title="g2o使用笔记"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B84.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="g2o使用笔记"/></a><div class="content"><a class="title" href="/2024/10/%E8%87%AA%E5%AD%A6%E9%83%A8%E5%88%86/g2o%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/" title="g2o使用笔记">g2o使用笔记</a><time datetime="2024-10-10T16:00:00.000Z" title="发表于 2024-10-11 00:00:00">2024-10-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/%E9%99%A8%E7%9F%B3%E5%9D%91/%E7%A9%BA%E9%97%B4%E5%AF%BC%E8%88%AA%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" title="空间导航数学基础"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/%E7%8C%AB%E7%8C%AB%E8%99%AB%EF%BC%8C%E5%A3%81%E7%BA%B80.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="空间导航数学基础"/></a><div class="content"><a class="title" href="/2024/09/%E9%99%A8%E7%9F%B3%E5%9D%91/%E7%A9%BA%E9%97%B4%E5%AF%BC%E8%88%AA%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" title="空间导航数学基础">空间导航数学基础</a><time datetime="2024-09-11T16:00:00.000Z" title="发表于 2024-09-12 00:00:00">2024-09-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By Tschen Böffee</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(() => {
+  const loadUtterances = () => {
+    let ele = document.createElement('script')
+    ele.id = 'utterances_comment'
+    ele.src = 'https://utteranc.es/client.js'
+    ele.setAttribute('repo', 'BugBubbles/BlogTalk')
+    ele.setAttribute('issue-term', 'title')
+    const nowTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'photon-dark' : 'github-light'
+    ele.setAttribute('theme', nowTheme)
+    ele.crossOrigin = 'anonymous'
+    ele.async = true
+    document.getElementById('utterances-wrap').appendChild(ele)
+  }
+
+  const utterancesTheme = theme => {
+    const iframe = document.querySelector('.utterances-frame')
+    if (iframe) {
+      const theme = theme === 'dark' ? 'photon-dark' : 'github-light'
+      const message = {
+        type: 'set-theme',
+        theme: theme
+      };
+      iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+    }
+  }
+
+  btf.addGlobalFn('themeChange', utterancesTheme, 'utterances')
+
+  if ('Utterances' === 'Utterances' || !true) {
+    if (true) btf.loadComment(document.getElementById('utterances-wrap'), loadUtterances)
+    else loadUtterances()
+  } else {
+    window.loadOtherComment = loadUtterances
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
